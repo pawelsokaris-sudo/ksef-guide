@@ -2159,5 +2159,529 @@
         "value": "📧 Pytania? Napisz na <strong>bok@sokaris.pl</strong> lub zadzwoń: <strong>607 606 841</strong>"
       }
     ]
+  },
+  {
+    "id": "art-015",
+    "title": "Jak dodać licencję KSeF Smart do programu",
+    "subtitle": "krok po kroku z ilustracjami",
+    "date": "2026-04-08",
+    "tags": [
+      "licencja",
+      "KSeF Smart",
+      "aktywacja",
+      "klucz",
+      "rejestracja"
+    ],
+    "promoted": true,
+    "content": [
+      {
+        "type": "alert",
+        "severity": "info",
+        "value": "Licencja <strong>KSeF Smart</strong> to moduł dodatkowy — <strong>nie zastępuje</strong> dotychczasowej licencji programu. Dodajesz ją jako kolejną pozycję na liście. Obie licencje działają równolegle."
+      },
+      {
+        "type": "stepper",
+        "info": "📋 3 kroki · ok. 2 minuty",
+        "steps": [
+          "1. Znajdź klucz",
+          "2. Otwórz Licencje",
+          "3. Dodaj klucz"
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "Krok 1: Znajdź klucz licencyjny"
+      },
+      {
+        "type": "text",
+        "value": "Klucz licencyjny KSeF Smart znajdziesz w mailu od Sokaris — temat zawiera <em>\"Licencja\"</em> lub <em>\"Zamówienie\"</em>."
+      },
+      {
+        "type": "alert",
+        "severity": "warning",
+        "value": "📌 Format klucza: <code>XXXXX-XXXXX-XXXXX-XXXXX-XXXXX-XXXX</code><br>Przykład: <code>WDKYW-DNBTN-X5UP7-NL5Y2-5EQEN-AF4G</code>"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Klucz ma format <strong>5-5-5-5-5-4</strong> (grupy znaków oddzielone myślnikami)",
+          "Sprawdź folder SPAM jeśli nie widzisz maila",
+          "Nie masz licencji? Zamów: <a href=\"mailto:bok@sokaris.pl\"><strong>bok@sokaris.pl</strong></a> lub tel. <strong>607 606 841</strong>"
+        ]
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Krok 2: Otwórz okno licencji w programie"
+      },
+      {
+        "type": "text",
+        "value": "W programie Faktura-NT z górnego menu wybierz:"
+      },
+      {
+        "type": "alert",
+        "severity": "warning",
+        "value": "📌 <code>Pomoc</code> → <code>Licencje (rejestracja programu)</code>"
+      },
+      {
+        "type": "image",
+        "url": "/img/art-015-menu-pomoc.png",
+        "title": "Menu Pomoc → Licencje (rejestracja programu) w Faktura-NT"
+      },
+      {
+        "type": "text",
+        "value": "Otworzy się <strong>Centrum zarządzania numerami licencji</strong> z listą aktualnie zainstalowanych licencji."
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Krok 3: Dodaj klucz licencyjny"
+      },
+      {
+        "type": "text",
+        "value": "W oknie licencji kliknij przycisk <strong>\"Dodaj\"</strong> (zielony plus, lewy górny róg)."
+      },
+      {
+        "type": "image",
+        "url": "/img/art-015-okno-licencji.png",
+        "title": "Okno zarządzania licencjami — kliknij Dodaj"
+      },
+      {
+        "type": "list",
+        "items": [
+          "W nowym oknie <strong>wklej</strong> (Ctrl+V) lub <strong>przepisz</strong> klucz licencyjny",
+          "Kliknij <strong>\"OK\"</strong>",
+          "Program połączy się z serwerem licencji i zweryfikuje klucz",
+          "Na liście pojawi się nowa pozycja typu <strong>\"dodatkowa\"</strong> — to Twoja licencja KSeF Smart"
+        ]
+      },
+      {
+        "type": "alert",
+        "severity": "success",
+        "value": "✅ <strong>Gotowe!</strong> Po dodaniu licencji w menu programu pojawi się opcja <code>KSeF</code> oraz <code>Pulpit KSeF</code>. Możesz przejść do konfiguracji certyfikatów i rozpocząć wysyłanie faktur."
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Co dalej?"
+      },
+      {
+        "type": "list",
+        "items": [
+          "→ <a href=\"#art-004\">Jak wygenerować certyfikaty KSeF</a> — ok. 5 min w Aplikacji Podatnika",
+          "→ <a href=\"#art-002\">Jak dodać certyfikaty do programu</a> — 4 pliki do wgrania",
+          "→ <a href=\"#art-003\">Pełna konfiguracja KSeF w Faktura-NT</a> — kompletny przewodnik w 4 krokach"
+        ]
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Problemy?"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Komunikat",
+          "Co zrobić"
+        ],
+        "rows": [
+          [
+            "<strong>\"Klucz nieprawidłowy\"</strong>",
+            "Sprawdź czy skopiowałeś cały klucz (format 5-5-5-5-5-4), bez spacji na początku/końcu"
+          ],
+          [
+            "<strong>\"Licencja już aktywna\"</strong>",
+            "Licencja jest już dodana — sprawdź listę w <code>Pomoc → Licencje</code>"
+          ],
+          [
+            "<strong>\"Brak połączenia\"</strong>",
+            "Program potrzebuje dostępu do Internetu żeby zweryfikować klucz"
+          ],
+          [
+            "<strong>\"Przekroczono limit stanowisk\"</strong>",
+            "Licencja jest przypisana do innej bazy — napisz na <strong>bok@sokaris.pl</strong>"
+          ]
+        ]
+      },
+      {
+        "type": "alert",
+        "severity": "warning",
+        "value": "🔧 Nadal nie działa? Napisz na <strong>bok@sokaris.pl</strong> lub zadzwoń: <strong>607 606 841</strong>. Pomożemy zdalnie przez <code>Pomoc → Pomoc zdalna (zdalny pulpit)</code>."
+      }
+    ]
+  },
+  {
+    "id": "art-016",
+    "title": "Jak wystawić fakturę i wysłać ją do KSeF",
+    "subtitle": "od wystawienia do potwierdzenia",
+    "date": "2026-04-08",
+    "tags": [
+      "faktura",
+      "KSeF",
+      "wysyłanie",
+      "wystawianie",
+      "pulpit"
+    ],
+    "promoted": true,
+    "content": [
+      {
+        "type": "alert",
+        "severity": "info",
+        "value": "Ten artykuł zakłada, że masz już <strong>licencję KSeF Smart</strong> i <strong>certyfikaty</strong> skonfigurowane w programie. Jeśli nie — zacznij od: <a href=\"#art-015\">Jak dodać licencję</a> → <a href=\"#art-002\">Jak dodać certyfikaty</a>."
+      },
+      {
+        "type": "stepper",
+        "info": "📋 4 kroki · ok. 3 minuty",
+        "steps": [
+          "1. Wystaw fakturę",
+          "2. Zapisz",
+          "3. Wyślij do KSeF",
+          "4. Sprawdź status"
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "Krok 1: Wystaw fakturę"
+      },
+      {
+        "type": "text",
+        "value": "Fakturę wystawiasz tak samo jak dotychczas — KSeF nie zmienia sposobu wystawiania."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Kliknij <strong>\"Nowy dokument\"</strong> lub użyj skrótu <code>Ctrl+N</code>",
+          "Wybierz typ dokumentu: <strong>Faktura VAT</strong>",
+          "Wypełnij dane: nabywca, pozycje, kwoty, forma płatności",
+          "Upewnij się, że <strong>NIP nabywcy</strong> jest poprawny — KSeF weryfikuje NIP"
+        ]
+      },
+      {
+        "type": "alert",
+        "severity": "warning",
+        "value": "⚠️ <strong>Ważne:</strong> Po wysłaniu faktury do KSeF <strong>nie można jej edytować</strong>. Można jedynie wystawić korektę. Sprawdź dane przed zapisaniem!"
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Krok 2: Zapisz fakturę"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Kliknij <strong>\"Zapisz\"</strong> lub <code>Ctrl+S</code>",
+          "Faktura pojawi się na liście dokumentów ze statusem <strong>\"Do wysłania\"</strong>",
+          "Na tym etapie faktura jest tylko lokalna — nie trafiła jeszcze do KSeF"
+        ]
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Krok 3: Wyślij do KSeF"
+      },
+      {
+        "type": "text",
+        "value": "Masz dwa sposoby wysłania faktury do KSeF:"
+      },
+      {
+        "type": "heading",
+        "value": "Sposób A: Z Pulpitu KSeF (zalecany)"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Przejdź do <code>Pulpit KSeF</code> (zakładka na górze programu)",
+          "Na liście zobaczysz faktury ze statusem <strong>\"Do wysłania\"</strong>",
+          "Zaznacz fakturę (lub kilka) i kliknij <strong>\"Wyślij zaznaczone\"</strong>",
+          "Program połączy się z KSeF i wyśle fakturę"
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "Sposób B: Automatyczne wysyłanie"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Jeśli w <code>Konfiguracja → KSeF</code> masz włączone automatyczne wysyłanie — faktura wysyła się sama po zapisaniu",
+          "Nie musisz nic robić ręcznie"
+        ]
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Krok 4: Sprawdź status"
+      },
+      {
+        "type": "text",
+        "value": "Po wysłaniu sprawdź status faktury na <strong>Pulpicie KSeF</strong>:"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Status",
+          "Co oznacza"
+        ],
+        "rows": [
+          [
+            "<strong style=\"color:#4CAF50\">✅ Wysłano</strong>",
+            "Faktura przyjęta przez KSeF. Otrzymała numer KSeF."
+          ],
+          [
+            "<strong style=\"color:#FF9800\">⏳ W trakcie</strong>",
+            "Faktura została wysłana, czeka na potwierdzenie z KSeF."
+          ],
+          [
+            "<strong style=\"color:#f44336\">❌ Błąd</strong>",
+            "Faktura odrzucona. Sprawdź szczegóły błędu i popraw dane."
+          ]
+        ]
+      },
+      {
+        "type": "alert",
+        "severity": "success",
+        "value": "✅ <strong>Gotowe!</strong> Po przyjęciu faktury przez KSeF otrzymujesz <strong>numer KSeF</strong> — unikalny identyfikator faktury w systemie. Numer ten jest automatycznie zapisywany w programie."
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Częste pytania"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Pytanie",
+          "Odpowiedź"
+        ],
+        "rows": [
+          [
+            "Czy muszę drukować fakturę?",
+            "Nie. Faktura w KSeF jest dokumentem elektronicznym. Wydruk to tylko kopia."
+          ],
+          [
+            "Czy nabywca od razu widzi fakturę?",
+            "Tak — faktura pojawia się na koncie nabywcy w KSeF natychmiast po wysłaniu."
+          ],
+          [
+            "Co jeśli nie mam internetu?",
+            "Faktura zostanie zapisana lokalnie ze statusem \"Do wysłania\". Wyślesz ją gdy połączenie wróci."
+          ],
+          [
+            "Czy mogę wysłać kilka faktur naraz?",
+            "Tak — na Pulpicie KSeF zaznacz wiele faktur i kliknij \"Wyślij zaznaczone\"."
+          ],
+          [
+            "Co jeśli faktura została odrzucona?",
+            "Sprawdź komunikat błędu, popraw dane i wyślij ponownie. <a href=\"#art-005\">Więcej o błędach →</a>"
+          ]
+        ]
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Problemy z wysyłaniem?"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>\"Brak certyfikatów\"</strong> — dodaj certyfikaty: <a href=\"#art-002\">instrukcja →</a>",
+          "<strong>\"Błąd połączenia z KSeF\"</strong> — sprawdź połączenie internetowe i spróbuj ponownie",
+          "<strong>\"Nieprawidłowy NIP\"</strong> — popraw NIP nabywcy na fakturze",
+          "<strong>\"Certyfikat wygasł\"</strong> — wygeneruj nowy certyfikat: <a href=\"#art-004\">instrukcja →</a>"
+        ]
+      },
+      {
+        "type": "alert",
+        "severity": "warning",
+        "value": "🔧 Nadal nie działa? Wyślij log KSeF do analizy: <a href=\"#art-007\">Jak wysłać log →</a> lub zadzwoń: <strong>607 606 841</strong>"
+      }
+    ]
+  },
+  {
+    "id": "art-017",
+    "title": "Faktura zakupu z KSeF a stan magazynowy",
+    "subtitle": "jak przyjąć towar na magazyn",
+    "date": "2026-04-08",
+    "tags": [
+      "magazyn",
+      "faktura zakupu",
+      "KSeF",
+      "PZ",
+      "stan"
+    ],
+    "promoted": true,
+    "content": [
+      {
+        "type": "alert",
+        "severity": "info",
+        "value": "🚧 <strong>Funkcja automatycznego przyjmowania towaru z faktur KSeF na magazyn jest w przygotowaniu.</strong> Poniżej opisujemy jak zrobić to ręcznie do czasu uruchomienia tej opcji."
+      },
+      {
+        "type": "heading",
+        "value": "Dlaczego faktura z KSeF nie zwiększa stanu?"
+      },
+      {
+        "type": "text",
+        "value": "Faktury pobrane z KSeF są dokumentami księgowymi. Program celowo nie zmienia stanu magazynowego automatycznie — żebyś miał(a) pełną kontrolę nad tym, co trafia na magazyn."
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Sposób 1: Przyjęcie Zewnętrzne (PZ)"
+      },
+      {
+        "type": "text",
+        "value": "Najczystsza metoda — tworzy osobny dokument magazynowy."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Otwórz zakładkę <strong>Dokumenty → PZ</strong> (Przyjęcie Zewnętrzne)",
+          "Utwórz nowy dokument PZ",
+          "Dodaj pozycje które chcesz przyjąć na stan",
+          "Zapisz — towar pojawi się na magazynie"
+        ]
+      },
+      {
+        "type": "alert",
+        "severity": "success",
+        "value": "✅ <strong>Zalecane</strong> jeśli masz magazyn i chcesz pełną kontrolę nad przyjęciami."
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Sposób 2: Podmiana pozycji w fakturze zakupu"
+      },
+      {
+        "type": "text",
+        "value": "Szybsza metoda — łączysz fakturę z KSeF z pozycjami magazynowymi."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Otwórz wczytaną fakturę zakupu z KSeF",
+          "Kliknij <strong>\"Edytuj\"</strong>",
+          "Przy każdej pozycji — zamień ją na odpowiadającą pozycję z Twojego magazynu",
+          "Zapisz — program zaktualizuje stan magazynowy"
+        ]
+      },
+      {
+        "type": "alert",
+        "severity": "warning",
+        "value": "⚠️ <strong>Uwaga:</strong> Pozycje trzeba podmieniać pojedynczo. To rozwiązanie tymczasowe — docelowo program będzie łączył pozycje automatycznie."
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Co dalej?"
+      },
+      {
+        "type": "text",
+        "value": "Pracujemy nad automatycznym powiązaniem pozycji z faktur KSeF z kartotekami magazynowymi. Gdy funkcja będzie gotowa — zaktualizujemy tę stronę."
+      },
+      {
+        "type": "alert",
+        "severity": "info",
+        "value": "📧 Pytania? Napisz na <strong>bok@sokaris.pl</strong> lub zadzwoń: <strong>607 606 841</strong>"
+      }
+    ]
+  },
+  {
+    "id": "art-018",
+    "title": "Jak zaznaczyć zapłatę za fakturę z KSeF",
+    "subtitle": "wystawione i pobrane faktury",
+    "date": "2026-04-08",
+    "tags": [
+      "zapłata",
+      "KSeF",
+      "faktura",
+      "rozliczenie",
+      "KP"
+    ],
+    "promoted": true,
+    "content": [
+      {
+        "type": "alert",
+        "severity": "info",
+        "value": "Poniżej opisujemy jak oznaczyć fakturę jako opłaconą — zarówno <strong>wystawioną</strong> (sprzedażową) jak i <strong>pobraną z KSeF</strong> (zakupową)."
+      },
+      {
+        "type": "stepper",
+        "info": "📋 2 części",
+        "steps": [
+          "A. Wystwione (sprzedaż)",
+          "B. Pobrane z KSeF (zakup)"
+        ]
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Część A: Zapłata za wystawioną fakturę"
+      },
+      {
+        "type": "text",
+        "value": "Opis kroków w przygotowaniu — wklej screenshoty z programu."
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Część B: Zapłata za fakturę pobraną z KSeF"
+      },
+      {
+        "type": "text",
+        "value": "Opis kroków w przygotowaniu — wklej screenshoty z programu."
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "alert",
+        "severity": "info",
+        "value": "📧 Pytania? Napisz na <strong>bok@sokaris.pl</strong> lub zadzwoń: <strong>607 606 841</strong>"
+      }
+    ]
   }
 ]
