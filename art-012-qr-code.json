@@ -1,0 +1,199 @@
+{
+  "id": "art-012",
+  "title": "Jak doda\u0107 KSeFowy QR code do szablonu wydruku faktury",
+  "date": "2026-03-30",
+  "tags": ["QR code", "szablon wydruku", "KSeF", "weryfikacja", "drukowanie"],
+  "promoted": true,
+  "content": [
+    {
+      "type": "alert",
+      "severity": "info",
+      "value": "\ud83d\udd11 <strong>Klienci mog\u0105 zweryfikowa\u0107 Twoj\u0105 faktur\u0119!</strong> QR code KSeF na wydruku pozwala nabywcy natychmiast sprawdzi\u0107 autentyczno\u015b\u0107 faktury w systemie KSeF \u2014 wystarczy zeskanowa\u0107 kod telefonem."
+    },
+    {
+      "type": "heading",
+      "value": "Po co QR code KSeF na fakturze?"
+    },
+    {
+      "type": "text",
+      "value": "Od momentu wej\u015bcia w \u017cycie obowi\u0105zku KSeF, ka\u017cda faktura ustrukturyzowana otrzymuje <strong>unikalny numer KSeF</strong> oraz <strong>link weryfikacyjny</strong>. Program Faktura-NT mo\u017ce automatycznie umie\u015bci\u0107 te dane jako QR code na wydruku faktury \u2014 dzi\u0119ki temu Tw\u00f3j klient jednym skanem telefonu potwierdzi autentyczno\u015b\u0107 dokumentu."
+    },
+    {
+      "type": "divider",
+      "value": ""
+    },
+    {
+      "type": "heading",
+      "value": "Jak doda\u0107 QR code do szablonu \u2014 krok po kroku"
+    },
+    {
+      "type": "stepper",
+      "info": "\u015acie\u017cka w programie:",
+      "steps": [
+        "Konfiguracja \u2192 Szablony wydruku dokument\u00f3w",
+        "Po lewej wybierz typ dokumentu (np. Faktura VAT)",
+        "Po prawej zaznacz szablon, kt\u00f3rego u\u017cywasz",
+        "Kliknij Edytuj \u2014 program poprosi o now\u0105 nazw\u0119 kopii",
+        "Skopiuj kod QR code (podany ni\u017cej) \u2014 Ctrl+C",
+        "W edytorze szablonu wklej kod \u2014 Ctrl+V",
+        "Umie\u015b\u0107 elementy QR w wolnym miejscu szablonu",
+        "Zapisz szablon i zamknij edytor"
+      ]
+    },
+    {
+      "type": "divider",
+      "value": ""
+    },
+    {
+      "type": "heading",
+      "value": "Szczeg\u00f3\u0142owa instrukcja"
+    },
+    {
+      "type": "text",
+      "value": "<strong>Krok 1: Otw\u00f3rz mened\u017cer szablon\u00f3w</strong>"
+    },
+    {
+      "type": "text",
+      "value": "Z menu g\u0142\u00f3wnego programu wybierz: <code>Konfiguracja</code> \u2192 <code>Szablony wydruku dokument\u00f3w</code>. Otworzy si\u0119 okno Zarz\u0105dzanie szablonami wydruku."
+    },
+    {
+      "type": "image",
+      "src": "img/art-012/krok1-menu.png",
+      "alt": "Menu programu: Konfiguracja \u2192 Szablony wydruku dokument\u00f3w",
+      "caption": "Krok 1: Z menu Konfiguracja wybierz Szablony wydruku dokument\u00f3w"
+    },
+    {
+      "type": "text",
+      "value": "<strong>Krok 2: Wybierz typ dokumentu i szablon</strong>"
+    },
+    {
+      "type": "text",
+      "value": "Po lewej stronie okna wybierz <strong>Faktura VAT</strong> (lub inny typ dokumentu). Po prawej stronie pojawi si\u0119 lista dost\u0119pnych szablon\u00f3w wizualnych. Zaznacz ten, kt\u00f3rego aktualnie u\u017cywasz \u2014 na dole okna wida\u0107 informacj\u0119 <em>Szablon domy\u015blny przy wydruku</em> z nazw\u0105 bie\u017c\u0105cego szablonu."
+    },
+    {
+      "type": "image",
+      "src": "img/art-012/krok2-szablony.png",
+      "alt": "Okno Zarz\u0105dzanie szablonami wydruku \u2014 wybierz Faktura VAT i szablon",
+      "caption": "Krok 2: Wybierz typ dokumentu po lewej (np. Faktura VAT) i szablon po prawej"
+    },
+    {
+      "type": "alert",
+      "severity": "warning",
+      "value": "\u26a0\ufe0f <strong>Faktura VAT z rabatem</strong> i <strong>Faktura VAT bez rabatu</strong> to osobne zestawy szablon\u00f3w! Faktura z rabatem ma dodatkowe kolumny \u2014 je\u015bli u\u017cywasz obu typ\u00f3w, musisz doda\u0107 QR code do ka\u017cdego zestawu osobno."
+    },
+    {
+      "type": "text",
+      "value": "<strong>Krok 3: Edytuj szablon \u2014 program tworzy bezpieczn\u0105 kopi\u0119</strong>"
+    },
+    {
+      "type": "text",
+      "value": "Po klikni\u0119ciu <strong>Edytuj</strong> program wy\u015bwietli komunikat, \u017ce szablon systemowy nie mo\u017ce by\u0107 bezpo\u015brednio modyfikowany \u2014 zostanie utworzona kopia z now\u0105 nazw\u0105. Podaj dowoln\u0105 unikaln\u0105 nazw\u0119 (np. <code>Klasyczny_z_QR</code>) i kliknij OK."
+    },
+    {
+      "type": "image",
+      "src": "img/art-012/krok3-nowa-nazwa.png",
+      "alt": "Dialog nowej nazwy szablonu \u2014 podaj unikaln\u0105 nazw\u0119",
+      "caption": "Krok 3: Program tworzy kopi\u0119 \u2014 podaj now\u0105 nazw\u0119 (np. Klasyczny_z_QR)"
+    },
+    {
+      "type": "alert",
+      "severity": "info",
+      "value": "\ud83d\udca1 <strong>Bezpiecze\u0144stwo:</strong> Oryginalny szablon systemowy zawsze pozostaje niezmieniony. Je\u015bli cokolwiek si\u0119 zepsuje w edycji, zawsze mo\u017cesz wr\u00f3ci\u0107 do orygina\u0142u."
+    },
+    {
+      "type": "text",
+      "value": "<strong>Krok 4: Wklej kod QR code w edytorze</strong>"
+    },
+    {
+      "type": "text",
+      "value": "Otworzy si\u0119 edytor szablon\u00f3w. Teraz skopiuj (Ctrl+C) poni\u017cszy kod i wklej go w edytorze (Ctrl+V):"
+    },
+    {
+      "type": "image",
+      "src": "img/art-012/krok4-edytor.png",
+      "alt": "Edytor szablon\u00f3w wydruku \u2014 pusty szablon przed wklejeniem",
+      "caption": "Krok 4: Edytor szablon\u00f3w \u2014 tutaj wklejasz kod QR code (Ctrl+V)"
+    },
+    {
+      "type": "copybox",
+      "label": "\ud83d\udccb Kod do wklejenia w edytorze szablon\u00f3w (Ctrl+V)",
+      "rows": 6,
+      "value": "#FR3 clipboard#\n\n&lt;TfrxMemoView Name=&quot;Memo99&quot; AllowVectorExport=&quot;True&quot; Left=&quot;0&quot; Top=&quot;0&quot; Width=&quot;325,03958&quot; Height=&quot;15,11812&quot; Hyperlink.Value=&quot;[Link weryfikacyjny KSeF]&quot; StretchMode=&quot;smActualHeight&quot; Font.Charset=&quot;238&quot; Font.Color=&quot;-16777208&quot; Font.Height=&quot;-9&quot; Font.Name=&quot;Tahoma&quot; Font.Style=&quot;0&quot; Frame.Typ=&quot;0&quot; ParentFont=&quot;False&quot; Text=&quot;[QR Code I Over Label]&quot;/&gt;&lt;TfrxBarcode2DView Name=&quot;Barcode2D1&quot; AllowVectorExport=&quot;True&quot; Left=&quot;0&quot; Top=&quot;18,89765&quot; Width=&quot;84&quot; Height=&quot;84&quot; OnBeforePrint=&quot;Barcode2D1OnBeforePrint&quot; Hyperlink.Expression=&quot;QR Code I&quot; StretchMode=&quot;smActualHeight&quot; Expression=&quot;QR Code I&quot; BarType=&quot;bcCodeQR&quot; BarProperties.Encoding=&quot;qrAuto&quot; BarProperties.QuietZone=&quot;0&quot; BarProperties.ErrorLevels=&quot;ecL&quot; BarProperties.PixelSize=&quot;4&quot; BarProperties.CodePage=&quot;0&quot; Frame.Typ=&quot;0&quot; Rotation=&quot;0&quot; ShowText=&quot;False&quot; HexData=&quot;31003200330034003500360037003800&quot; Zoom=&quot;1&quot; FontScaled=&quot;True&quot; QuietZone=&quot;0&quot;/&gt;&lt;TfrxMemoView Name=&quot;Memo100&quot; AllowVectorExport=&quot;True&quot; Left=&quot;0&quot; Top=&quot;105,82684&quot; Width=&quot;325,03958&quot; Height=&quot;18,89765&quot; StretchMode=&quot;smActualHeight&quot; Font.Charset=&quot;238&quot; Font.Color=&quot;-16777208&quot; Font.Height=&quot;-11&quot; Font.Name=&quot;Tahoma&quot; Font.Style=&quot;1&quot; Frame.Typ=&quot;0&quot; ParentFont=&quot;False&quot; Text=&quot;[QR Code I Under Label]&quot;/&gt;"
+    },
+    {
+      "type": "text",
+      "value": "Po wklejeniu na szablonie pojawi\u0105 si\u0119 <strong>trzy elementy</strong>: label g\u00f3rny (link weryfikacyjny), sam QR code, oraz label dolny (numer KSeF). Przesun je myszk\u0105 w <strong>wolne miejsce</strong> na szablonie (np. w praw\u0105 g\u00f3rn\u0105 cz\u0119\u015b\u0107 nag\u0142\u00f3wka)."
+    },
+    {
+      "type": "image",
+      "src": "img/art-012/krok5-qr-wklejony.png",
+      "alt": "Edytor szablon\u00f3w z wklejonym QR code \u2014 widoczny kod i etykiety",
+      "caption": "Krok 5: Po wklejeniu \u2014 QR code z etykietami widoczny na szablonie"
+    },
+    {
+      "type": "text",
+      "value": "<strong>Krok 5: Zapisz i ustaw jako domy\u015blny</strong>"
+    },
+    {
+      "type": "text",
+      "value": "Zapisz szablon (<code>Ctrl+S</code> lub <code>Plik \u2192 Zapisz</code>). Zamknij edytor. W oknie Zarz\u0105dzanie szablonami wydruku zaznacz nowy szablon i kliknij <strong>Ustaw jako domy\u015blny</strong>, \u017ceby program u\u017cywa\u0142 go przy ka\u017cdym wydruku."
+    },
+    {
+      "type": "divider",
+      "value": ""
+    },
+    {
+      "type": "heading",
+      "value": "Co zawiera wklejany kod?"
+    },
+    {
+      "type": "table",
+      "headers": ["Element", "Opis", "\u0179r\u00f3d\u0142o danych"],
+      "rows": [
+        ["<strong>QR Code I Over Label</strong>", "Link weryfikacyjny \u2014 klikalny adres URL do strony weryfikacji KSeF", "Generowany automatycznie po wys\u0142aniu faktury do KSeF"],
+        ["<strong>QR Code I</strong>", "Kod QR \u2014 zakodowany link weryfikacyjny jako graficzny kod 2D", "Generowany automatycznie z linku weryfikacyjnego"],
+        ["<strong>QR Code I Under Label</strong>", "Numer KSeF \u2014 identyfikator faktury w systemie KSeF", "Nadawany przez KSeF po przyj\u0119ciu faktury"]
+      ]
+    },
+    {
+      "type": "divider",
+      "value": ""
+    },
+    {
+      "type": "heading",
+      "value": "FAQ \u2014 najcz\u0119stsze pytania o QR code"
+    },
+    {
+      "type": "text",
+      "value": "<strong>Pytanie: QR code jest pusty na wydruku \u2014 co robi\u0107?</strong>"
+    },
+    {
+      "type": "text",
+      "value": "QR code wype\u0142nia si\u0119 danymi <strong>dopiero po wys\u0142aniu faktury do KSeF</strong>. Przed wysy\u0142k\u0105 faktura nie ma jeszcze numeru KSeF ani linku weryfikacyjnego \u2014 to normalne, \u017ce QR code jest pusty na podgl\u0105dzie nowej faktury."
+    },
+    {
+      "type": "text",
+      "value": "<strong>Pytanie: Czy musz\u0119 dodawa\u0107 QR code do ka\u017cdego typu dokumentu osobno?</strong>"
+    },
+    {
+      "type": "text",
+      "value": "Tak. Ka\u017cdy typ dokumentu (Faktura VAT, Faktura VAT z rabatem, Korekta VAT itd.) ma w\u0142asny zestaw szablon\u00f3w. QR code trzeba wklei\u0107 do szablonu <strong>ka\u017cdego typu</strong>, kt\u00f3ry drukujesz z KSeF."
+    },
+    {
+      "type": "text",
+      "value": "<strong>Pytanie: Czy mog\u0119 zmieni\u0107 rozmiar QR code?</strong>"
+    },
+    {
+      "type": "text",
+      "value": "Tak \u2014 w edytorze szablon\u00f3w mo\u017cesz zmieni\u0107 rozmiar elementu QR code, przeci\u0105gaj\u0105c jego naro\u017cniki. Upewnij si\u0119 jednak, \u017ce kod pozostanie czytelny (zalecany minimalny rozmiar to ok. 2\u00d72 cm)."
+    },
+    {
+      "type": "text",
+      "value": "<strong>Pytanie: Co je\u015bli zepsuj\u0119 szablon?</strong>"
+    },
+    {
+      "type": "text",
+      "value": "Program tworzy kopi\u0119 szablonu \u2014 oryginalny szablon systemowy zawsze pozostaje dost\u0119pny. Wystarczy wr\u00f3ci\u0107 do okna Zarz\u0105dzanie szablonami wydruku, zaznaczy\u0107 oryginalny szablon i klikn\u0105\u0107 Ustaw jako domy\u015blny."
+    }
+  ]
+}

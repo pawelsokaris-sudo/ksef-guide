@@ -1,0 +1,90 @@
+[
+  {
+    "code": "1001",
+    "category": "Certyfikaty",
+    "title": "Gdzie wygenerować certyfikat (JDG)",
+    "problem": "Nie wiem gdzie wygenerować certyfikat KSeF dla jednoosobowej działalności.",
+    "solution": "Wejdź na <a href=\"https://ap.ksef.mf.gov.pl\" target=\"_blank\">ap.ksef.mf.gov.pl</a> → zaloguj się Profilem Zaufanym → wygeneruj <strong>dwa certyfikaty</strong> (wysyłka + QR). Instrukcja: <a href=\"https://www.wiedza.sokaris.pl/index.php/Krok_po_kroku:_Jak_wygenerowa%C4%87_Certyfikat_KSeF\" target=\"_blank\">wiedza.sokaris.pl</a>",
+    "severity": "info"
+  },
+  {
+    "code": "1002",
+    "category": "Certyfikaty",
+    "title": "Certyfikat dla spółki (ZAW-FA)",
+    "problem": "Mam spółkę z o.o. i nie mogę wygenerować certyfikatu KSeF.",
+    "solution": "Spółki wymagają złożenia formularza <strong>ZAW-FA</strong> w urzędzie skarbowym. Formularz wskazuje osobę uprawnioną. Po nadaniu uprawnień przez US, ta osoba generuje certyfikat na <a href=\"https://ap.ksef.mf.gov.pl\" target=\"_blank\">ap.ksef.mf.gov.pl</a>.",
+    "severity": "warning"
+  },
+  {
+    "code": "1003",
+    "category": "Certyfikaty",
+    "title": "Certyfikat dla JST (gmina/szkoła)",
+    "problem": "Jestem jednostką budżetową i nie wiem jak uzyskać certyfikat KSeF.",
+    "solution": "Jednostka nadrzędna (gmina/powiat) wyznacza administratora, który nadaje uprawnienia pracownikom. <strong>Przy logowaniu podaj SWÓJ NIP</strong> jako kontekst, nie NIP gminy.",
+    "severity": "warning"
+  },
+  {
+    "code": "1010",
+    "category": "Certyfikaty",
+    "title": "Błąd 9105 — Nieprawidłowy podpis",
+    "problem": "Program zwraca błąd 9105 przy próbie wysyłki do KSeF.",
+    "solution": "Przemieszane pliki certyfikatu i klucza prywatnego. <strong>Rozwiązanie:</strong> Wygeneruj certyfikat od nowa. Użyj metody 2 folderów (1-Certyfikat-Wysylka, 2-Certyfikat-QR).",
+    "severity": "danger"
+  },
+  {
+    "code": "1011",
+    "category": "Certyfikaty",
+    "title": "Błąd 415 — Brak uprawnień",
+    "problem": "Certyfikat jest OK, ale program zwraca błąd 415.",
+    "solution": "Osoba nie ma uprawnień do tego NIP-u. Sprawdź uprawnienia w <a href=\"https://ap.ksef.mf.gov.pl\" target=\"_blank\">Aplikacji Podatnika KSeF</a>. Spółki: upewnij się że ZAW-FA został złożony i przetworzony.",
+    "severity": "danger"
+  },
+  {
+    "code": "1012",
+    "category": "Certyfikaty",
+    "title": "Pomylone pliki .key i .crt",
+    "problem": "Program akceptuje certyfikat, ale potem nie działa wysyłka.",
+    "solution": "Program NIE ostrzega o pomylonych plikach! Klucz .key z jednego certyfikatu + .crt z drugiego = cicha awaria. <strong>Rozwiązanie:</strong> Wygeneruj oba certyfikaty od nowa, używając 2 osobnych folderów.",
+    "severity": "danger"
+  },
+  {
+    "code": "3001",
+    "category": "Konfiguracja",
+    "title": "Gdzie wgrać certyfikat w programie",
+    "problem": "Mam certyfikat, ale nie wiem gdzie go wgrać w Faktura-NT.",
+    "solution": "<code>Konfiguracja → Konfiguracja programu → KSeF</code><br>Górna sekcja „Uwierzytelnienie” ← pliki z folderu 1-Certyfikat-Wysylka<br>Dolna sekcja „Faktury Offline” ← pliki z folderu 2-Certyfikat-QR<br>Po wgraniu wpisz hasło certyfikatu. Prawidłowo: „OK — ważny do [data]”.",
+    "severity": "info"
+  },
+  {
+    "code": "3002",
+    "category": "Konfiguracja",
+    "title": "Jaki kontekst uwierzytelniania wybrać",
+    "problem": "W konfiguracji KSeF jest pole 'Kontekst' — co wybrać?",
+    "solution": "Dla <strong>większości firm</strong>: zostaw domyślny <strong>NIP firmy</strong>.<br>IDWew — tylko jednostki wewnętrzne większych organizacji (format NIP-XXXXX).<br>NIP+VAT UE — transakcje unijne. Peppol — europejskie e-fakturowanie.",
+    "severity": "info"
+  },
+  {
+    "code": "3003",
+    "category": "Konfiguracja",
+    "title": "Jak ustawić Podmiot3 dla JST",
+    "problem": "Jednostka podrzędna (szkoła/TOSIR) chce wystawiać faktury w imieniu gminy.",
+    "solution": "Dane firmy = NIP nadrzędnej (gmina/powiat). Na fakturze dodaj <strong>Podmiot3 z rolą 7</strong> (JST Wystawca) z danymi jednostki podrzędnej. Dla faktur DLA gminy: Podmiot3 z rolą 8 (JST Odbiorca).",
+    "severity": "info"
+  },
+  {
+    "code": "9001",
+    "category": "Diagnostyka",
+    "title": "Jak włączyć rozszerzony log",
+    "problem": "Support poprosił o przesłanie logów KSeF.",
+    "solution": "<code>Konfiguracja → Konfiguracja programu → KSeF</code> → zaznacz <strong>„Rozszerzony log KSeF”</strong>. Odtwórz problem. Wyślij plik logu na <a href=\"mailto:pomoc@sokaris.pl\">pomoc@sokaris.pl</a>. <strong>Pamiętaj żeby potem odznaczyć!</strong>",
+    "severity": "info"
+  },
+  {
+    "code": "9002",
+    "category": "Diagnostyka",
+    "title": "Błąd 400 — Bad Request",
+    "problem": "Program zwraca błąd 400 przy komunikacji z KSeF.",
+    "solution": "Najczęstsze przyczyny:<br>1. Certyfikat wygasły — sprawdź datę ważności<br>2. Certyfikat unieważniony — wygeneruj nowy<br>3. Stary Windows (XP/7) — brak TLS 1.2, aktualizuj system<br>4. Pomylone pliki .key/.crt — wygeneruj od nowa",
+    "severity": "danger"
+  }
+]

@@ -1,0 +1,204 @@
+[
+  {
+    "version": "5.14.0.1256",
+    "date": "2026-03-26",
+    "dataVersion": null,
+    "changes": [
+      "UWAGA: Wersje od 5.10.2 do 5.14.0 wymagają uzupełnienia ręcznego — wiki nieaktualizowane."
+    ],
+    "note": "Aktualna najnowsza wersja — dane do uzupełnienia"
+  },
+  {
+    "version": "5.10.1.1238",
+    "date": "2026-01-24",
+    "dataVersion": 287,
+    "changes": [
+      "Instalator automatycznie instaluje vc_redist 2015-2022, jeśli nie jest obecny w systemie (wymagany do poprawnej obsługi certyfikatów KSeF).",
+      "Dodano stawki ZUS na 2026 rok.",
+      "Ikona „KSeF" jest wyświetlana na zielono, gdy oba certyfikaty są wprowadzone — nawet jeśli KSeF na produkcji nie jest jeszcze uruchomiony (sygnalizacja gotowości na KSeF)."
+    ]
+  },
+  {
+    "version": "5.10.0.1235",
+    "date": "2025-11-30",
+    "dataVersion": 287,
+    "changes": [
+      "Konfiguracja → Konfiguracja programu → KSeF — możliwość skonfigurowania certyfikatów i kluczy prywatnych uwierzytelniających i offline (dla posiadaczy modułu KSeF Smart).",
+      "Poprawione sumowanie wydruku korekty VAT w tabeli z podziałem na stawki."
+    ]
+  },
+  {
+    "version": "5.9.39.1229",
+    "date": "2025-11-02",
+    "dataVersion": 286,
+    "changes": [
+      "Korekta danych formalnych: dodane pobieranie aktualnych danych kontrahenta z CEIDG (przycisk \"Pobierz aktualne dane z CEIDG\").",
+      "Poprawna konstrukcja nazwy ulicy przy pobieraniu danych kontrahenta z CEIDG gdy jedno z dwóch (miasto/poczta) jest puste.",
+      "Obsługa kluczy licencji \"Faktura-NT smart\"."
+    ]
+  },
+  {
+    "version": "5.9.38.1225",
+    "date": "2025-10-16",
+    "dataVersion": 285,
+    "changes": [
+      "Możliwość korygowania danych formalnych za pomocą korekty.",
+      "Na wydruku zmiany w danych formalnych drukowane są tylko wtedy gdy są, i tylko te dane które się zmieniły.",
+      "Szablony wydruku obsługujące wydruk zmian w danych formalnych to \"Klasyczna\" i \"Dwie waluty\"."
+    ]
+  },
+  {
+    "version": "5.9.37.1224",
+    "date": "2025-09-16",
+    "dataVersion": null,
+    "changes": [
+      "W JPK_FA pole P_13_6 (VAT 0%) nie jest przeliczane na PLN dla faktur WDT (gdy waluta jest inna niż PLN).",
+      "Eksport do Asseco Wapro WF-FaKir — w fakturach walutowych dodatkowo eksportowane pola z wartościami w walucie, a pola w PLN przeliczane według kursu waluty."
+    ]
+  },
+  {
+    "version": "5.9.36.1223",
+    "date": "2025-07-21",
+    "dataVersion": 284,
+    "changes": [
+      "Uaktualnione waluty — dodane brakujące waluty notowane w tabeli A NBP, obniżony priorytet walut już nie notowanych w tabeli A NBP.",
+      "Poprawiony problem przy zapisie faktury zakupu dotykający klientów mających więcej niż jedną jednostkę miary i/lub stawkę VAT o tej samej nazwie."
+    ]
+  },
+  {
+    "version": "5.9.34.1222",
+    "date": "2025-07-17",
+    "dataVersion": 283,
+    "changes": [
+      "Nowy certyfikat klucza publicznego na środowisku produkcyjnym i testowym JPK.",
+      "Certyfikat produkcyjny obowiązuje od 18.07.2025.",
+      "Certyfikat testowy obowiązuje od 9.07.2025."
+    ]
+  },
+  {
+    "version": "5.9.34.1221",
+    "date": "2025-03-22",
+    "dataVersion": 282,
+    "changes": [
+      "Po usunięciu dokumentu PZ raport obrotu towarowego jest prawidłowo przeliczany.",
+      "W dokumencie korekty kwoty \"Razem przed korektą\" i \"Razem po korekcie\" są liczone odpowiednio do sposobu wyliczenia dokumentu źródłowego."
+    ]
+  },
+  {
+    "version": "5.9.33.1220",
+    "date": "2025-01-26",
+    "dataVersion": 281,
+    "changes": [
+      "Usunięty problem przy dodawaniu rachunku bankowego kontrahenta, jeśli długość nazwy banku przekraczała 80 znaków.",
+      "Usunięty problem z przeliczaniem ceny/wartości podczas dodawania pozycji do operacji kasowej.",
+      "Nowe zmienne wydruku w fakturze zakupu i dokumentach WZ/PZ: [Stan magazynowy towaru], [Cena detaliczna towaru netto], [Cena detaliczna towaru brutto]."
+    ]
+  },
+  {
+    "version": "5.9.32.1219",
+    "date": "2025-01-11",
+    "dataVersion": 281,
+    "changes": [
+      "Faktura końcowa (podsumowująca) ma podsumowanie całości.",
+      "Dodana stawka VAT 25,5%.",
+      "Stawki ZUS uaktualnione na rok 2025."
+    ]
+  },
+  {
+    "version": "5.9.31.1216",
+    "date": "2024-12-01",
+    "dataVersion": 278,
+    "changes": [
+      "Uaktualniona baza krajów — dodano nowe kraje, usunięto nieistniejące, uaktualniono nazwy.",
+      "Przywrócone polecenie kopiowania treści komunikatu do schowka."
+    ]
+  },
+  {
+    "version": "5.9.30.1215",
+    "date": "2024-08-26",
+    "dataVersion": null,
+    "changes": [
+      "Komunikaty modalne pojawiają się na środku tego ekranu na którym była formatka.",
+      "Program wymusza użycie TLS 1.2 przy transmisji z serwerami ministerstwa."
+    ]
+  },
+  {
+    "version": "5.9.29.1214",
+    "date": "2024-06-28",
+    "dataVersion": null,
+    "changes": [
+      "Pobieranie danych kontrahentów z CEiDG dostosowane do zmian.",
+      "Stawki ZUS zostały zaktualizowane na rok 2024."
+    ]
+  },
+  {
+    "version": "5.9.28.1213",
+    "date": "2023-12-31",
+    "dataVersion": 276,
+    "changes": [
+      "Wersja specjalna, udostępniona wybranym klientom, zawierająca funkcjonalność KSeF."
+    ]
+  },
+  {
+    "version": "5.9.27.1207",
+    "date": "2023-09-17",
+    "dataVersion": 275,
+    "changes": [
+      "Dodano wszystkie obecnie obowiązujące stawki VAT w całej UE.",
+      "Faktura sprzedaży ma nowe pole \"VAT OSS\" — wykluczenie faktury z JPK.",
+      "Raport \"Lista wystawionych faktur VAT\" ma opcję filtrowania Faktur VAT OSS.",
+      "Poprawiono kolumnę \"razem od początku roku\" w raporcie podsumowania miesiąca."
+    ]
+  },
+  {
+    "version": "5.9.26.1206",
+    "date": "2023-05-06",
+    "dataVersion": 273,
+    "changes": [
+      "Edycja ewidencji w JPK_V7 poprawiona.",
+      "W danych kontaktowych kontrahenta mail do 80 znaków.",
+      "Poprawione zaokrąglenia kwoty VAT.",
+      "Wersja mobilna nie wyłącza się podczas sprawdzania numerów licencji.",
+      "Aktualizacja bibliotek openSSL do wersji 1.0.2.21."
+    ]
+  },
+  {
+    "version": "5.9.25.1203",
+    "date": "2023-01-28",
+    "dataVersion": 272,
+    "changes": [
+      "ZUS DRA — wyliczanie domyślnych stawek składek ZUS na rok 2023.",
+      "Poprawiony opis rachunków walutowych w szablonach.",
+      "Poprawione szablony Bilans otwarcia dla walut innych niż PLN.",
+      "Poprawiony problem ze zużywaniem zaliczki."
+    ]
+  },
+  {
+    "version": "5.9.24.1202",
+    "date": "2022-09-17",
+    "dataVersion": null,
+    "changes": [
+      "Podczas sprawdzania kontrahenta w VIES pokazywane są dodatkowe dane: nazwa i numer VAT."
+    ]
+  },
+  {
+    "version": "5.9.23.1201",
+    "date": "2022-07-30",
+    "dataVersion": 271,
+    "changes": [
+      "Poprawione aktualizowanie danych kontrahenta z bazy Regon.",
+      "Poprawiony raport obrotu towarowego — cena netto w paragonach.",
+      "Poprawiona wielokrotność pozycji paragonu w raporcie."
+    ]
+  },
+  {
+    "version": "5.9.22.1200",
+    "date": "2022-06-30",
+    "dataVersion": null,
+    "changes": [
+      "Moduł księgowy: Podatek liniowy — odliczenie składki zdrowotnej (limit 8700 zł).",
+      "Skala podatkowa — podatek dochodowy od 12% (zmiana od 1 stycznia 2022).",
+      "Szczegóły wyliczenia zaliczki na podatek dochodowy."
+    ]
+  }
+]

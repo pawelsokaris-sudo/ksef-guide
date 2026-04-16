@@ -1,0 +1,1527 @@
+[
+  {
+    "id": "art-000",
+    "title": "Od czego zacząć z KSeF — szybki przewodnik",
+    "date": "2026-03-28",
+    "tags": [
+      "start",
+      "checklist",
+      "obowiązkowy"
+    ],
+    "promoted": true,
+    "content": [
+      {
+        "type": "alert",
+        "severity": "error",
+        "value": "⏰ <strong>Od 1 kwietnia 2026 KSeF jest obowiązkowy</strong> dla większości firm. Sprawdź czy jesteś gotowy."
+      },
+      {
+        "type": "heading",
+        "value": "Szybka checklista — 4 rzeczy do zrobienia"
+      },
+      {
+        "type": "list",
+        "items": [
+          "✅ <strong>Licencja KSeF Smart</strong> — <code>Pomoc → Licencje</code>. Widzisz KSeF Smart? <a href=\"#art-003\">Nie masz → jak dodać</a>",
+          "✅ <strong>Certyfikaty KSeF</strong> — dwa .crt + dwa .key wgrane w programie. <a href=\"#art-002\">Jak wgrać →</a>",
+          "✅ <strong>Opcje KSeF włączone</strong> — <code>Konfiguracja → KSeF</code> → automatyczne pobieranie zaznaczone. <a href=\"#art-003\">Jak skonfigurować →</a>",
+          "✅ <strong>Test połączenia</strong> — zielony status „Dostępny” na Pulpicie KSeF"
+        ]
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Nie mam jeszcze certyfikatów"
+      },
+      {
+        "type": "text",
+        "value": "Certyfikaty generujesz w <a href=\"https://ap.ksef.mf.gov.pl\" target=\"_blank\">Aplikacji Podatnika KSeF</a> (profil zaufany). Zajmuje to ok. 5 minut."
+      },
+      {
+        "type": "text",
+        "value": "→ <a href=\"#art-001\">Instrukcja krok po kroku: jak wygenerować certyfikaty</a>"
+      },
+      {
+        "type": "alert",
+        "severity": "warning",
+        "value": "<strong>Ważne:</strong> Program Faktura-NT obsługuje <strong>wyłącznie certyfikaty</strong>. Tokeny API nie są wspierane — program działa w trybie offline (QR), który wymaga certyfikatu."
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Mam certyfikaty, ale coś nie działa"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Objaw",
+          "Artykuł"
+        ],
+        "rows": [
+          [
+            "„Signing failed” / error -4",
+            "<a href=\"#art-005\">Błędy certyfikatów → jak naprawić</a>"
+          ],
+          [
+            "Błąd 415 / 9105",
+            "<a href=\"#art-005\">Błędy certyfikatów → jak naprawić</a>"
+          ],
+          [
+            "Program nie widzi opcji KSeF",
+            "<a href=\"#art-003\">Brak licencji → krok 1</a>"
+          ],
+          [
+            "Nie wiem jak wgrać certyfikaty",
+            "<a href=\"#art-002\">Instrukcja wgrywania certyfikatów</a>"
+          ]
+        ]
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "text",
+        "value": "📞 <strong>22 38 956 38</strong> · 📧 <a href=\"mailto:pomoc@sokaris.pl\">pomoc@sokaris.pl</a>"
+      },
+      {
+        "type": "text",
+        "value": "<em>Faktura-NT 5.14 i nowsze · Ostatnia aktualizacja: marzec 2026</em>"
+      }
+    ]
+  },
+  {
+    "id": "art-001",
+    "title": "Jak wygenerować certyfikat KSeF — krok po kroku",
+    "date": "2026-03-26",
+    "tags": [
+      "certyfikat",
+      "JDG",
+      "profil zaufany"
+    ],
+    "promoted": false,
+    "content": [
+      {
+        "type": "text",
+        "value": "Ten artykuł pokazuje krok po kroku jak wygenerować certyfikaty KSeF w Aplikacji Podatnika. Potrzebujesz Profilu Zaufanego i hasła (min. 15 znaków)."
+      },
+      {
+        "type": "alert",
+        "severity": "warning",
+        "value": "Ważne: Potrzebujesz DWÓCH certyfikatów — jeden do wysyłki faktur, drugi do trybu offline (QR)."
+      },
+      {
+        "type": "heading",
+        "value": "Krok 1: Wejdź na stronę Ministerstwa Finansów"
+      },
+      {
+        "type": "text",
+        "value": "Otwórz <a href=\"https://ap.ksef.mf.gov.pl\" target=\"_blank\">ap.ksef.mf.gov.pl</a> i zaloguj się Profilem Zaufanym."
+      },
+      {
+        "type": "heading",
+        "value": "Krok 2: Wygeneruj certyfikat do wysyłki"
+      },
+      {
+        "type": "text",
+        "value": "Wybierz opcję <strong>Uwierzytelnienie w systemie KSeF</strong>. Zapisz pliki .crt i .key do folderu <code>1-Certyfikat-Wysylka</code>."
+      },
+      {
+        "type": "image",
+        "src": "img/ksef-konfiguracja-diagram.png",
+        "alt": "Schemat konfiguracji certyfikatów",
+        "caption": "Schemat wgrywania certyfikatów do programu Faktura-NT"
+      },
+      {
+        "type": "heading",
+        "value": "Krok 3: Wgraj do programu"
+      },
+      {
+        "type": "text",
+        "value": "W programie Faktura-NT: <code>Konfiguracja → Konfiguracja programu → KSeF</code>. Wgraj pliki w odpowiednie sekcje."
+      },
+      {
+        "type": "alert",
+        "severity": "success",
+        "value": "Po prawidłowym wgraniu zobaczysz komunikat: <strong>OK — ważny do [data]</strong>"
+      },
+      {
+        "type": "heading",
+        "value": "Film instruktazowy"
+      },
+      {
+        "type": "youtube",
+        "videoId": "dQw4w9WgXcQ",
+        "title": "Jak wygenerowac certyfikat KSeF (placeholder)"
+      }
+    ]
+  },
+  {
+    "id": "art-002",
+    "title": "Jak dodać certyfikaty do programu",
+    "date": "2026-03-26",
+    "tags": [
+      "certyfikat",
+      "konfiguracja",
+      "instrukcja"
+    ],
+    "promoted": false,
+    "content": [
+      {
+        "type": "text",
+        "value": "Masz 4 pliki (2× .key + 2× .crt) — wgraj je w dwóch slotach w konfiguracji programu."
+      },
+      {
+        "type": "stepper",
+        "info": "🔧 3 kroki · ok. 5 minut",
+        "steps": [
+          "1. Otwórz konfigurację",
+          "2. Wgraj uwierzytelniający",
+          "3. Wgraj offline"
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "Krok 1: Otwórz konfigurację"
+      },
+      {
+        "type": "text",
+        "value": "<code>Konfiguracja → Konfiguracja programu → KSeF</code>"
+      },
+      {
+        "type": "image",
+        "src": "img/ksef-okno-puste.png",
+        "alt": "Okno konfiguracji KSeF — dwa sloty certyfikatów",
+        "caption": "Okno KSeF — dwa sloty: Uwierzytelnienie i Faktury Offline"
+      },
+      {
+        "type": "heading",
+        "value": "Krok 2: Wgraj certyfikat uwierzytelniający"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Przy &bdquo;Uwierzytelnienie&rdquo; kliknij <strong>Dodaj</strong>",
+          "Wskaż plik <strong>.crt</strong> (certyfikat)",
+          "Wskaż plik <strong>.key</strong> (klucz prywatny) — <strong>ta sama nazwa!</strong>",
+          "Wpisz <strong>hasło</strong> które podałeś przy generowaniu"
+        ]
+      },
+      {
+        "type": "image",
+        "src": "img/ksef-okno-dodawanie.png",
+        "alt": "Okno dodawania certyfikatu i klucza",
+        "caption": "Plik .crt i .key muszą mieć tę samą nazwę bazową"
+      },
+      {
+        "type": "alert",
+        "severity": "info",
+        "value": "💡 Pliki <code>.crt</code> i <code>.key</code> o <strong>tej samej nazwie</strong> = ta sama para. Np. <code>uwierzytelnienie.crt</code> + <code>uwierzytelnienie.key</code>"
+      },
+      {
+        "type": "heading",
+        "value": "Krok 3: Wgraj certyfikat offline"
+      },
+      {
+        "type": "text",
+        "value": "Powtórz to samo dla slotu <strong>&bdquo;Faktury Offline&rdquo;</strong> — tym razem z drugiej pary plików."
+      },
+      {
+        "type": "alert",
+        "severity": "danger",
+        "value": "⚠️ <strong>Nie mieszaj par!</strong> Klucz .key od jednego certyfikatu z .crt od drugiego = &bdquo;Signing failed&rdquo;."
+      },
+      {
+        "type": "alert",
+        "severity": "success",
+        "value": "💡 <strong>Złota zasada:</strong> Od razu po pobraniu zmień nazwy:<br>• <code>uwierzytelnienie.key</code> + <code>uwierzytelnienie.crt</code><br>• <code>offline.key</code> + <code>offline.crt</code>"
+      },
+      {
+        "type": "image",
+        "src": "img/ksef-konfiguracja-diagram.png",
+        "alt": "Schemat wgrywania certyfikatów",
+        "caption": "Schemat: który plik gdzie wgrać"
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "text",
+        "value": "<strong>Nie masz certyfikatów?</strong> → <a href=\"#art-004\">Jak wygenerować certyfikaty KSeF</a><br><strong>Coś nie działa?</strong> → <a href=\"#art-005\">Błędy certyfikatów — diagnostyka</a>"
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "To nie pomogło?"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Włącz rozszerzony log: <code>Konfiguracja → KSeF → ✅ Rozszerzony log KSeF</code>",
+          "Odtwórz problem",
+          "Wyślij plik logu na 📧 <a href=\"mailto:pomoc@sokaris.pl\">pomoc@sokaris.pl</a>"
+        ]
+      },
+      {
+        "type": "text",
+        "value": "📞 <strong>22 38 956 38</strong>"
+      },
+      {
+        "type": "text",
+        "value": "<em>Faktura-NT 5.14 i nowsze · Ostatnia aktualizacja: marzec 2026</em>"
+      }
+    ]
+  },
+  {
+    "id": "art-003",
+    "title": "KSeF w Faktura-NT — Co mam teraz zrobić?",
+    "date": "2026-03-28",
+    "tags": [
+      "start",
+      "licencja",
+      "konfiguracja"
+    ],
+    "promoted": false,
+    "content": [
+      {
+        "type": "text",
+        "value": "Masz program Faktura-NT i chcesz zacząć pracować z KSeF. Poniżej <strong>4 kroki</strong> — po kolei."
+      },
+      {
+        "type": "stepper",
+        "info": "🔧 4 kroki · ok. 15 minut",
+        "steps": [
+          "1. Licencja",
+          "2. Certyfikaty",
+          "3. Opcje KSeF",
+          "4. Sprawdź"
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "Krok 1: Wprowadź licencję KSeF Smart"
+      },
+      {
+        "type": "text",
+        "value": "Sprawdź: <code>Pomoc → Licencje</code>. Widzisz &bdquo;KSeF Smart&rdquo;? Przejdź do kroku 2.<br>Nie masz? <a href=\"https://www.sokaris.pl/sklep\" target=\"_blank\">Kup licencję w sklepie Sokaris</a>"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Pomoc → Licencje → Dodaj</strong>",
+          "Wpisz klucz licencyjny z maila",
+          "Licencję dodajesz jako kolejną — nie zastępuje dotychczasowej"
+        ]
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Krok 2: Dodaj certyfikaty KSeF"
+      },
+      {
+        "type": "text",
+        "value": "Certyfikaty to &bdquo;klucze&rdquo; do KSeF. Bez nich program nie wyśle faktur."
+      },
+      {
+        "type": "alert",
+        "severity": "warning",
+        "value": "Program obsługuje <strong>wyłącznie certyfikaty</strong> — nie tokeny API. Certyfikaty generujesz w <a href=\"https://ap.ksef.mf.gov.pl\" target=\"_blank\">Aplikacji Podatnika KSeF</a>."
+      },
+      {
+        "type": "text",
+        "value": "→ <a href=\"#art-002\">Jak dodać certyfikaty do programu</a><br>→ <a href=\"#art-004\">Nie mam certyfikatów — jak wygenerować?</a>"
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Krok 3: Ustaw opcje KSeF"
+      },
+      {
+        "type": "text",
+        "value": "Otwórz <code>Konfiguracja → Konfiguracja programu → KSeF</code>."
+      },
+      {
+        "type": "heading",
+        "value": "Co zaznaczać (na start)"
+      },
+      {
+        "type": "list",
+        "items": [
+          "✅ <strong>Automatycznie pobieraj faktury zakupu z KSeF</strong> — program sam pobierze faktury od kontrahentów",
+          "✅ <strong>Automatycznie importuj pobrane faktury</strong> — pobrane faktury trafiają od razu do bufora zakupu"
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "Co zostawić odznaczone (na start)"
+      },
+      {
+        "type": "list",
+        "items": [
+          "⬜ <strong>Wysyłaj faktury sprzedaży automatycznie</strong> — na razie wyłącz, wysyłaj ręcznie z Pulpitu KSeF. Włącz gdy będziesz pewny że wszystko działa.",
+          "⬜ <strong>Rozszerzony log KSeF</strong> — włącz tylko gdy diagnozujesz problem",
+          "⬜ <strong>Tryb testowy</strong> — pozostaw odznaczony (to jest produkcja)"
+        ]
+      },
+      {
+        "type": "alert",
+        "severity": "info",
+        "value": "💡 Po każdej zmianie kliknij <strong>Akceptuj zmiany</strong>. Bez tego ustawienia nie zostaną zapisane."
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Krok 4: Sprawdź czy działa"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Na Pulpicie KSeF: zielony status &bdquo;Dostępny&rdquo;",
+          "Faktury zakupowe pojawią się w <strong>Buforze</strong> (może zająć chwilę)",
+          "Wystaw fakturę sprzedaży — wyślij ręcznie z Pulpitu KSeF"
+        ]
+      },
+      {
+        "type": "youtube",
+        "videoId": "CZkG5QNat98",
+        "title": "Praca z KSeF w Faktura-NT"
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Coś nie działa?"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Problem",
+          "Rozwiązanie"
+        ],
+        "rows": [
+          [
+            "&bdquo;Signing failed&rdquo;",
+            "<a href=\"#art-005\">Pomylone pliki → jak naprawić</a>"
+          ],
+          [
+            "&bdquo;Brak uprawnień&rdquo; (415)",
+            "<a href=\"#art-005\">Brak ZAW-FA → jak naprawić</a>"
+          ],
+          [
+            "Bufor pusty",
+            "Sprawdź &bdquo;Automatycznie pobieraj&rdquo; → krok 3"
+          ],
+          [
+            "Nie widzę opcji KSeF",
+            "Brak licencji → krok 1"
+          ],
+          [
+            "Status: Niedostępny",
+            "Sprawdź certyfikaty → <a href=\"#art-002\">krok 2</a>"
+          ]
+        ]
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "To nie pomogło?"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Włącz rozszerzony log: <code>Konfiguracja → KSeF → ✅ Rozszerzony log</code>",
+          "Odtwórz problem",
+          "Wyślij log na 📧 <a href=\"mailto:pomoc@sokaris.pl\">pomoc@sokaris.pl</a>"
+        ]
+      },
+      {
+        "type": "text",
+        "value": "📞 <strong>22 38 956 38</strong>"
+      },
+      {
+        "type": "text",
+        "value": "<em>Faktura-NT 5.14 i nowsze · Ostatnia aktualizacja: marzec 2026</em>"
+      }
+    ]
+  },
+  {
+    "id": "art-004",
+    "title": "Jak wygenerować certyfikaty KSeF",
+    "date": "2026-03-26",
+    "tags": [
+      "certyfikat",
+      "JDG",
+      "spółka",
+      "JST",
+      "generowanie"
+    ],
+    "promoted": false,
+    "content": [
+      {
+        "type": "text",
+        "value": "Generujesz certyfikaty w <strong>Aplikacji Podatnika KSeF</strong>: <a href=\"https://ap.ksef.mf.gov.pl\" target=\"_blank\">ap.ksef.mf.gov.pl</a>. Potrzebujesz dwóch certyfikatów: uwierzytelniającego i offline."
+      },
+      {
+        "type": "stepper",
+        "info": "🔧 Wybierz swoją ścieżkę · ok. 10 minut",
+        "steps": [
+          "⭐ JDG",
+          "⭐⭐ Spółka",
+          "⭐⭐⭐ JST"
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "⭐ Jednoosobowa działalność gospodarcza (JDG)"
+      },
+      {
+        "type": "text",
+        "value": "Najprostsza ścieżka — logujesz się sam, generujesz od razu."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Wejdź na <a href=\"https://ap.ksef.mf.gov.pl\" target=\"_blank\">ap.ksef.mf.gov.pl</a>",
+          "Zaloguj się <strong>Profilem Zaufanym</strong> lub <strong>e-Dowodem</strong>",
+          "Wybierz kontekst: Twój NIP",
+          "Wygeneruj certyfikat <strong>uwierzytelniający</strong> — podaj hasło i ZAPISZ je!",
+          "Pobierz .crt (klucz .key pobierze się automatycznie)",
+          "Wygeneruj certyfikat <strong>offline</strong> — powtórz",
+          "Zmień nazwy plików (<code>uwierzytelnienie.*</code> i <code>offline.*</code>)"
+        ]
+      },
+      {
+        "type": "youtube",
+        "videoId": "ivraABl6cRs",
+        "title": "Jak wygenerować certyfikat KSeF — wideo"
+      },
+      {
+        "type": "text",
+        "value": "→ Szczegółowa instrukcja: <a href=\"https://www.wiedza.sokaris.pl/index.php/Krok_po_kroku:_Jak_wygenerowa%C4%87_Certyfikat_KSeF_(Dost%C4%99p_Testowy_i_Produkcyjny)\" target=\"_blank\">wiedza.sokaris.pl</a>"
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "⭐⭐ Spółka z o.o. / S.A. / inne podmioty"
+      },
+      {
+        "type": "text",
+        "value": "Dodatkowy krok — najpierw <strong>ZAW-FA</strong>, potem certyfikat."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Członek zarządu składa <strong>ZAW-FA</strong> w urzędzie skarbowym",
+          "We wniosku wskazuje osobę upoważnioną do KSeF",
+          "Urząd nadaje uprawnienia",
+          "Upoważniona osoba generuje certyfikaty (jak JDG powyżej)"
+        ]
+      },
+      {
+        "type": "alert",
+        "severity": "info",
+        "value": "💡 <strong>Jeden certyfikat = wiele firm.</strong> Jeśli masz ZAW-FA od firmy X i Y, jednym certyfikatem pracujesz w obu. Ale ZAW-FA potrzebujesz osobne."
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "⭐⭐⭐ Jednostka podrzędna JST (szkoła, TOSIR, MOPS)"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>Gmina/powiat</strong> loguje się do Aplikacji Podatnika KSeF",
+          "Wyznacza administratora jednostki podrzędnej",
+          "NIP jednostki zgłoszony na formularzu <strong>NIP-2</strong>",
+          "Administrator loguje się na <strong>NIP jednostki</strong> (nie gminy!)",
+          "Nadaje uprawnienia → pracownicy generują certyfikaty"
+        ]
+      },
+      {
+        "type": "alert",
+        "severity": "danger",
+        "value": "⚠️ NIP do logowania w KSeF = NIP <strong>jednostki</strong>. NIP gminy w programie = NIP <strong>sprzedawcy</strong> na fakturze. To dwa różne NIP-y!"
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Limit generowań"
+      },
+      {
+        "type": "text",
+        "value": "<strong>6 generowań</strong> na miesiąc. Po wyczerpaniu: infolinia KSeF <strong>22 330 03 30</strong>."
+      },
+      {
+        "type": "alert",
+        "severity": "warning",
+        "value": "Nie klikaj &bdquo;generuj&rdquo; na próbę. Każde kliknięcie to 1 z 6."
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "text",
+        "value": "→ <a href=\"#art-002\">Mam certyfikaty — jak dodać do programu?</a>"
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "To nie pomogło?"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Wyślij opis problemu na 📧 <a href=\"mailto:pomoc@sokaris.pl\">pomoc@sokaris.pl</a>"
+        ]
+      },
+      {
+        "type": "text",
+        "value": "📞 <strong>22 38 956 38</strong>"
+      },
+      {
+        "type": "text",
+        "value": "<em>Faktura-NT 5.14 i nowsze · Ostatnia aktualizacja: marzec 2026</em>"
+      }
+    ]
+  },
+  {
+    "id": "art-005",
+    "title": "Błędy certyfikatów — diagnostyka i rozwiązania",
+    "date": "2026-03-28",
+    "tags": [
+      "błąd",
+      "signing failed",
+      "9105",
+      "415",
+      "diagnostyka"
+    ],
+    "promoted": false,
+    "content": [
+      {
+        "type": "text",
+        "value": "Program nie łączy się z KSeF lub odrzuca faktury? Znajdź swój błąd poniżej."
+      },
+      {
+        "type": "symptom-nav",
+        "items": [
+          {
+            "label": "🔴 Signing failed (error -4)",
+            "color": "red"
+          },
+          {
+            "label": "🔴 Błąd 9105",
+            "color": "red"
+          },
+          {
+            "label": "🟡 Błąd 415",
+            "color": "yellow"
+          },
+          {
+            "label": "🟡 Błąd 400",
+            "color": "yellow"
+          },
+          {
+            "label": "🟡 Błąd 403",
+            "color": "yellow"
+          },
+          {
+            "label": "⚪ Status: Niedostępny",
+            "color": "gray"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "🔴 &bdquo;Signing failed&rdquo; (error -4)"
+      },
+      {
+        "type": "text",
+        "value": "<strong>Objaw:</strong> W logu: &bdquo;Cryptography module return error code: -4&rdquo;<br><strong>Przyczyna:</strong> Pomylone pary plików — .key od jednego certyfikatu z .crt od drugiego."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Konfiguracja → KSeF → <strong>usuń oba certyfikaty</strong>",
+          "Zmień nazwy plików: <code>uwierzytelnienie.*</code> i <code>offline.*</code>",
+          "Wgraj ponownie prawidłowe pary",
+          "→ <a href=\"#art-002\">Instrukcja wgrywania</a>"
+        ]
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "🔴 Błąd 9105 &bdquo;Nieprawidłowy podpis&rdquo;"
+      },
+      {
+        "type": "text",
+        "value": "<strong>Objaw:</strong> KSeF odrzuca podpis faktury.<br><strong>Przyczyna:</strong> Certyfikat wygasł, unieważniony, lub klucz nie pasuje."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Sprawdź status w <a href=\"https://ap.ksef.mf.gov.pl\" target=\"_blank\">Aplikacji Podatnika</a>",
+          "Unieważniony/wygasły → <a href=\"#art-004\">wygeneruj nowy</a>",
+          "Aktywny → problem z parowaniem → usuń i <a href=\"#art-002\">wgraj ponownie</a>"
+        ]
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "🟡 Błąd 415 &bdquo;Brak przypisanych uprawnień&rdquo;"
+      },
+      {
+        "type": "text",
+        "value": "<strong>Objaw:</strong> Certyfikat OK, KSeF odrzuca logowanie.<br><strong>Przyczyna:</strong> Osoba nie ma uprawnień do wystawiania faktur w imieniu tego NIP-u."
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>JDG / osoba fizyczna:</strong> logujesz się własnym NIP-em — uprawnienia są automatyczne",
+          "<strong>Spółka:</strong> sprawdź czy złożono i przetworzono <strong>ZAW-FA</strong> w imieniu tej osoby",
+          "<strong>JST:</strong> NIP w konfiguracji programu musi być NIP-em <strong>jednostki</strong> (np. szkoły), nie gminy"
+        ]
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "🟡 Błąd 400 &bdquo;Bad Request&rdquo;"
+      },
+      {
+        "type": "text",
+        "value": "<strong>Objaw:</strong> KSeF odrzuca żądanie bez szczegółów."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Sprawdź datę ważności certyfikatu w Aplikacji Podatnika",
+          "Wygasł → <a href=\"#art-004\">wygeneruj nowy</a>",
+          "Ważny → włącz rozszerzony log i wyślij do pomoc@sokaris.pl"
+        ]
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "🟡 Błąd 403 &bdquo;Forbidden&rdquo;"
+      },
+      {
+        "type": "text",
+        "value": "<strong>Objaw:</strong> KSeF zwraca 403 przy próbie wysyłki.<br><strong>Przyczyna:</strong> Token sesji wygasł lub certyfikat został unieważniony w trakcie pracy."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Zamknij i otwórz ponownie program",
+          "Jeśli błąd wraca → sprawdź status certyfikatu w Aplikacji Podatnika",
+          "Unieważniony → <a href=\"#art-004\">wygeneruj nowy</a>"
+        ]
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "⚪ Status: Niedostępny — program nie łączy się z KSeF"
+      },
+      {
+        "type": "text",
+        "value": "<strong>Objaw:</strong> Pulpit KSeF pokazuje &bdquo;Niedostępny&rdquo; lub brak połączenia."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Sprawdź połączenie z internetem",
+          "Sprawdź status KSeF: <a href=\"https://ksef.mf.gov.pl\" target=\"_blank\">ksef.mf.gov.pl</a> — może być przerwa techniczna",
+          "Sprawdź czy certyfikat uwierzytelniający jest wgrany → <a href=\"#art-002\">instrukcja</a>",
+          "Sprawdź datę i godzinę systemową komputera — różnica >5 minut blokuje połączenie"
+        ]
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "To nie pomogło?"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Włącz: <code>Konfiguracja → KSeF → ✅ Rozszerzony log KSeF</code>",
+          "Odtwórz problem",
+          "Wyślij plik logu na 📧 <a href=\"mailto:pomoc@sokaris.pl\">pomoc@sokaris.pl</a>"
+        ]
+      },
+      {
+        "type": "text",
+        "value": "📞 <strong>22 38 956 38</strong>"
+      },
+      {
+        "type": "text",
+        "value": "<em>Faktura-NT 5.14 i nowsze · Ostatnia aktualizacja: marzec 2026</em>"
+      }
+    ]
+  },
+  {
+    "id": "art-006",
+    "title": "Certyfikaty vs tokeny — dlaczego program obsługuje tylko certyfikaty",
+    "date": "2026-03-27",
+    "tags": [
+      "certyfikat",
+      "token",
+      "porównanie",
+      "tylko certyfikaty"
+    ],
+    "promoted": false,
+    "content": [
+      {
+        "type": "text",
+        "value": "⚠️ <strong>Faktura-NT obsługuje wyłącznie certyfikaty KSeF.</strong> Autoryzacja tokenami nie jest i nie będzie wspierana. Poniżej wyjaśniamy dlaczego."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "",
+          "Certyfikat KSeF",
+          "Token"
+        ],
+        "rows": [
+          [
+            "Wysyłka faktur online",
+            "✅",
+            "✅"
+          ],
+          [
+            "Tryb offline (awaria)",
+            "✅",
+            "❌"
+          ],
+          [
+            "Kody QR na fakturach",
+            "✅",
+            "❌"
+          ],
+          [
+            "Działa po 2026",
+            "✅",
+            "❌ (wygasa 31.12.2026)"
+          ]
+        ]
+      },
+      {
+        "type": "text",
+        "value": "Bez certyfikatu offline nie da się wystawić faktury gdy KSeF nie działa. <strong>Dlatego Faktura-NT wymaga certyfikatu — to jedyna metoda gwarantująca pełną funkcjonalność, w tym tryb offline i kody QR.</strong>"
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Jak to właściwie działa?"
+      },
+      {
+        "type": "text",
+        "value": "<strong>Certyfikat (.crt)</strong> = Twoja wizytówka. <strong>Klucz (.key)</strong> = Twój podpis."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Program podpisuje fakturę Twoim <strong>kluczem prywatnym</strong>",
+          "Wysyła podpisaną fakturę + <strong>certyfikat</strong> do KSeF",
+          "KSeF sprawdza podpis → &bdquo;pasuje? OK&rdquo;"
+        ]
+      },
+      {
+        "type": "text",
+        "value": "Dlatego .key i .crt MUSZĄ być z jednej pary — jak klucz i zamek."
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "text",
+        "value": "→ <a href=\"#art-004\">Jak wygenerować certyfikaty</a><br>→ <a href=\"#art-002\">Jak dodać certyfikaty do programu</a>"
+      },
+      {
+        "type": "text",
+        "value": "<em>Faktura-NT 5.14 i nowsze · Ostatnia aktualizacja: marzec 2026</em>"
+      }
+    ]
+  },
+  {
+    "id": "art-007",
+    "title": "To nie pomogło? Jak wysłać log KSeF",
+    "date": "2026-03-26",
+    "tags": [
+      "log",
+      "pomoc",
+      "kontakt",
+      "diagnostyka"
+    ],
+    "promoted": false,
+    "content": [
+      {
+        "type": "text",
+        "value": "Jeśli żadne rozwiązanie nie pomogło — wyślij nam log. Rozwiążemy problem za Ciebie."
+      },
+      {
+        "type": "stepper",
+        "info": "🔧 4 kroki · ok. 3 minuty",
+        "steps": [
+          "1. Otwórz Pulpit KSeF",
+          "2. Znajdź logi",
+          "3. Włącz rozszerzony log",
+          "4. Wyślij"
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "Krok 1: Otwórz Pulpit KSeF"
+      },
+      {
+        "type": "text",
+        "value": "W głównym oknie programu kliknij <strong>Pulpit KSeF</strong> na pasku narzędzi."
+      },
+      {
+        "type": "image",
+        "src": "img/log-1-glowne-okno.png",
+        "alt": "Główne okno Faktura-NT z przyciskiem Pulpit KSeF",
+        "caption": "Pasek narzędzi — kliknij &bdquo;Pulpit KSeF&rdquo;"
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "text",
+        "value": "Otworzy się okno <strong>Pulpit KSeF</strong> ze statusem połączenia."
+      },
+      {
+        "type": "image",
+        "src": "img/log-2-pulpit-ksef.png",
+        "alt": "Pulpit KSeF — status serwerów, tryb offline, faktury przychodzące",
+        "caption": "Pulpit KSeF — status i tryb połączenia"
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Krok 2: Znajdź logi diagnostyczne"
+      },
+      {
+        "type": "text",
+        "value": "Kliknij zakładkę <strong>Historia zdarzeń</strong>, a następnie przycisk <strong>Otwórz folder logów diagnostycznych</strong>."
+      },
+      {
+        "type": "image",
+        "src": "img/log-3-historia-zdarzen.png",
+        "alt": "Zakładka Historia zdarzeń z przyciskiem Otwórz folder logów",
+        "caption": "Kliknij &bdquo;Otwórz folder logów diagnostycznych&rdquo;"
+      },
+      {
+        "type": "text",
+        "value": "Otworzy się folder z plikami logów. Szukaj pliku z <strong>dzisiejszą datą</strong> (np. <code>KSeF.2026.03.26.txt</code>)."
+      },
+      {
+        "type": "image",
+        "src": "img/log-4-folder-logow.png",
+        "alt": "Folder z logami KSeF — pliki .txt z datami",
+        "caption": "Folder logów: Roaming > Faktura-NT > Log > KSeF — weź najnowszy plik"
+      },
+      {
+        "type": "alert",
+        "severity": "info",
+        "value": "💡 Załącz do maila plik z <strong>datą wystąpienia problemu</strong>. Jeśli nie wiesz który — wyślij 2–3 najnowsze."
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Krok 3: Włącz rozszerzony log (opcjonalnie)"
+      },
+      {
+        "type": "text",
+        "value": "Dla lepszej diagnostyki można czasowo włączyć więcej informacji w logach:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<code>Konfiguracja → Konfiguracja programu → KSeF</code>",
+          "Zaznacz: <strong>✅ Rozszerzony log KSeF (tylko do celów diagnostycznych)</strong>",
+          "Kliknij <strong>Akceptuj zmiany</strong>"
+        ]
+      },
+      {
+        "type": "image",
+        "src": "img/log-5-rozszerzony-log.png",
+        "alt": "Konfiguracja KSeF z zaznaczonym rozszerzonym logiem",
+        "caption": "Zaznacz &bdquo;Rozszerzony log KSeF&rdquo; — po rozwiązaniu problemu możesz go wyłączyć"
+      },
+      {
+        "type": "alert",
+        "severity": "warning",
+        "value": "⚠️ Rozszerzony log generuje dużo danych. Włącz go <strong>tylko na czas diagnostyki</strong> i wyłącz po rozwiązaniu problemu."
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Krok 4: Wyślij log do nas"
+      },
+      {
+        "type": "alert",
+        "severity": "success",
+        "value": "📧 <strong><a href=\"mailto:pomoc@sokaris.pl\">pomoc@sokaris.pl</a></strong><br><br>W mailu napisz:<br>• Co próbowałeś zrobić<br>• Jaki błąd zobaczyliście<br>• Załącz plik logu KSeF (.txt z dzisiejszą datą)"
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Wolisz zadzwonić?"
+      },
+      {
+        "type": "text",
+        "value": "📞 <strong style=\"font-size:1.3em\">22 38 956 38</strong>"
+      },
+      {
+        "type": "text",
+        "value": "Dostępni: <strong>pon–pt, 8:00–16:00</strong>"
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "text",
+        "value": "<em>Faktura-NT 5.14 i nowsze · Ostatnia aktualizacja: marzec 2026</em>"
+      }
+    ]
+  },
+  {
+    "id": "art-010",
+    "title": "Jak wystawić fakturę zaliczkową",
+    "date": "2026-03-27",
+    "tags": [
+      "faktura zaliczkowa",
+      "zamówienie",
+      "zaliczka",
+      "faktura podsumowująca"
+    ],
+    "promoted": true,
+    "content": [
+      {
+        "type": "text",
+        "value": "<strong>Faktura zaliczkowa</strong> wymaga zamówienia — program musi znać pełną wartość transakcji, żeby prawidłowo rozliczać zaliczki i wystawić fakturę końcową."
+      },
+      {
+        "type": "alert",
+        "severity": "info",
+        "value": "💡 Nie wystawiaj zwykłej faktury VAT z adnotacją &bdquo;zaliczka&rdquo;. Użyj mechanizmu zamówień — program sam wygeneruje prawidłową fakturę zaliczkową."
+      },
+      {
+        "type": "stepper",
+        "info": "🔧 4 kroki · ok. 5 minut",
+        "steps": [
+          "1. Zamówienie",
+          "2. Faktura zaliczkowa",
+          "3. Kwota zaliczki",
+          "4. Wydruk / KSeF"
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "Krok 1: Utwórz zamówienie od klienta"
+      },
+      {
+        "type": "text",
+        "value": "<code>Dokumenty → Zamówienia → Nowe zamówienie od klienta</code> (klawisz <strong>F8</strong>)"
+      },
+      {
+        "type": "image",
+        "src": "img/zaliczkowa-nowe-zamowienie.png",
+        "alt": "Nowe zamówienie od klienta — puste okno w Faktura-NT",
+        "caption": "Okno nowego zamówienia — naciśnij Kontrahenci i dodaj towary"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Naciśnij <strong>Kontrahenci</strong> → wybierz odbiorcę (lub wpisz NIP + &bdquo;Znajdź&rdquo;)",
+          "Naciśnij <strong>+ Dodaj</strong> → otworzy się Karta towaru"
+        ]
+      },
+      {
+        "type": "image",
+        "src": "img/zaliczkowa-karta-towaru.png",
+        "alt": "Karta towaru — okno dodawania pozycji do zamówienia",
+        "caption": "Karta towaru — kliknij Baza Towarów, wybierz towar i naciśnij Użyj w karcie"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Kliknij <strong>Baza Towarów</strong> → wybierz towar → <strong>Użyj w karcie</strong>"
+        ]
+      },
+      {
+        "type": "image",
+        "src": "img/zaliczkowa-kartoteka-towarow.png",
+        "alt": "Kartoteka towarów — wybór towaru z bazy",
+        "caption": "Wybierz towar z bazy i naciśnij Użyj w karcie"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Uzupełnij <strong>cenę</strong> (pełna wartość transakcji, np. 10 233 zł)",
+          "Uzupełnij <strong>ilość</strong> zamawianą (np. 1 szt.)"
+        ]
+      },
+      {
+        "type": "image",
+        "src": "img/zaliczkowa-karta-wypelniona.png",
+        "alt": "Karta towaru wypełniona — cena i ilość uzupełnione",
+        "caption": "Uzupełniona karta towaru — zamawiana ilość 1, zrealizowana ilość 0"
+      },
+      {
+        "type": "alert",
+        "severity": "warning",
+        "value": "⚠️ <strong>Ważne!</strong><br>Zamawiana ilość musi być <strong>1</strong><br>Zrealizowana ilość musi być <strong>0</strong>"
+      },
+      {
+        "type": "text",
+        "value": "Zamówienie zostanie uzupełnione o zamawianą pozycję."
+      },
+      {
+        "type": "image",
+        "src": "img/zaliczkowa-zamowienie-wypelnione.png",
+        "alt": "Wypełnione zamówienie od klienta w Faktura-NT",
+        "caption": "Zamówienie z towarem i pełną wartością transakcji"
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "text",
+        "value": "Przełącz zakładkę na <strong>Dokumenty</strong>."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Zaznacz <strong>☑ Wystaw do zamówienia</strong>",
+          "Wybierz: <strong>● Fakturę zaliczkową</strong>"
+        ]
+      },
+      {
+        "type": "image",
+        "src": "img/zaliczkowa-dokumenty-tab.png",
+        "alt": "Zakładka Dokumenty — zaznacz Wystaw do zamówienia i wybierz Fakturę zaliczkową",
+        "caption": "Zaznacz &bdquo;Wystaw do zamówienia&rdquo; → wybierz Fakturę zaliczkową"
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Krok 3: Podaj kwotę zaliczki"
+      },
+      {
+        "type": "text",
+        "value": "W pozycji 1 wpisz kwotę jaką przelał kontrahent jako zaliczkę i naciśnij <strong>OK</strong>."
+      },
+      {
+        "type": "image",
+        "src": "img/zaliczkowa-kwota-dialog.png",
+        "alt": "Dialog wpisywania kwoty zaliczki",
+        "caption": "Wpisz kwotę zaliczki i naciśnij OK"
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Krok 4: Gotowa faktura"
+      },
+      {
+        "type": "text",
+        "value": "Program wygeneruje fakturę z pozycją towarową <strong>&bdquo;Zaliczka z tytułu...&rdquo;</strong>. Naciśnij <strong>Drukuj</strong>."
+      },
+      {
+        "type": "image",
+        "src": "img/zaliczkowa-gotowa-faktura.png",
+        "alt": "Wygenerowana faktura zaliczkowa z pozycją Zaliczka z tytułu",
+        "caption": "Faktura z pozycją &bdquo;Zaliczka z tytułu...&rdquo; — naciśnij Drukuj"
+      },
+      {
+        "type": "text",
+        "value": "Zostanie wygenerowany podgląd faktury zaliczkowej. Możesz ją <strong>wydrukować</strong> lub <strong>wysłać do KSeF</strong>."
+      },
+      {
+        "type": "image",
+        "src": "img/zaliczkowa-podglad-wydruku.png",
+        "alt": "Podgląd wydruku faktury zaliczkowej",
+        "caption": "Podgląd wydruku faktury zaliczkowej — gotowy do wysyłki"
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Kolejne zaliczki"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Otwórz to samo zamówienie: <code>Dokumenty → Zamówienia → Lista zamówień</code> (Ctrl+F8)",
+          "Kliknij <strong>Wystaw…</strong>",
+          "Program automatycznie pomniejszy max o wcześniejsze zaliczki (np. pozostaje 5 233 zł)",
+          "Na dole widoczna &bdquo;Kwota dotychczas przyjętych zaliczek: 5 000,00 zł&rdquo;"
+        ]
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Faktura końcowa (podsumowująca)"
+      },
+      {
+        "type": "text",
+        "value": "Gdy transakcja jest zakończona:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Otwórz zamówienie → <strong>Wystaw…</strong>",
+          "Wybierz: <strong>● Chcę wystawić tylko fakturę podsumowującą, nie przyjmuję teraz żadnej zaliczki</strong>",
+          "Naciśnij <strong>OK</strong>"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Lp.",
+          "Nazwa",
+          "Wart. netto",
+          "Wart. brutto"
+        ],
+        "rows": [
+          [
+            "1.",
+            "Zaliczka z tytułu &bdquo;Towar&rdquo; (F-ra nr…)",
+            "-4 065,04 zł",
+            "-5 000,00 zł"
+          ],
+          [
+            "2.",
+            "Towar",
+            "8 319,51 zł",
+            "10 233,00 zł"
+          ],
+          [
+            "",
+            "<strong>Razem do zapłaty</strong>",
+            "<strong>4 254,47 zł</strong>",
+            "<strong>5 233,00 zł</strong>"
+          ]
+        ]
+      },
+      {
+        "type": "text",
+        "value": "Na wydruku pojawi się automatycznie rozliczenie zaliczek. <strong>Pozostało do zapłaty: 0,00 zł</strong>."
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Częste błędy"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Błąd",
+          "Dlaczego"
+        ],
+        "rows": [
+          [
+            "Nie mogę wystawić faktury zaliczkowej",
+            "Nie masz zamówienia — utwórz je najpierw (krok 1)"
+          ],
+          [
+            "Program traktuje to jako dostawę",
+            "Zrealizowana ilość > 0 — musi być 0,000"
+          ],
+          [
+            "Kwota się nie zgadza",
+            "Sprawdź &bdquo;Kwota dotychczas przyjętych zaliczek&rdquo; w oknie zaliczki"
+          ],
+          [
+            "Proforma zamiast zaliczkowej",
+            "Proforma nie jest dokumentem księgowym — użyj mechanizmu zamówień"
+          ]
+        ]
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "To nie pomogło?"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Wyślij opis problemu na 📧 <a href=\"mailto:pomoc@sokaris.pl\">pomoc@sokaris.pl</a>"
+        ]
+      },
+      {
+        "type": "text",
+        "value": "📞 <strong>22 38 956 38</strong>"
+      },
+      {
+        "type": "text",
+        "value": "<em>Faktura-NT 5.14 i nowsze · Ostatnia aktualizacja: marzec 2026</em>"
+      }
+    ]
+  },
+  {
+    "id": "art-011",
+    "title": "Faktura WDT w KSeF — jak prawidłowo oznaczyć i wysłać",
+    "date": "2026-03-30",
+    "tags": [
+      "WDT",
+      "stawka 0%",
+      "JPK",
+      "eksport",
+      "FA(3)"
+    ],
+    "promoted": true,
+    "content": [
+      {
+        "type": "alert",
+        "severity": "warning",
+        "value": "⚠️ <strong>Stawka 0% to nie zawsze WDT!</strong> Program nie może automatycznie odróżnić WDT od innych przypadków stawki zerowej — musisz ręcznie zaznaczyć checkbox."
+      },
+      {
+        "type": "heading",
+        "value": "Problem: faktura ze stawką 0% — który wariant w KSeF?"
+      },
+      {
+        "type": "text",
+        "value": "W strukturze XML faktury KSeF (schemat FA(3)) pole <code>P_12</code> wymaga precyzyjnego oznaczenia, <strong>dlaczego</strong> stawka wynosi 0%. Istnieją trzy warianty i program musi wiedzieć, który zastosować:"
+      },
+      {
+        "type": "table",
+        "headers": ["Wariant P_12", "Znaczenie", "Kiedy stosowany"],
+        "rows": [
+          ["<strong>0 WDT</strong>", "Wewnątrzwspólnotowa Dostawa Towarów", "Dostawa towarów do innego kraju UE na rzecz podatnika VAT UE"],
+          ["<strong>0 EX</strong>", "Eksport towarów", "Dostawa towarów do kraju spoza UE"],
+          ["<strong>0 KR</strong>", "Dostawa krajowa / zwolnienie", "Wszystkie pozostałe przypadki stawki 0%"]
+        ]
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Jak oznaczyć fakturę WDT w Faktura-NT"
+      },
+      {
+        "type": "stepper",
+        "info": "🔧 4 kroki · ok. 3 minuty",
+        "steps": [
+          "1. Otwórz fakturę",
+          "2. Zakładka JPK",
+          "3. Zaznacz checkbox WDT",
+          "4. Zapisz i wyślij do KSeF"
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "Krok 1: Otwórz fakturę ze stawką 0%"
+      },
+      {
+        "type": "text",
+        "value": "Utwórz nową fakturę lub otwórz istniejącą. Kontrahent musi mieć adres w kraju UE, a pozycje — stawkę 0%."
+      },
+      {
+        "type": "heading",
+        "value": "Krok 2: Przejdź na zakładkę JPK"
+      },
+      {
+        "type": "text",
+        "value": "Na formularzu faktury kliknij zakładkę <strong>JPK</strong>. Znajduje się obok zakładek Pozycje, Płatności, Uwagi."
+      },
+      {
+        "type": "heading",
+        "value": "Krok 3: Zaznacz checkbox WDT"
+      },
+      {
+        "type": "text",
+        "value": "Zaznacz: <strong>&bdquo;Dokument jest Wewnątrzwspólnotową Dostawą Towarów (WDT)&rdquo;</strong>."
+      },
+      {
+        "type": "alert",
+        "severity": "info",
+        "value": "🔑 <strong>To jedyny sposób</strong>, żeby program prawidłowo oznaczył stawkę 0% jako <code>0 WDT</code> w pliku XML KSeF. Bez tego checkbox program użyje <code>0 KR</code> (domyślna)."
+      },
+      {
+        "type": "heading",
+        "value": "Krok 4: Zapisz i wyślij do KSeF"
+      },
+      {
+        "type": "text",
+        "value": "Zapisz fakturę (<strong>F2</strong>) i wyślij do KSeF standardową ścieżką. Program automatycznie wstawi <code>0 WDT</code> do pola P_12 w XML."
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Który wariant stawki 0% program wybiera automatycznie?"
+      },
+      {
+        "type": "table",
+        "headers": ["Wariant", "Co decyduje", "Skąd informacja", "Wymaga działania?"],
+        "rows": [
+          ["<strong>0 WDT</strong>", "Checkbox &bdquo;WDT&rdquo; zaznaczony na fakturze", "Zakładka JPK na formularzu faktury", "<strong>TAK</strong> — ręcznie"],
+          ["<strong>0 EX</strong>", "Checkbox &bdquo;WDT&rdquo; niezaznaczony + kraj kontrahenta spoza UE", "Kartoteka kontrahenta → adres → kraj", "NIE — automatycznie"],
+          ["<strong>0 KR</strong>", "Wszystkie pozostałe przypadki stawki 0%", "Wartość domyślna", "NIE — automatycznie"]
+        ]
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "⚠️ Najczęstszy błąd"
+      },
+      {
+        "type": "alert",
+        "severity": "warning",
+        "value": "Kontrahent z Niemiec, stawka 0%, ale <strong>brak checkboxa WDT</strong> → program wysyła <code>0 KR</code> zamiast <code>0 WDT</code>. Konieczna korekta faktury w KSeF."
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Dlaczego program nie wykrywa WDT automatycznie?"
+      },
+      {
+        "type": "text",
+        "value": "Sama wiedza, że kontrahent jest z UE i stawka wynosi 0%, <strong>nie wystarczy</strong>:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>WDT</strong> wymaga fizycznego przemieszczenia towaru + rejestracji nabywcy do VAT UE. Tylko użytkownik to potwierdza.",
+          "<strong>Usługi z odwrotnym obciążeniem</strong> dla podatnika UE są &bdquo;poza VAT&rdquo; (NP), nie WDT.",
+          "<strong>Zwolnienia z art. 43</strong> (usługi medyczne, edukacja) mają stawkę 0%, ale jako <code>0 KR</code>.",
+          "<strong>Transakcje trójstronne</strong> — osobna ścieżka, odrębne pole w KSeF.",
+          "<strong>WDT do kontrahenta z PL</strong> — WDT może dotyczyć kontrahenta zarejestrowanego w Polsce."
+        ]
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "FAQ"
+      },
+      {
+        "type": "text",
+        "value": "<strong>Kontrahent z Niemiec, stawka 0% — czy to automatycznie WDT?</strong><br>Nie. Musisz ręcznie zaznaczyć checkbox &bdquo;WDT&rdquo; na zakładce JPK. Bez tego program oznaczy jako <code>0 KR</code>."
+      },
+      {
+        "type": "text",
+        "value": "<strong>Co jeśli zapomnę zaznaczyć WDT?</strong><br>Faktura trafi do KSeF z <code>0 KR</code> zamiast <code>0 WDT</code>. Trzeba wystawić korektę z prawidłowym oznaczeniem."
+      },
+      {
+        "type": "text",
+        "value": "<strong>Eksportuję towary poza UE — muszę coś zaznaczać?</strong><br>Nie. Jeśli kraj kontrahenta jest spoza UE, program automatycznie zastosuje <code>0 EX</code>. Wystarczy poprawny adres w kartotece."
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "text",
+        "value": "📞 Pomoc: <strong>22 38 956 38</strong> · pon.–pt. 9:00–15:00"
+      },
+      {
+        "type": "text",
+        "value": "<em>Faktura-NT 5.14 i nowsze · Ostatnia aktualizacja: marzec 2026</em>"
+      }
+    ]
+  }
+]

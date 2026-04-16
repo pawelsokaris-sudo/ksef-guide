@@ -1,0 +1,37 @@
+[
+  {
+    "question": "Czy szablon wydruku wpływa na dane wysyłane do KSeF?",
+    "answer": "Nie. XML generowany do KSeF powstaje z danych faktury, niezależnie od szablonu wydruku. Możesz używać dowolnego szablonu — dane w KSeF będą takie same.",
+    "tags": ["wydruk", "szablon", "XML"]
+  },
+  {
+    "question": "Czy mogę wysyłać kody EAN w fakturze KSeF?",
+    "answer": "Tak. Struktura FA(3) ma dedykowane pola GTIN (Global Trade Item Number) oraz Indeks. Program Faktura-NT automatycznie uzupełnia te pola jeśli towary mają przypisane kody EAN.",
+    "tags": ["EAN", "GTIN", "FA3"]
+  },
+  {
+    "question": "Czy noty korygujące działają po wejściu KSeF?",
+    "answer": "<strong>Nie.</strong> Od lutego 2026 noty korygujące zostały zlikwidowane. Wszystkie korekty danych formalnych (NIP, adres, nazwa) wymagają teraz wystawienia <strong>faktury korygującej</strong>.",
+    "tags": ["noty", "korekty", "2026"]
+  },
+  {
+    "question": "Co oznacza BFK/OFF/DI w JPK?",
+    "answer": "<strong>BFK</strong> = faktura poza KSeF (papierowa/elektroniczna)<br><strong>OFF</strong> = faktura wystawiona podczas awarii KSeF (tryb offline)<br><strong>DI</strong> = dokument inny niż faktura",
+    "tags": ["JPK", "BFK", "OFF", "DI"]
+  },
+  {
+    "question": "Kiedy muszę wdrożyć KSeF?",
+    "answer": "Od <strong>1 lutego 2026</strong> firmy z obrotem powyżej 200 mln zł. Od <strong>1 kwietnia 2026</strong> wszyscy pozostali przedsiębiorcy. Wyjątek: mikrofirmy do 10 000 zł/miesiąc — mogą wystawiać poza KSeF do końca 2026.",
+    "tags": ["termin", "obowiązek", "2026"]
+  },
+  {
+    "question": "Czy muszę mieć dwa certyfikaty?",
+    "answer": "Tak, potrzebujesz <strong>dwóch certyfikatów</strong>: (1) do uwierzytelniania i wysyłki faktur, (2) do podpisu linku weryfikacji wystawcy (tryb offline/QR). Oba generujesz na <a href='https://ap.ksef.mf.gov.pl' target='_blank'>ap.ksef.mf.gov.pl</a>.",
+    "tags": ["certyfikat", "dwa", "offline"]
+  },
+  {
+    "question": "Czy mój księgowy zobaczy faktury wysłane do KSeF?",
+    "answer": "Tak, jeśli księgowy ma uprawnienia do Twojego NIP-u w KSeF. Może je nadać sam przedsiębiorca lub urząd skarbowy (w przypadku spółek). Faktury pobierze automatycznie ze swojego programu księgowego.",
+    "tags": ["księgowy", "uprawnienia", "pobieranie"]
+  }
+]

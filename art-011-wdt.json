@@ -1,0 +1,130 @@
+{
+    "id": "art-011",
+    "title": "Faktura WDT w KSeF \u2014 jak prawid\u0142owo oznaczy\u0107 i wys\u0142a\u0107",
+    "date": "2026-03-30",
+    "tags": ["WDT", "stawka 0%", "JPK", "eksport", "FA(3)"],
+    "promoted": true,
+    "content": [
+      {
+        "type": "alert",
+        "severity": "warning",
+        "value": "\u26a0\ufe0f <strong>Stawka 0% to nie zawsze WDT!</strong> Program nie mo\u017ce automatycznie odr\u00f3\u017cni\u0107 WDT od innych przypadk\u00f3w stawki zerowej \u2014 musisz r\u0119cznie zaznaczy\u0107 checkbox."
+      },
+      {
+        "type": "heading",
+        "value": "Problem: faktura ze stawk\u0105 0% \u2014 kt\u00f3ry wariant w KSeF?"
+      },
+      {
+        "type": "text",
+        "value": "W strukturze XML faktury KSeF (schemat FA(3)) pole <code>P_12</code> wymaga precyzyjnego oznaczenia, <strong>dlaczego</strong> stawka wynosi 0%. Istniej\u0105 trzy warianty i program musi wiedzie\u0107, kt\u00f3ry zastosowa\u0107:"
+      },
+      {
+        "type": "table",
+        "headers": ["Wariant P_12", "Znaczenie", "Kiedy stosowany"],
+        "rows": [
+          ["<strong>0 WDT</strong>", "Wewn\u0105trzwsp\u00f3lnotowa Dostawa Towar\u00f3w", "Dostawa towar\u00f3w do innego kraju UE na rzecz podatnika VAT UE"],
+          ["<strong>0 EX</strong>", "Eksport towar\u00f3w", "Dostawa towar\u00f3w do kraju spoza UE"],
+          ["<strong>0 KR</strong>", "Dostawa krajowa / zwolnienie", "Wszystkie pozosta\u0142e przypadki stawki 0%"]
+        ]
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Jak oznaczy\u0107 faktur\u0119 WDT w Faktura-NT"
+      },
+      {
+        "type": "stepper",
+        "info": "\u015acie\u017cka w programie:",
+        "steps": [
+          "Otw\u00f3rz faktur\u0119",
+          "Zak\u0142adka JPK",
+          "Zaznacz checkbox WDT",
+          "Zapisz i wy\u015blij do KSeF"
+        ]
+      },
+      {
+        "type": "alert",
+        "severity": "info",
+        "value": "\ud83d\udd11 <strong>Kluczowe:</strong> Na fakturze, na zak\u0142adce <code>JPK</code>, zaznacz: <strong>Dokument jest Wewn\u0105trzwsp\u00f3lnotow\u0105 Dostaw\u0105 Towar\u00f3w (WDT)</strong>. To jedyny spos\u00f3b, \u017ceby program prawid\u0142owo oznaczy\u0142 stawk\u0119 0% jako WDT w pliku XML KSeF."
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Kt\u00f3ry wariant stawki 0% program wybiera automatycznie?"
+      },
+      {
+        "type": "table",
+        "headers": ["Wariant", "Co decyduje", "Sk\u0105d pochodzi informacja", "Wymaga dzia\u0142ania?"],
+        "rows": [
+          ["<strong>0 WDT</strong>", "Checkbox WDT zaznaczony na fakturze", "Zak\u0142adka JPK na formularzu faktury", "<strong>TAK</strong> \u2014 r\u0119cznie"],
+          ["<strong>0 EX</strong>", "Checkbox WDT niezaznaczony + kraj kontrahenta spoza UE", "Kartoteka kontrahenta \u2192 adres \u2192 kraj", "NIE \u2014 automatycznie"],
+          ["<strong>0 KR</strong>", "Wszystkie pozosta\u0142e przypadki stawki 0%", "Warto\u015b\u0107 domy\u015blna", "NIE \u2014 automatycznie"]
+        ]
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Dlaczego program nie wykrywa WDT automatycznie?"
+      },
+      {
+        "type": "text",
+        "value": "Sama wiedza o tym, \u017ce kontrahent ma adres w kraju UE i \u017ce faktura ma stawk\u0119 0%, <strong>nie wystarczy</strong> do stwierdzenia, \u017ce transakcja jest WDT. Oto dlaczego:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "<strong>WDT</strong> \u2014 dostawa towar\u00f3w do innego kraju UE na rzecz podatnika VAT UE. Wymaga fizycznego przemieszczenia towaru i rejestracji nabywcy do VAT UE. Tylko u\u017cytkownik mo\u017ce potwierdzi\u0107 spe\u0142nienie tych warunk\u00f3w.",
+          "<strong>Us\u0142ugi z odwrotnym obci\u0105\u017ceniem</strong> \u2014 us\u0142ugi niematerialne dla podatnika UE s\u0105 poza VAT (NP), nie WDT. W FA(3) trafiaj\u0105 do pola <code>NP</code>, nie do <code>P_12</code>.",
+          "<strong>Zwolnienia z art. 43</strong> \u2014 sprzeda\u017c towar\u00f3w lub us\u0142ug zwolnionych krajowo (np. us\u0142ugi medyczne, edukacja) dla kontrahenta z UE ma stawk\u0119 0%/zw, ale to <strong>0 KR</strong>, nie WDT.",
+          "<strong>Transakcje tr\u00f3jstronne</strong> \u2014 osobna \u015bcie\u017cka, obs\u0142ugiwana odr\u0119bnym polem <code>TROJSTRONNA</code>.",
+          "<strong>WDT do kontrahenta z PL</strong> \u2014 WDT mo\u017ce dotyczy\u0107 te\u017c kontrahenta zarejestrowanego w Polsce, wi\u0119c po samym kraju kontrahenta nie da si\u0119 rozstrzygn\u0105\u0107."
+        ]
+      },
+      {
+        "type": "alert",
+        "severity": "error",
+        "value": "\u2757 <strong>Wniosek:</strong> Program nie mo\u017ce samodzielnie odr\u00f3\u017cni\u0107 WDT od pozosta\u0142ych przypadk\u00f3w 0% dla kontrahenta unijnego \u2014 decyzja nale\u017cy do u\u017cytkownika i jest rejestrowana checkboxem WDT na formularzu faktury."
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "FAQ \u2014 najcz\u0119stsze pytania o WDT"
+      },
+      {
+        "type": "text",
+        "value": "<strong>Pytanie: Mam kontrahenta z Niemiec ze stawk\u0105 0% \u2014 czy to automatycznie WDT?</strong>"
+      },
+      {
+        "type": "text",
+        "value": "Nie. Musisz r\u0119cznie zaznaczy\u0107 checkbox WDT na zak\u0142adce JPK. Bez tego program oznaczy stawk\u0119 jako 0 KR (krajowa/domy\u015blna)."
+      },
+      {
+        "type": "text",
+        "value": "<strong>Pytanie: Co je\u015bli zapomn\u0119 zaznaczy\u0107 WDT?</strong>"
+      },
+      {
+        "type": "text",
+        "value": "Faktura zostanie wys\u0142ana do KSeF z oznaczeniem <code>0 KR</code> zamiast <code>0 WDT</code>. B\u0119dziesz musia\u0142 wystawi\u0107 korekt\u0119 z prawid\u0142owym oznaczeniem."
+      },
+      {
+        "type": "text",
+        "value": "<strong>Pytanie: Eksportuj\u0119 towary poza UE \u2014 musz\u0119 co\u015b zaznacza\u0107?</strong>"
+      },
+      {
+        "type": "text",
+        "value": "Nie. Je\u015bli kraj kontrahenta jest spoza UE, program automatycznie zastosuje <code>0 EX</code> (eksport). Wystarczy, \u017ce kartoteka kontrahenta ma poprawny adres."
+      }
+    ]
+  }

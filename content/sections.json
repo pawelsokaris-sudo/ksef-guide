@@ -1,0 +1,79 @@
+[
+  {
+    "id": "certyfikaty",
+    "title": "Certyfikaty KSeF",
+    "icon": "🔑",
+    "articles": [
+      {
+        "id": "czym-jest-ksef",
+        "title": "Czym jest KSeF?",
+        "content": "<p>KSeF to <strong>elektroniczna poczta dla faktur</strong> — potwierdza że faktura istnieje i nadaje jej unikalny numer.</p><div class=\"alert alert-info\">💡 Analogia: „faktura przyszła do KSeF = przyszła poczta. Nie musisz jej księgować jeśli nie chcesz.”</div><h4>KSeF NIE:</h4><ul><li>❌ NIE księguje faktur</li><li>❌ NIE decyduje co odliczasz</li><li>❌ NIE zastępuje JPK</li></ul><h4>KSeF TAK:</h4><ul><li>✅ Potwierdza że faktura istnieje</li><li>✅ Nadaje numer KSeF</li><li>✅ Umożliwia pobranie faktur zakupowych automatycznie</li></ul>"
+      },
+      {
+        "id": "terminy",
+        "title": "Terminy obowiązkowego KSeF",
+        "content": "<div class=\"timeline\"><div class=\"timeline-item active\"><div class=\"timeline-date\">1 lutego 2026</div><div class=\"timeline-desc\">Firmy z obrotem powyżej <strong>200 mln zł</strong></div></div><div class=\"timeline-item\"><div class=\"timeline-date\">1 kwietnia 2026</div><div class=\"timeline-desc\">Pozostali przedsiębiorcy <span class=\"badge badge-red\">⚠ TO TY!</span></div></div></div><div class=\"alert alert-warning\">⚠️ <strong>Wyjątek:</strong> Mikrofirmy do 10 000 zł/miesiąc sprzedaży mogą wystawiać poza KSeF do końca 2026.</div>"
+      },
+      {
+        "id": "certyfikat-jdg",
+        "title": "Jak uzyskać certyfikat — JDG",
+        "subtitle": "Jednoosobowa działalność gospodarcza",
+        "content": "<h4>Co potrzebujesz:</h4><ul><li>✅ Profil Zaufany lub e-Dowód</li><li>✅ Hasło do certyfikatu (min. 15 znaków, duża litera + cyfra)</li></ul><h4>Krok po kroku:</h4><ol><li>Wejdź na <a href=\"https://ap.ksef.mf.gov.pl\" target=\"_blank\">Aplikację Podatnika KSeF</a></li><li>Zaloguj się Profilem Zaufanym</li><li>Wygeneruj <strong>dwa certyfikaty</strong>:</li></ol><table class=\"info-table\"><thead><tr><th>Nr</th><th>Nazwa</th><th>Do czego</th><th>Folder</th></tr></thead><tbody><tr><td>1</td><td>Uwierzytelnienie w systemie KSeF</td><td>Logowanie, wysyłka faktur</td><td><code>1-Certyfikat-Wysylka</code></td></tr><tr><td>2</td><td>Podpis linku do weryfikacji wystawcy</td><td>Tryb offline, kody QR</td><td><code>2-Certyfikat-QR</code></td></tr></tbody></table><div class=\"alert alert-success\">✅ <strong>Złota rada:</strong> Przed generowaniem utwórz 2 foldery na pulpicie. Po wygenerowaniu od razu przenieś pliki do właściwego folderu.</div><div class=\"alert alert-warning\">⚠️ Każdy certyfikat = 2 pliki (.key + .crt). Klucz .key pobiera się AUTOMATYCZNIE w tle!</div><p>📖 <a href=\"https://www.wiedza.sokaris.pl/index.php/Krok_po_kroku:_Jak_wygenerowa%C4%87_Certyfikat_KSeF\" target=\"_blank\">Instrukcja ze zrzutami ekranu →</a></p>"
+      },
+      {
+        "id": "certyfikat-spolka",
+        "title": "Jak uzyskać certyfikat — Spółki",
+        "subtitle": "Spółki z o.o., spółki jawne, inne podmioty",
+        "content": "<h4>Krok po kroku:</h4><ol><li><strong>Złóż ZAW-FA</strong> w urzędzie skarbowym — wskaż osobę uprawnioną</li><li><strong>Urząd nadaje uprawnienia</strong> wskazanej osobie</li><li>Osoba generuje certyfikat w <a href=\"https://ap.ksef.mf.gov.pl\" target=\"_blank\">Aplikacji Podatnika KSeF</a></li></ol><div class=\"alert alert-info\">💡 Certyfikat jest „na osobę”, ale uprawnienia są „na firmę” — jeden certyfikat może służyć do pracy z wieloma podmiotami (potrzebne osobne ZAW-FA dla każdego).</div><div class=\"alert alert-danger\">🚫 Sokaris NIE MOŻE wykonać tego za klienta — uprawnienia nadaje wyłącznie urząd skarbowy.</div>"
+      },
+      {
+        "id": "certyfikat-jst",
+        "title": "Jak uzyskać certyfikat — JST",
+        "subtitle": "Gminy, powiaty, szkoły, TOSIR-y",
+        "content": "<h4>Hierarchia JST:</h4><table class=\"info-table\"><thead><tr><th>Rola</th><th>Przykład</th><th>NIP/ID</th></tr></thead><tbody><tr><td>🏛️ Jednostka nadrzędna (podatnik VAT)</td><td>Gmina, Powiat</td><td>NIP nadrzędny</td></tr><tr><td>🏫 Jednostka podrzędna (wystawca)</td><td>Szkoła, TOSIR</td><td>Własny NIP lub IDWew</td></tr></tbody></table><h4>Krok po kroku:</h4><ol><li>Gmina wyznacza <strong>administratora</strong> jednostki podrzędnej</li><li>Administrator nadaje <strong>uprawnienia pracownikom</strong></li><li>Pracownik generuje certyfikat</li></ol><div class=\"alert alert-danger\">🔴 <strong>WAŻNE:</strong> Przy logowaniu do KSeF jednostka podrzędna podaje <strong>SWÓJ NIP</strong> jako kontekst, NIE NIP gminy!</div>"
+      },
+      {
+        "id": "bledy-certyfikatow",
+        "title": "Najczęstsze błędy certyfikatów",
+        "content": "<div class=\"error-card\"><div class=\"error-code\">9105</div><div class=\"error-title\">Nieprawidłowy podpis</div><div class=\"error-cause\">Przemieszane pliki certyfikatu i klucza prywatnego (pliki z różnych folderów)</div><div class=\"error-fix\">🔧 Wygeneruj certyfikat od nowa, tym razem użyj metody 2 folderów</div></div><div class=\"error-card\"><div class=\"error-code\">415</div><div class=\"error-title\">Brak przypisanych uprawnień</div><div class=\"error-cause\">Certyfikat OK, ale osoba nie ma uprawnień do tego NIP-u</div><div class=\"error-fix\">🔧 Sprawdź uprawnienia w Aplikacji Podatnika KSeF. Spółki: złóż ZAW-FA</div></div><div class=\"error-card\"><div class=\"error-code\">400</div><div class=\"error-title\">Bad Request</div><div class=\"error-cause\">Certyfikat wygasły, unieważniony lub stary system (brak TLS 1.2)</div><div class=\"error-fix\">🔧 Wygeneruj nowy certyfikat. Sprawdź datę ważności. Aktualizuj Windows</div></div>"
+      }
+    ]
+  },
+  {
+    "id": "konfiguracja",
+    "title": "Konfiguracja Programu",
+    "icon": "⚙️",
+    "articles": [
+      {
+        "id": "wgrywanie-certyfikatu",
+        "title": "Gdzie wgrać certyfikat",
+        "content": "<div class=\"article-image\"><img src=\"img/ksef-konfiguracja-diagram.png\" alt=\"Schemat wgrywania certyfikatów KSeF\" loading=\"lazy\"><p class=\"img-caption\">Schemat konfiguracji certyfikatów KSeF w programie Faktura-NT</p></div><h4>Ścieżka w programie:</h4><p><code>Konfiguracja → Konfiguracja programu → KSeF</code></p><table class=\"info-table\"><thead><tr><th>Sekcja</th><th>Pliki</th><th>Folder źródłowy</th></tr></thead><tbody><tr><td>Górna — „Uwierzytelnienie”</td><td>.crt + .key</td><td><code>1-Certyfikat-Wysylka</code></td></tr><tr><td>Dolna — „Faktury Offline”</td><td>.crt + .key</td><td><code>2-Certyfikat-QR</code></td></tr></tbody></table><ul><li>Można przeciągnąć pliki (drag &amp; drop)</li><li>Po wgraniu wpisać hasło certyfikatu</li><li>Prawidłowo: <span class=\"badge badge-green\">OK — ważny do [data]</span></li></ul>"
+      },
+      {
+        "id": "kontekst",
+        "title": "Kontekst uwierzytelniania",
+        "content": "<table class=\"info-table\"><thead><tr><th>Kontekst</th><th>Kiedy</th><th>Uwagi</th></tr></thead><tbody><tr><td><strong>NIP firmy</strong> (domyślny)</td><td>Większość firm</td><td>Program loguje się NIP-em z Danych firmy</td></tr><tr><td><strong>IDWew</strong></td><td>Jednostki wewnętrzne</td><td>Format: NIP-XXXXX</td></tr><tr><td><strong>NIP + VAT UE</strong></td><td>Transakcje unijne</td><td>—</td></tr><tr><td><strong>Peppol ID</strong></td><td>Europejskie e-fakturowanie</td><td>—</td></tr></tbody></table><div class=\"alert alert-info\">💡 Dla większości klientów: zostaw domyślny <strong>NIP firmy</strong>.</div>"
+      },
+      {
+        "id": "pobieranie-zakupow",
+        "title": "Opcje pobierania faktur zakupowych",
+        "content": "<div class=\"option-list\"><div class=\"option\"><input type=\"checkbox\" checked disabled> <strong>Automatycznie pobieraj faktury zakupu z KSeF</strong><p>Faktury trafiają do Bufora KSeF samodzielnie</p></div><div class=\"option\"><input type=\"checkbox\" checked disabled> <strong>Automatycznie importuj pobrane faktury</strong><p>Z Bufora przenosi do Faktur zakupu. <span class=\"badge badge-green\">Zielony kolor</span> = zaimportowane</p></div><div class=\"option\"><input type=\"checkbox\" disabled> <strong>Importy bez uwag zatwierdzaj automatycznie</strong><p>Opcjonalne — zalecane po przetestowaniu</p></div></div><h4>Przepływ faktur zakupowych:</h4><div class=\"flow-diagram\"><div class=\"flow-step\">KSeF</div><div class=\"flow-arrow\">→</div><div class=\"flow-step\">Bufor KSeF<small>przegląd, podgląd PDF</small></div><div class=\"flow-arrow\">→</div><div class=\"flow-step\">Faktury zakupu<small>księgowanie</small></div></div>"
+      },
+      {
+        "id": "diagnostyka",
+        "title": "Opcje diagnostyczne",
+        "content": "<div class=\"option-list\"><div class=\"option\"><input type=\"checkbox\" disabled> <strong>Rozszerzony log KSeF</strong><p>Włącz TYLKO gdy masz problem. Generuje duże pliki.</p><p>Wyślij log do <a href=\"mailto:pomoc@sokaris.pl\">pomoc@sokaris.pl</a></p></div><div class=\"option\"><input type=\"checkbox\" disabled> <strong>Ignoruj status serwerów KSeF</strong><p>Latarnia KSeF informuje o przerwach. Domyślnie odznaczone</p></div></div>"
+      },
+      {
+        "id": "podmiot3-jst",
+        "title": "Podmiot3 — faktury JST",
+        "content": "<h4>Wystawianie w imieniu gminy/powiatu:</h4><ul><li>Dane firmy = NIP nadrzędnej (gmina/powiat) — to jest sprzedawca</li><li>Na fakturze dodaj <strong>Podmiot3</strong> z rolą <strong>7</strong> (JST Wystawca) z danymi jednostki podrzędnej</li></ul><h4>Wystawianie DLA gminy:</h4><ul><li>Nabywca = gmina (NIP gminy)</li><li><strong>Podmiot3</strong> z rolą <strong>8</strong> (JST Odbiorca) = szkoła/jednostka do której trafia towar</li><li>Można ustawić jako domyślny per kontrahent</li></ul>"
+      },
+      {
+        "id": "zalecane-ustawienia",
+        "title": "Zalecane ustawienia",
+        "content": "<div class=\"checklist\"><div class=\"check-item check-yes\">✅ Automatycznie pobieraj faktury zakupu z KSeF</div><div class=\"check-item check-yes\">✅ Automatycznie importuj pobrane faktury</div><div class=\"check-item check-no\">☐ Rozszerzony log — odznaczone</div><div class=\"check-item check-no\">☐ Ignoruj Latarnię — odznaczone</div><div class=\"check-item check-yes\">✅ Kontekst: NIP firmy (domyślny)</div></div>"
+      }
+    ]
+  }
+]

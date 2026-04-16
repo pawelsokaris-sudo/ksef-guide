@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KSeF — Przewodnik Faktura-NT | Sokaris</title>
+    <meta name="description" content="Centralny punkt pomocy KSeF dla klientów Faktura-NT. Certyfikaty, konfiguracja programu, kody problemów, FAQ.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+    <!-- DEADLINE COUNTDOWN (top banner) -->
+    <div class="deadline-banner" id="deadlineBanner">
+        <div class="container countdown-container">
+            <div class="countdown-label">⏰ Obowiązkowy KSeF od <strong>1 kwietnia 2026</strong> — zostało:</div>
+            <div class="countdown-timer" id="countdownTimer">
+                <div class="countdown-unit"><span class="countdown-num" id="cdDays">0</span><span class="countdown-desc">dni</span></div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-unit"><span class="countdown-num" id="cdHours">0</span><span class="countdown-desc">godz</span></div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-unit"><span class="countdown-num" id="cdMins">0</span><span class="countdown-desc">min</span></div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-unit"><span class="countdown-num" id="cdSecs">0</span><span class="countdown-desc">sek</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <header class="hero hero-compact">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <div class="hero-badge"><img src="img/ksef-logo-badge.png" alt="KSeF" class="hero-logo"> Faktura-NT × KSeF</div>
+            <h1>Przewodnik <span class="gradient-text">KSeF</span></h1>
+            <p class="hero-sub">Certyfikaty, konfiguracja programu i rozwiązywanie problemów — wszystko w jednym miejscu.</p>
+
+            <!-- Dual action panel -->
+            <div class="hero-actions">
+                <div class="hero-action-card">
+                    <div class="hero-action-label">🔍 Masz kod od supportu?</div>
+                    <div class="code-search">
+                        <div class="code-search-inner">
+                            <span class="code-search-icon">🔍</span>
+                            <input type="text" id="codeInput" placeholder="Kod problemu (np. 1001)..." autocomplete="off" inputmode="numeric">
+                            <button id="codeSearchBtn" onclick="searchCode()">Szukaj</button>
+                        </div>
+                        <div id="codeResult" class="code-result"></div>
+                    </div>
+                </div>
+                <div class="hero-action-card hero-action-nip">
+                    <div class="hero-action-label">🏢 Sprawdź gotowość na KSeF</div>
+                    <div class="nip-search">
+                        <input type="text" id="nipInput" placeholder="Wpisz NIP firmy..." maxlength="16" inputmode="numeric" oninput="this.value=this.value.replace(/[^\d\-\s\.]/g,'')">
+                        <button id="nipBtn" onclick="checkNip()">Sprawdź NIP</button>
+                    </div>
+                    <div id="nipResult" class="nip-result" style="display:none"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAV TABS -->
+    <nav class="section-nav" id="sectionNav">
+        <div class="container nav-tabs">
+            <button class="nav-tab active" data-section="certyfikaty" onclick="showSection('certyfikaty')">🔑 Certyfikaty</button>
+            <button class="nav-tab" data-section="konfiguracja" onclick="showSection('konfiguracja')">⚙️ Konfiguracja</button>
+            <button class="nav-tab" data-section="kody" onclick="showSection('kody')">🔢 Kody problemów</button>
+            <button class="nav-tab" data-section="faq" onclick="showSection('faq')">❓ FAQ</button>
+            <button class="nav-tab" data-section="artykuly" onclick="showSection('artykuly')">📝 Szybkie odpowiedzi</button>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="container main-content">
+        <!-- Sections 1 & 2 rendered from JSON -->
+        <div id="sectionContent"></div>
+
+        <!-- Section 3: Codes -->
+        <section id="section-kody" class="content-section" style="display:none">
+            <h2>🔢 Kody Problemów</h2>
+            <p class="section-desc">Otrzymałeś kod od supportu? Wpisz go poniżej lub znajdź swój problem na liście.</p>
+            <div class="codes-filter">
+                <input type="text" id="codesFilter" placeholder="Filtruj kody..." oninput="filterCodes()">
+                <div class="codes-cats">
+                    <button class="cat-pill active" onclick="filterCodesCat('all')">Wszystkie</button>
+                    <button class="cat-pill" onclick="filterCodesCat('Certyfikaty')">🔑 Certyfikaty</button>
+                    <button class="cat-pill" onclick="filterCodesCat('Konfiguracja')">⚙️ Konfiguracja</button>
+                    <button class="cat-pill" onclick="filterCodesCat('Diagnostyka')">🔧 Diagnostyka</button>
+                </div>
+            </div>
+            <div id="codesGrid"></div>
+        </section>
+
+        <!-- Section 4: FAQ -->
+        <section id="section-faq" class="content-section" style="display:none">
+            <h2>❓ Najczęściej Zadawane Pytania</h2>
+            <div id="faqList"></div>
+        </section>
+
+        <!-- Section 5: Quick Articles -->
+        <section id="section-artykuly" class="content-section" style="display:none">
+            <h2>📝 Szybkie Odpowiedzi</h2>
+            <p class="section-desc">Odpowiedzi na pytania klientów — z ilustracjami i filmami.</p>
+            <div id="articlesList"></div>
+            <!-- Single article view -->
+            <div id="articleView" style="display:none"></div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="https://sokaris.pl" target="_blank" class="footer-logo-link">
+                        <img src="https://sokaris.pl/wp-content/themes/sokaris-product-theme/img/sokaris_logo.png" alt="Sokaris" class="footer-logo-img">
+                    </a>
+                    <div class="footer-brand">Sokaris · Faktura-NT</div>
+                    <p class="footer-desc">Przewodnik KSeF dla klientów programu Faktura-NT.</p>
+                </div>
+                <div>
+                    <h4>Przydatne linki</h4>
+                    <ul>
+                        <li><a href="https://ap.ksef.mf.gov.pl" target="_blank">Aplikacja Podatnika KSeF</a></li>
+                        <li><a href="https://www.wiedza.sokaris.pl" target="_blank">Baza wiedzy Sokaris</a></li>
+                        <li><a href="https://www.faktura-nt.pl" target="_blank">Faktura-NT.pl</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Kontakt</h4>
+                    <ul>
+                        <li>📧 <a href="mailto:pomoc@sokaris.pl">pomoc@sokaris.pl</a></li>
+                        <li>📞 22 38 956 38</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">© 2026 Sokaris Oprogramowanie · Wszystkie prawa zastrzeżone</div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
