@@ -1376,27 +1376,11 @@
       },
       {
         "type": "table",
-        "headers": [
-          "Wariant P_12",
-          "Znaczenie",
-          "Kiedy stosowany"
-        ],
+        "headers": ["Wariant P_12", "Znaczenie", "Kiedy stosowany"],
         "rows": [
-          [
-            "<strong>0 WDT</strong>",
-            "Wewnątrzwspólnotowa Dostawa Towarów",
-            "Dostawa towarów do innego kraju UE na rzecz podatnika VAT UE"
-          ],
-          [
-            "<strong>0 EX</strong>",
-            "Eksport towarów",
-            "Dostawa towarów do kraju spoza UE"
-          ],
-          [
-            "<strong>0 KR</strong>",
-            "Dostawa krajowa / zwolnienie",
-            "Wszystkie pozostałe przypadki stawki 0%"
-          ]
+          ["<strong>0 WDT</strong>", "Wewnątrzwspólnotowa Dostawa Towarów", "Dostawa towarów do innego kraju UE na rzecz podatnika VAT UE"],
+          ["<strong>0 EX</strong>", "Eksport towarów", "Dostawa towarów do kraju spoza UE"],
+          ["<strong>0 KR</strong>", "Dostawa krajowa / zwolnienie", "Wszystkie pozostałe przypadki stawki 0%"]
         ]
       },
       {
@@ -1409,18 +1393,50 @@
       },
       {
         "type": "stepper",
-        "info": "Ścieżka w programie:",
+        "info": "🔧 4 kroki · ok. 3 minuty",
         "steps": [
-          "Otwórz fakturę",
-          "Zakładka JPK",
-          "Zaznacz checkbox WDT",
-          "Zapisz i wyślij do KSeF"
+          "1. Otwórz fakturę",
+          "2. Zakładka JPK",
+          "3. Zaznacz checkbox WDT",
+          "4. Zapisz i wyślij do KSeF"
         ]
+      },
+      {
+        "type": "heading",
+        "value": "Krok 1: Otwórz fakturę ze stawką 0%"
+      },
+      {
+        "type": "text",
+        "value": "Utwórz nową fakturę lub otwórz istniejącą. Kontrahent musi mieć adres w kraju UE, a pozycje — stawkę 0%."
+      },
+      {
+        "type": "heading",
+        "value": "Krok 2: Przejdź na zakładkę JPK"
+      },
+      {
+        "type": "text",
+        "value": "Na formularzu faktury kliknij zakładkę <strong>JPK</strong>. Znajduje się obok zakładek Pozycje, Płatności, Uwagi."
+      },
+      {
+        "type": "heading",
+        "value": "Krok 3: Zaznacz checkbox WDT"
+      },
+      {
+        "type": "text",
+        "value": "Zaznacz: <strong>&bdquo;Dokument jest Wewnątrzwspólnotową Dostawą Towarów (WDT)&rdquo;</strong>."
       },
       {
         "type": "alert",
         "severity": "info",
-        "value": "🔑 <strong>Kluczowe:</strong> Na fakturze, na zakładce <code>JPK</code>, zaznacz: <strong>Dokument jest Wewnątrzwspólnotową Dostawą Towarów (WDT)</strong>. To jedyny sposób, żeby program prawidłowo oznaczył stawkę 0% jako WDT w pliku XML KSeF."
+        "value": "🔑 <strong>To jedyny sposób</strong>, żeby program prawidłowo oznaczył stawkę 0% jako <code>0 WDT</code> w pliku XML KSeF. Bez tego checkbox program użyje <code>0 KR</code> (domyślna)."
+      },
+      {
+        "type": "heading",
+        "value": "Krok 4: Zapisz i wyślij do KSeF"
+      },
+      {
+        "type": "text",
+        "value": "Zapisz fakturę (<strong>F2</strong>) i wyślij do KSeF standardową ścieżką. Program automatycznie wstawi <code>0 WDT</code> do pola P_12 w XML."
       },
       {
         "type": "divider",
@@ -1432,32 +1448,25 @@
       },
       {
         "type": "table",
-        "headers": [
-          "Wariant",
-          "Co decyduje",
-          "Skąd pochodzi informacja",
-          "Wymaga działania?"
-        ],
+        "headers": ["Wariant", "Co decyduje", "Skąd informacja", "Wymaga działania?"],
         "rows": [
-          [
-            "<strong>0 WDT</strong>",
-            "Checkbox WDT zaznaczony na fakturze",
-            "Zakładka JPK na formularzu faktury",
-            "<strong>TAK</strong> — ręcznie"
-          ],
-          [
-            "<strong>0 EX</strong>",
-            "Checkbox WDT niezaznaczony + kraj kontrahenta spoza UE",
-            "Kartoteka kontrahenta → adres → kraj",
-            "NIE — automatycznie"
-          ],
-          [
-            "<strong>0 KR</strong>",
-            "Wszystkie pozostałe przypadki stawki 0%",
-            "Wartość domyślna",
-            "NIE — automatycznie"
-          ]
+          ["<strong>0 WDT</strong>", "Checkbox &bdquo;WDT&rdquo; zaznaczony na fakturze", "Zakładka JPK na formularzu faktury", "<strong>TAK</strong> — ręcznie"],
+          ["<strong>0 EX</strong>", "Checkbox &bdquo;WDT&rdquo; niezaznaczony + kraj kontrahenta spoza UE", "Kartoteka kontrahenta → adres → kraj", "NIE — automatycznie"],
+          ["<strong>0 KR</strong>", "Wszystkie pozostałe przypadki stawki 0%", "Wartość domyślna", "NIE — automatycznie"]
         ]
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "⚠️ Najczęstszy błąd"
+      },
+      {
+        "type": "alert",
+        "severity": "warning",
+        "value": "Kontrahent z Niemiec, stawka 0%, ale <strong>brak checkboxa WDT</strong> → program wysyła <code>0 KR</code> zamiast <code>0 WDT</code>. Konieczna korekta faktury w KSeF."
       },
       {
         "type": "divider",
@@ -1469,103 +1478,16 @@
       },
       {
         "type": "text",
-        "value": "Sama wiedza o tym, że kontrahent ma adres w kraju UE i że faktura ma stawkę 0%, <strong>nie wystarczy</strong> do stwierdzenia, że transakcja jest WDT. Oto dlaczego:"
+        "value": "Sama wiedza, że kontrahent jest z UE i stawka wynosi 0%, <strong>nie wystarczy</strong>:"
       },
       {
         "type": "list",
         "items": [
-          "<strong>WDT</strong> — dostawa towarów do innego kraju UE na rzecz podatnika VAT UE. Wymaga fizycznego przemieszczenia towaru i rejestracji nabywcy do VAT UE. Tylko użytkownik może potwierdzić spełnienie tych warunków.",
-          "<strong>Usługi z odwrotnym obciążeniem</strong> — usługi niematerialne dla podatnika UE są poza VAT (NP), nie WDT. W FA(3) trafiają do pola <code>NP</code>, nie do <code>P_12</code>.",
-          "<strong>Zwolnienia z art. 43</strong> — sprzedaż towarów lub usług zwolnionych krajowo (np. usługi medyczne, edukacja) dla kontrahenta z UE ma stawkę 0%/zw, ale to <strong>0 KR</strong>, nie WDT.",
-          "<strong>Transakcje trójstronne</strong> — osobna ścieżka, obsługiwana odrębnym polem <code>TROJSTRONNA</code>.",
-          "<strong>WDT do kontrahenta z PL</strong> — WDT może dotyczyć też kontrahenta zarejestrowanego w Polsce, więc po samym kraju kontrahenta nie da się rozstrzygnąć."
-        ]
-      },
-      {
-        "type": "alert",
-        "severity": "error",
-        "value": "❗ <strong>Wniosek:</strong> Program nie może samodzielnie odróżnić WDT od pozostałych przypadków 0% dla kontrahenta unijnego — decyzja należy do użytkownika i jest rejestrowana checkboxem WDT na formularzu faktury."
-      },
-      {
-        "type": "divider",
-        "value": ""
-      },
-      {
-        "type": "heading",
-        "value": "FAQ — najczęstsze pytania o WDT"
-      },
-      {
-        "type": "text",
-        "value": "<strong>Pytanie: Mam kontrahenta z Niemiec ze stawką 0% — czy to automatycznie WDT?</strong>"
-      },
-      {
-        "type": "text",
-        "value": "Nie. Musisz ręcznie zaznaczyć checkbox WDT na zakładce JPK. Bez tego program oznaczy stawkę jako 0 KR (krajowa/domyślna)."
-      },
-      {
-        "type": "text",
-        "value": "<strong>Pytanie: Co jeśli zapomnę zaznaczyć WDT?</strong>"
-      },
-      {
-        "type": "text",
-        "value": "Faktura zostanie wysłana do KSeF z oznaczeniem <code>0 KR</code> zamiast <code>0 WDT</code>. Będziesz musiał wystawić korektę z prawidłowym oznaczeniem."
-      },
-      {
-        "type": "text",
-        "value": "<strong>Pytanie: Eksportuję towary poza UE — muszę coś zaznaczać?</strong>"
-      },
-      {
-        "type": "text",
-        "value": "Nie. Jeśli kraj kontrahenta jest spoza UE, program automatycznie zastosuje <code>0 EX</code> (eksport). Wystarczy, że kartoteka kontrahenta ma poprawny adres."
-      }
-    ]
-  },
-  {
-    "id": "art-012",
-    "title": "Jak dodać KSeFowy QR code do szablonu wydruku faktury",
-    "date": "2026-03-30",
-    "tags": [
-      "QR code",
-      "szablon wydruku",
-      "KSeF",
-      "weryfikacja",
-      "drukowanie"
-    ],
-    "promoted": true,
-    "content": [
-      {
-        "type": "alert",
-        "severity": "info",
-        "value": "🔑 <strong>Klienci mogą zweryfikować Twoją fakturę!</strong> QR code KSeF na wydruku pozwala nabywcy natychmiast sprawdzić autentyczność faktury w systemie KSeF — wystarczy zeskanować kod telefonem."
-      },
-      {
-        "type": "heading",
-        "value": "Po co QR code KSeF na fakturze?"
-      },
-      {
-        "type": "text",
-        "value": "Od momentu wejścia w życie obowiązku KSeF, każda faktura ustrukturyzowana otrzymuje <strong>unikalny numer KSeF</strong> oraz <strong>link weryfikacyjny</strong>. Program Faktura-NT może automatycznie umieścić te dane jako QR code na wydruku faktury — dzięki temu Twój klient jednym skanem telefonu potwierdzi autentyczność dokumentu."
-      },
-      {
-        "type": "divider",
-        "value": ""
-      },
-      {
-        "type": "heading",
-        "value": "Jak dodać QR code do szablonu — krok po kroku"
-      },
-      {
-        "type": "stepper",
-        "info": "Ścieżka w programie:",
-        "steps": [
-          "Konfiguracja → Szablony wydruku dokumentów",
-          "Po lewej wybierz typ dokumentu (np. Faktura VAT)",
-          "Po prawej zaznacz szablon, którego używasz",
-          "Kliknij Edytuj — program poprosi o nową nazwę kopii",
-          "Skopiuj kod QR code (podany niżej) — Ctrl+C",
-          "W edytorze szablonu wklej kod — Ctrl+V",
-          "Umieść elementy QR w wolnym miejscu szablonu",
-          "Zapisz szablon i zamknij edytor"
+          "<strong>WDT</strong> wymaga fizycznego przemieszczenia towaru + rejestracji nabywcy do VAT UE. Tylko użytkownik to potwierdza.",
+          "<strong>Usługi z odwrotnym obciążeniem</strong> dla podatnika UE są &bdquo;poza VAT&rdquo; (NP), nie WDT.",
+          "<strong>Zwolnienia z art. 43</strong> (usługi medyczne, edukacja) mają stawkę 0%, ale jako <code>0 KR</code>.",
+          "<strong>Transakcje trójstronne</strong> — osobna ścieżka, odrębne pole w KSeF.",
+          "<strong>WDT do kontrahenta z PL</strong> — WDT może dotyczyć kontrahenta zarejestrowanego w Polsce."
         ]
       },
       {
@@ -1574,589 +1496,31 @@
       },
       {
         "type": "heading",
-        "value": "Szczegółowa instrukcja"
+        "value": "FAQ"
       },
       {
         "type": "text",
-        "value": "<strong>Krok 1: Otwórz menedżer szablonów</strong>"
+        "value": "<strong>Kontrahent z Niemiec, stawka 0% — czy to automatycznie WDT?</strong><br>Nie. Musisz ręcznie zaznaczyć checkbox &bdquo;WDT&rdquo; na zakładce JPK. Bez tego program oznaczy jako <code>0 KR</code>."
       },
       {
         "type": "text",
-        "value": "Z menu głównego programu wybierz: <code>Konfiguracja</code> → <code>Szablony wydruku dokumentów</code>. Otworzy się okno Zarządzanie szablonami wydruku."
-      },
-      {
-        "type": "image",
-        "src": "img/art-012/krok1-menu.png",
-        "alt": "Menu programu: Konfiguracja → Szablony wydruku dokumentów",
-        "caption": "Krok 1: Z menu Konfiguracja wybierz Szablony wydruku dokumentów"
+        "value": "<strong>Co jeśli zapomnę zaznaczyć WDT?</strong><br>Faktura trafi do KSeF z <code>0 KR</code> zamiast <code>0 WDT</code>. Trzeba wystawić korektę z prawidłowym oznaczeniem."
       },
       {
         "type": "text",
-        "value": "<strong>Krok 2: Wybierz typ dokumentu i szablon</strong>"
-      },
-      {
-        "type": "text",
-        "value": "Po lewej stronie okna wybierz <strong>Faktura VAT</strong> (lub inny typ dokumentu). Po prawej stronie pojawi się lista dostępnych szablonów wizualnych. Zaznacz ten, którego aktualnie używasz — na dole okna widać informację <em>Szablon domyślny przy wydruku</em> z nazwą bieżącego szablonu."
-      },
-      {
-        "type": "image",
-        "src": "img/art-012/krok2-szablony.png",
-        "alt": "Okno Zarządzanie szablonami wydruku — wybierz Faktura VAT i szablon",
-        "caption": "Krok 2: Wybierz typ dokumentu po lewej (np. Faktura VAT) i szablon po prawej"
-      },
-      {
-        "type": "alert",
-        "severity": "warning",
-        "value": "⚠️ <strong>Faktura VAT z rabatem</strong> i <strong>Faktura VAT bez rabatu</strong> to osobne zestawy szablonów! Faktura z rabatem ma dodatkowe kolumny — jeśli używasz obu typów, musisz dodać QR code do każdego zestawu osobno."
-      },
-      {
-        "type": "text",
-        "value": "<strong>Krok 3: Edytuj szablon — program tworzy bezpieczną kopię</strong>"
-      },
-      {
-        "type": "text",
-        "value": "Po kliknięciu <strong>Edytuj</strong> program wyświetli komunikat, że szablon systemowy nie może być bezpośrednio modyfikowany — zostanie utworzona kopia z nową nazwą. Podaj dowolną unikalną nazwę (np. <code>Klasyczny_z_QR</code>) i kliknij OK."
-      },
-      {
-        "type": "image",
-        "src": "img/art-012/krok3-nowa-nazwa.png",
-        "alt": "Dialog nowej nazwy szablonu — podaj unikalną nazwę",
-        "caption": "Krok 3: Program tworzy kopię — podaj nową nazwę (np. Klasyczny_z_QR)"
-      },
-      {
-        "type": "alert",
-        "severity": "info",
-        "value": "💡 <strong>Bezpieczeństwo:</strong> Oryginalny szablon systemowy zawsze pozostaje niezmieniony. Jeśli cokolwiek się zepsuje w edycji, zawsze możesz wrócić do oryginału."
-      },
-      {
-        "type": "text",
-        "value": "<strong>Krok 4: Wklej kod QR code w edytorze</strong>"
-      },
-      {
-        "type": "text",
-        "value": "Otworzy się edytor szablonów. Teraz skopiuj (Ctrl+C) poniższy kod i wklej go w edytorze (Ctrl+V):"
-      },
-      {
-        "type": "image",
-        "src": "img/art-012/krok4-edytor.png",
-        "alt": "Edytor szablonów wydruku — pusty szablon przed wklejeniem",
-        "caption": "Krok 4: Edytor szablonów — tutaj wklejasz kod QR code (Ctrl+V)"
-      },
-      {
-        "type": "copybox",
-        "label": "📋 Kod do wklejenia w edytorze szablonów (Ctrl+V)",
-        "rows": 6,
-        "value": "#FR3 clipboard#\n\n&lt;TfrxMemoView Name=&quot;Memo99&quot; AllowVectorExport=&quot;True&quot; Left=&quot;0&quot; Top=&quot;0&quot; Width=&quot;325,03958&quot; Height=&quot;15,11812&quot; Hyperlink.Value=&quot;[Link weryfikacyjny KSeF]&quot; StretchMode=&quot;smActualHeight&quot; Font.Charset=&quot;238&quot; Font.Color=&quot;-16777208&quot; Font.Height=&quot;-9&quot; Font.Name=&quot;Tahoma&quot; Font.Style=&quot;0&quot; Frame.Typ=&quot;0&quot; ParentFont=&quot;False&quot; Text=&quot;[QR Code I Over Label]&quot;/&gt;&lt;TfrxBarcode2DView Name=&quot;Barcode2D1&quot; AllowVectorExport=&quot;True&quot; Left=&quot;0&quot; Top=&quot;18,89765&quot; Width=&quot;84&quot; Height=&quot;84&quot; OnBeforePrint=&quot;Barcode2D1OnBeforePrint&quot; Hyperlink.Expression=&quot;QR Code I&quot; StretchMode=&quot;smActualHeight&quot; Expression=&quot;QR Code I&quot; BarType=&quot;bcCodeQR&quot; BarProperties.Encoding=&quot;qrAuto&quot; BarProperties.QuietZone=&quot;0&quot; BarProperties.ErrorLevels=&quot;ecL&quot; BarProperties.PixelSize=&quot;4&quot; BarProperties.CodePage=&quot;0&quot; Frame.Typ=&quot;0&quot; Rotation=&quot;0&quot; ShowText=&quot;False&quot; HexData=&quot;31003200330034003500360037003800&quot; Zoom=&quot;1&quot; FontScaled=&quot;True&quot; QuietZone=&quot;0&quot;/&gt;&lt;TfrxMemoView Name=&quot;Memo100&quot; AllowVectorExport=&quot;True&quot; Left=&quot;0&quot; Top=&quot;105,82684&quot; Width=&quot;325,03958&quot; Height=&quot;18,89765&quot; StretchMode=&quot;smActualHeight&quot; Font.Charset=&quot;238&quot; Font.Color=&quot;-16777208&quot; Font.Height=&quot;-11&quot; Font.Name=&quot;Tahoma&quot; Font.Style=&quot;1&quot; Frame.Typ=&quot;0&quot; ParentFont=&quot;False&quot; Text=&quot;[QR Code I Under Label]&quot;/&gt;"
-      },
-      {
-        "type": "text",
-        "value": "Po wklejeniu na szablonie pojawią się <strong>trzy elementy</strong>: label górny (link weryfikacyjny), sam QR code, oraz label dolny (numer KSeF). Przesun je myszką w <strong>wolne miejsce</strong> na szablonie (np. w prawą górną część nagłówka)."
-      },
-      {
-        "type": "image",
-        "src": "img/art-012/krok5-qr-wklejony.png",
-        "alt": "Edytor szablonów z wklejonym QR code — widoczny kod i etykiety",
-        "caption": "Krok 5: Po wklejeniu — QR code z etykietami widoczny na szablonie"
-      },
-      {
-        "type": "text",
-        "value": "<strong>Krok 5: Zapisz i ustaw jako domyślny</strong>"
-      },
-      {
-        "type": "text",
-        "value": "Zapisz szablon (<code>Ctrl+S</code> lub <code>Plik → Zapisz</code>). Zamknij edytor. W oknie Zarządzanie szablonami wydruku zaznacz nowy szablon i kliknij <strong>Ustaw jako domyślny</strong>, żeby program używał go przy każdym wydruku."
+        "value": "<strong>Eksportuję towary poza UE — muszę coś zaznaczać?</strong><br>Nie. Jeśli kraj kontrahenta jest spoza UE, program automatycznie zastosuje <code>0 EX</code>. Wystarczy poprawny adres w kartotece."
       },
       {
         "type": "divider",
         "value": ""
       },
       {
-        "type": "heading",
-        "value": "Co zawiera wklejany kod?"
-      },
-      {
-        "type": "table",
-        "headers": [
-          "Element",
-          "Opis",
-          "Źródło danych"
-        ],
-        "rows": [
-          [
-            "<strong>QR Code I Over Label</strong>",
-            "Link weryfikacyjny — klikalny adres URL do strony weryfikacji KSeF",
-            "Generowany automatycznie po wysłaniu faktury do KSeF"
-          ],
-          [
-            "<strong>QR Code I</strong>",
-            "Kod QR — zakodowany link weryfikacyjny jako graficzny kod 2D",
-            "Generowany automatycznie z linku weryfikacyjnego"
-          ],
-          [
-            "<strong>QR Code I Under Label</strong>",
-            "Numer KSeF — identyfikator faktury w systemie KSeF",
-            "Nadawany przez KSeF po przyjęciu faktury"
-          ]
-        ]
-      },
-      {
-        "type": "divider",
-        "value": ""
-      },
-      {
-        "type": "heading",
-        "value": "FAQ — najczęstsze pytania o QR code"
+        "type": "text",
+        "value": "📞 Pomoc: <strong>22 38 956 38</strong> · pon.–pt. 9:00–15:00"
       },
       {
         "type": "text",
-        "value": "<strong>Pytanie: QR code jest pusty na wydruku — co robić?</strong>"
-      },
-      {
-        "type": "text",
-        "value": "QR code wypełnia się danymi <strong>dopiero po wysłaniu faktury do KSeF</strong>. Przed wysyłką faktura nie ma jeszcze numeru KSeF ani linku weryfikacyjnego — to normalne, że QR code jest pusty na podglądzie nowej faktury."
-      },
-      {
-        "type": "text",
-        "value": "<strong>Pytanie: Czy muszę dodawać QR code do każdego typu dokumentu osobno?</strong>"
-      },
-      {
-        "type": "text",
-        "value": "Tak. Każdy typ dokumentu (Faktura VAT, Faktura VAT z rabatem, Korekta VAT itd.) ma własny zestaw szablonów. QR code trzeba wkleić do szablonu <strong>każdego typu</strong>, który drukujesz z KSeF."
-      },
-      {
-        "type": "text",
-        "value": "<strong>Pytanie: Czy mogę zmienić rozmiar QR code?</strong>"
-      },
-      {
-        "type": "text",
-        "value": "Tak — w edytorze szablonów możesz zmienić rozmiar elementu QR code, przeciągając jego narożniki. Upewnij się jednak, że kod pozostanie czytelny (zalecany minimalny rozmiar to ok. 2×2 cm)."
-      },
-      {
-        "type": "text",
-        "value": "<strong>Pytanie: Co jeśli zepsuję szablon?</strong>"
-      },
-      {
-        "type": "text",
-        "value": "Program tworzy kopię szablonu — oryginalny szablon systemowy zawsze pozostaje dostępny. Wystarczy wrócić do okna Zarządzanie szablonami wydruku, zaznaczyć oryginalny szablon i kliknąć Ustaw jako domyślny."
-      }
-    ]
-  },
-  {
-    "id": "art-013",
-    "title": "Korekta płatności do faktury wysłanej do KSeF",
-    "date": "2026-03-31",
-    "tags": [
-      "korekta",
-      "płatności",
-      "KSeF",
-      "faktura"
-    ],
-    "promoted": true,
-    "content": [
-      {
-        "type": "alert",
-        "severity": "warning",
-        "value": "Po wysłaniu faktury do KSeF <strong>nie ma możliwości zmiany danych</strong> na wystawionej fakturze. Aby zmienić formę płatności, termin lub inne dane — trzeba wystawić <strong>korektę danych formalnych</strong>."
-      },
-      {
-        "type": "heading",
-        "value": "Krok 1 — Zaznacz fakturę i wystaw korektę"
-      },
-      {
-        "type": "text",
-        "value": "Na liście wystawionych faktur <strong>zaznacz błędną fakturę</strong>, następnie kliknij przycisk <strong>Korekta</strong> z prawej strony i wybierz <strong>Wystaw korektę</strong>."
-      },
-      {
-        "type": "image",
-        "src": "img/art-013/krok1-lista.png",
-        "alt": "Lista faktur — zaznaczenie błędnej faktury"
-      },
-      {
-        "type": "image",
-        "src": "img/art-013/krok1-menu.png",
-        "alt": "Menu Korekta → Wystaw korektę"
-      },
-      {
-        "type": "heading",
-        "value": "Krok 2 — Przejdź do zakładki \"Korekta danych formalnych\""
-      },
-      {
-        "type": "text",
-        "value": "Otworzy się okno korekty. Kliknij zakładkę <strong>Korekta danych formalnych</strong> (obok zakładki \"Towary\")."
-      },
-      {
-        "type": "image",
-        "src": "img/art-013/krok2-zakladka.png",
-        "alt": "Zakładka Korekta danych formalnych"
-      },
-      {
-        "type": "heading",
-        "value": "Krok 3 — Zmień formę płatności"
-      },
-      {
-        "type": "text",
-        "value": "Po prawej stronie w sekcji <strong>Dane korygowanej faktury</strong> znajdziesz pole <strong>Forma płatności</strong>. Rozwiń listę i wybierz prawidłowy rodzaj płatności."
-      },
-      {
-        "type": "image",
-        "src": "img/art-013/krok3-platnosc.png",
-        "alt": "Zmiana formy płatności w korekcie"
-      },
-      {
-        "type": "heading",
-        "value": "Krok 4 — Wpisz podstawę korekty"
-      },
-      {
-        "type": "text",
-        "value": "W polu <strong>Podstawa korekty</strong> wpisz powód, np. <em>\"zmiana rodzaju płatności\"</em>."
-      },
-      {
-        "type": "image",
-        "src": "img/art-013/krok4-podstawa.png",
-        "alt": "Podstawa korekty — zmiana rodzaju płatności"
-      },
-      {
-        "type": "heading",
-        "value": "Krok 5 — Drukuj i sprawdź podgląd"
-      },
-      {
-        "type": "text",
-        "value": "Kliknij <strong>Drukuj</strong>. W podglądzie wydruku zobaczysz sekcję <strong>Korekta danych formalnych</strong> z informacją co zostało zmienione (Było → Jest)."
-      },
-      {
-        "type": "image",
-        "src": "img/art-013/krok5-podglad.png",
-        "alt": "Podgląd wydruku — Faktura korygująca VAT"
-      },
-      {
-        "type": "image",
-        "src": "img/art-013/krok5-zmiana.png",
-        "alt": "Sekcja Zmieniono: Było → Jest"
-      },
-      {
-        "type": "heading",
-        "value": "Krok 6 — Wyślij do KSeF"
-      },
-      {
-        "type": "text",
-        "value": "W podglądzie wydruku kliknij przycisk <strong>Wyślij do KSeF</strong>. Korekta zostanie wysłana i otrzyma własny numer KSeF."
-      },
-      {
-        "type": "image",
-        "src": "img/art-013/krok6-wyslij.png",
-        "alt": "Przycisk Wyślij do KSeF"
-      },
-      {
-        "type": "alert",
-        "severity": "info",
-        "value": "Korekta automatycznie zawiera numer KSeF faktury źródłowej. Kontrahent zobaczy ją w swoim systemie KSeF."
-      }
-    ]
-  },
-  {
-    "id": "art-014",
-    "title": "Odbiorca faktury jako Podmiot 3 w KSeF",
-    "category": "ksef",
-    "date": "2026-03-31",
-    "content": [
-      {
-        "type": "alert",
-        "severity": "info",
-        "value": "W strukturze KSeF faktura może zawierać <strong>Podmiot 3</strong> — dodatkowy podmiot poza sprzedawcą i nabywcą. Najczęściej jest to <strong>odbiorca faktury</strong>, ale może pełnić też inne role."
-      },
-      {
-        "type": "heading",
-        "value": "Role Podmiotu 3"
-      },
-      {
-        "type": "text",
-        "value": "Podmiot 3 może występować w jednej z następujących ról:<br>• <strong>1 — Faktor</strong> (firma faktoringowa)<br>• <strong>2 — Odbiorca</strong> (najczęstsza rola — odbiorca faktury)<br>• <strong>4 — Dodatkowy nabywca</strong><br>• <strong>6 — Dokonujący płatności</strong><br>• <strong>8 — JST Odbiorca</strong> (jednostka samorządu terytorialnego)<br>• <strong>10 — Grupa VAT Odbiorca</strong><br>• <strong>11 — Pracownik</strong><br>• <strong>99 — Inna rola</strong><br><br>Informację o roli należy uzyskać od odbiorcy faktury."
-      },
-      {
-        "type": "heading",
-        "value": "Część 1 — Dodanie Podmiotu 3 do kartoteki kontrahenta"
-      },
-      {
-        "type": "heading",
-        "value": "Krok 1 — Otwórz kartotekę kontrahentów"
-      },
-      {
-        "type": "text",
-        "value": "W <strong>Kartotece kontrahentów</strong> znajdź i zaznacz głównego kontrahenta (Nabywcę), dla którego chcesz dodać Podmiot 3."
-      },
-      {
-        "type": "image",
-        "src": "img/art-014/krok1-kartoteka.png",
-        "alt": "Kartoteka kontrahentów — zaznaczenie kontrahenta"
-      },
-      {
-        "type": "heading",
-        "value": "Krok 2 — Edytuj kontrahenta → zakładka KSeF"
-      },
-      {
-        "type": "text",
-        "value": "Kliknij przycisk <strong>Edytuj</strong> z prawej strony. W oknie edycji, z lewego menu wybierz zakładkę <strong>KSeF</strong>."
-      },
-      {
-        "type": "image",
-        "src": "img/art-014/krok2-edycja.png",
-        "alt": "Okno edycji kontrahenta"
-      },
-      {
-        "type": "image",
-        "src": "img/art-014/krok2-menu-ksef.png",
-        "alt": "Menu KSeF w lewym panelu"
-      },
-      {
-        "type": "heading",
-        "value": "Krok 3 — Dodaj Podmiot 3"
-      },
-      {
-        "type": "text",
-        "value": "Kliknij przycisk <strong>Dodaj</strong>. Otworzy się formularz <strong>Podmiot trzeci (KSeF)</strong>. Wybierz odpowiednią <strong>Rolę</strong> z listy i uzupełnij dane: nazwę podmiotu, NIP, adres. Kliknij <strong>OK</strong>."
-      },
-      {
-        "type": "image",
-        "src": "img/art-014/krok3-role.png",
-        "alt": "Dropdown z rolami Podmiotu 3"
-      },
-      {
-        "type": "image",
-        "src": "img/art-014/krok3-formularz.png",
-        "alt": "Formularz Podmiotu trzeciego (KSeF)"
-      },
-      {
-        "type": "heading",
-        "value": "Krok 4 — Możesz dodać wiele podmiotów"
-      },
-      {
-        "type": "text",
-        "value": "W ramach jednego kontrahenta można dodać <strong>wiele podmiotów trzecich</strong>. Lista dodanych podmiotów jest widoczna w zakładce KSeF. Użyj przycisków <strong>Dodaj</strong>, <strong>Usuń</strong> lub <strong>Edytuj</strong>."
-      },
-      {
-        "type": "image",
-        "src": "img/art-014/krok4-lista.png",
-        "alt": "Lista podmiotów trzecich w kartotece"
-      },
-      {
-        "type": "heading",
-        "value": "Krok 5 — Zatwierdź kartotekę"
-      },
-      {
-        "type": "text",
-        "value": "Po dodaniu podmiotów kliknij <strong>OK</strong>, aby zatwierdzić kartotekę kontrahenta."
-      },
-      {
-        "type": "heading",
-        "value": "Część 2 — Wystawienie faktury z Podmiotem 3"
-      },
-      {
-        "type": "heading",
-        "value": "Krok 6 — Wystaw fakturę z kartoteki"
-      },
-      {
-        "type": "text",
-        "value": "W <strong>Kartotece kontrahentów</strong> zaznacz kontrahenta i kliknij przycisk <strong>Wystaw fakturę</strong> z prawej strony."
-      },
-      {
-        "type": "image",
-        "src": "img/art-014/krok6-kartoteka-fv.png",
-        "alt": "Kartoteka — przycisk Wystaw fakturę"
-      },
-      {
-        "type": "image",
-        "src": "img/art-014/krok6-wystaw-btn.png",
-        "alt": "Przycisk Wystaw fakturę"
-      },
-      {
-        "type": "heading",
-        "value": "Krok 7 — Potwierdź dodanie podmiotu"
-      },
-      {
-        "type": "text",
-        "value": "Program zapyta: <em>\"Kontrahent ma skonfigurowany podmiot powiązany. Dodać go do faktury?\"</em> — kliknij <strong>Tak</strong>."
-      },
-      {
-        "type": "image",
-        "src": "img/art-014/krok7-pytanie.png",
-        "alt": "Potwierdzenie dodania podmiotu powiązanego"
-      },
-      {
-        "type": "heading",
-        "value": "Krok 8 — Podmiot 3 automatycznie na fakturze"
-      },
-      {
-        "type": "text",
-        "value": "Program automatycznie przypisze zdefiniowany podmiot 3 do faktury. Zobaczysz oznaczenie <strong>\"Podmioty powiązane (1)\"</strong> na formularzu faktury."
-      },
-      {
-        "type": "image",
-        "src": "img/art-014/krok8-podmioty.png",
-        "alt": "Podmioty powiązane na fakturze"
-      },
-      {
-        "type": "heading",
-        "value": "Krok 9 — Wybór przy wielu podmiotach"
-      },
-      {
-        "type": "text",
-        "value": "Jeśli kontrahent ma <strong>wiele podmiotów trzecich</strong>, program wyświetli okno wyboru — zaznacz odpowiednie podmioty i kliknij <strong>Dodaj zaznaczone</strong>."
-      },
-      {
-        "type": "image",
-        "src": "img/art-014/krok9-wybor.png",
-        "alt": "Wybór podmiotów powiązanych kontrahenta"
-      },
-      {
-        "type": "alert",
-        "severity": "warning",
-        "value": "Podmiot 3 <strong>nie jest widoczny na podglądzie wydruku</strong> faktury. Dane podmiotu trzeciego trafiają do KSeF dopiero po <strong>wysłaniu faktury do KSeF</strong>."
-      }
-    ],
-    "tags": [
-      "podmiot3",
-      "odbiorca",
-      "KSeF",
-      "kartoteka"
-    ]
-  },
-  {
-    "id": "art-019",
-    "title": "Jak wystawić fakturę na firmę leasingową",
-    "subtitle": "konfiguracja faktora (Podmiot3) i wystawianie faktury",
-    "date": "2026-04-15",
-    "tags": [
-      "faktura",
-      "leasing",
-      "faktor",
-      "podmiot3",
-      "firma leasingowa"
-    ],
-    "promoted": true,
-    "content": [
-      {
-        "type": "text",
-        "value": "Faktura na firmę leasingową wymaga dodania jej jako Podmiot trzeci (Faktor) w KSeF. Konfiguracja trwa 2 minuty — robisz to raz, potem program automatycznie dodaje faktora do każdej faktury."
-      },
-      {
-        "type": "alert",
-        "severity": "info",
-        "value": "Firma leasingowa (np. ING Faktoring) jest wpisywana jako <strong>Podmiot trzeci</strong> z rolą <strong>Faktor</strong>. Nie jako zwykły nabywca."
-      },
-      {
-        "type": "heading",
-        "value": "Część 1: Konfiguracja kontrahenta (jednorazowo)"
-      },
-      {
-        "type": "text",
-        "value": "<strong>1.</strong> Otwórz kartotekę kontrahentów i dodaj firmę leasingową. Wpisz jej NIP:"
-      },
-      {
-        "type": "image",
-        "src": "/img/art-019/krok1-nip.png",
-        "alt": "Okno Numer NIP — wpisanie NIP firmy leasingowej",
-        "caption": "Wpisz NIP firmy leasingowej i kliknij OK"
-      },
-      {
-        "type": "text",
-        "value": "<strong>2.</strong> Program pobierze dane z bazy REGON. Sprawdź czy checkbox <strong>☑ Odbiorca</strong> jest zaznaczony:"
-      },
-      {
-        "type": "image",
-        "src": "/img/art-019/krok2-dane-regon.png",
-        "alt": "Dane kontrahenta pobrane z REGON — ING Faktoring, checkbox Odbiorca zaznaczony",
-        "caption": "Dane pobrane automatycznie z REGON — sprawdź checkbox Odbiorca"
-      },
-      {
-        "type": "text",
-        "value": "<strong>3.</strong> Z lewej strony kliknij zakładkę <strong>KSeF</strong> (na samym dole listy):"
-      },
-      {
-        "type": "image",
-        "src": "/img/art-019/krok3-zakladka-ksef.png",
-        "alt": "Zakładka KSeF w edycji kontrahenta — Domyślne podmioty powiązane (Podmiot3)",
-        "caption": "Zakładka KSeF — sekcja Domyślne podmioty powiązane, kliknij Dodaj"
-      },
-      {
-        "type": "text",
-        "value": "<strong>4.</strong> Kliknij <strong>Dodaj</strong>. W oknie Podmiot trzeci wybierz rolę <strong>1 - Faktor</strong>:"
-      },
-      {
-        "type": "image",
-        "src": "/img/art-019/krok4-rola-faktor.png",
-        "alt": "Okno Podmiot trzeci KSeF — lista ról, wybrana 1-Faktor",
-        "caption": "Wybierz rolę 1 - Faktor z listy rozwijanej"
-      },
-      {
-        "type": "text",
-        "value": "<strong>5.</strong> Uzupełnij dane poniżej — przede wszystkim <strong>Nr rachunku (Faktora)</strong> i opcjonalnie <strong>Nr klienta / umowy</strong>:"
-      },
-      {
-        "type": "image",
-        "src": "/img/art-019/krok5-dane-faktora.png",
-        "alt": "Pola danych faktora — nr rachunku bankowego, telefon, email, nr umowy",
-        "caption": "Wpisz numer konta bankowego firmy leasingowej i nr umowy"
-      },
-      {
-        "type": "text",
-        "value": "<strong>6.</strong> Kliknij <strong>OK</strong> — konfiguracja zakończona. Robisz to tylko raz."
-      },
-      {
-        "type": "alert",
-        "severity": "info",
-        "value": "💡 <strong>TIP:</strong> Nr rachunku (Faktora) to numer konta bankowego firmy leasingowej — na to konto klient będzie kierował płatności."
-      },
-      {
-        "type": "divider",
-        "value": ""
-      },
-      {
-        "type": "heading",
-        "value": "Część 2: Wystawianie faktury"
-      },
-      {
-        "type": "text",
-        "value": "<strong>7.</strong> Wyszukaj kontrahenta w kartotece i kliknij <strong>Wystaw fakturę</strong>:"
-      },
-      {
-        "type": "image",
-        "src": "/img/art-019/krok6-kartoteka.png",
-        "alt": "Kartoteka kontrahentów — ING Faktoring, przycisk Wystaw fakturę",
-        "caption": "Zaznacz kontrahenta i kliknij Wystaw fakturę"
-      },
-      {
-        "type": "text",
-        "value": "<strong>8.</strong> Program zapyta czy dodać skonfigurowany podmiot powiązany. Kliknij <strong>Tak</strong>:"
-      },
-      {
-        "type": "image",
-        "src": "/img/art-019/krok7-potwierdzenie.png",
-        "alt": "Dialog potwierdzenia — Kontrahent ma skonfigurowany podmiot powiązany, Dodać go do faktury?",
-        "caption": "Kliknij Tak — faktor zostanie dodany do faktury"
-      },
-      {
-        "type": "alert",
-        "severity": "warning",
-        "value": "⚠️ <strong>WAŻNE:</strong> Kliknij <strong>Tak</strong> — bez tego faktor nie pojawi się na fakturze i KSeF może odrzucić dokument."
-      },
-      {
-        "type": "text",
-        "value": "<strong>9.</strong> Faktura otworzy się z danymi nabywcy i przyciskiem <strong>Podmioty powiązane (1)</strong> — faktor jest już dodany. Dodaj towary i wyślij do KSeF jak zwykłą fakturę."
-      },
-      {
-        "type": "image",
-        "src": "/img/art-019/krok8-faktura.png",
-        "alt": "Nagłówek faktury z nabywcą ING Faktoring i przyciskiem Podmioty powiązane (1)",
-        "caption": "Faktura gotowa — Podmioty powiązane (1) oznacza że faktor jest dodany"
-      },
-      {
-        "type": "divider",
-        "value": ""
-      },
-      {
-        "type": "alert",
-        "severity": "info",
-        "value": "📧 Pytania? Napisz na <strong>bok@sokaris.pl</strong> lub zadzwoń: <strong>607 606 841</strong>"
+        "value": "<em>Faktura-NT 5.14 i nowsze · Ostatnia aktualizacja: marzec 2026</em>"
       }
     ]
   }
