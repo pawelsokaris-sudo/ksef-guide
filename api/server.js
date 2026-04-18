@@ -690,6 +690,61 @@ app.get('/api/infolinia/today', async (req, res) => {
     }
 });
 
+// ══════════════════════════════════════════════════════════════
+// KAMPANIE — Results Dashboard API
+// ══════════════════════════════════════════════════════════════
+
+app.get('/api/kampanie', (req, res) => {
+    const kampanie = db.prepare('SELECT * FROM kampanie ORDER BY utworzona_at DESC').all();
+    res.json(kampanie);
+});
+
+app.get('/api/kampanie/:id/results', (req, res) => {
+    const id = req.params.id;
+
+    const kampania = db.prepare('SELECT * FROM kampanie WHERE id = ?').get(id);
+    if (!kampania) return res.status(404).json({ error: 'Kampania nie znaleziona' });
+
+    const totalOdbiorcy = db.prepare('SELECT COUNT(*) as cnt FROM kampanie_odbiorcy WHERE kampania_id = ?').get(id).cnt;
+    const wyslano = db.prepare('SELECT COUNT(*) as cnt FROM kampanie_odbiorcy WHERE kampania_id = ? AND wyslano_at IS NOT NULL').get(id).cnt;
+
+    // Kliknięcia per etap
+    const kliknieciaPerEtap = db.prepare(`
+        SELECT etap, COUNT(*) as cnt, MIN(klikniete_at) as first_click, MAX(klikniete_at) as last_click
+        FROM kampanie_klikniecia WHERE kampania_id = ? GROUP BY etap ORDER BY etap
+    `).all(id);
+
+    const totalKlik = db.prepare('SELECT COUNT(*) as cnt FROM kampanie_klikniecia WHERE kampania_id = ?').get(id).cnt;
+    const unikalneKlik = db.prepare('SELECT COUNT(DISTINCT token) as cnt FROM kampanie_klikniecia WHERE kampania_id = ?').get(id).cnt;
+
+    // Ostatnie 20 kliknięć
+    const ostatnieKlik = db.prepare(`
+        SELECT kk.etap, kk.klikniete_at, kk.ip, ko.nip, ko.email
+        FROM kampanie_klikniecia kk
+        JOIN kampanie_odbiorcy ko ON kk.token = ko.token AND kk.kampania_id = ko.kampania_id
+        WHERE kk.kampania_id = ? ORDER BY kk.klikniete_at DESC LIMIT 20
+    `).all(id);
+
+    // Open rate (unique clickers / sent)
+    const openRate = wyslano > 0 ? ((unikalneKlik / wyslano) * 100).toFixed(1) : '0.0';
+
+    res.json({
+        kampania,
+        stats: {
+            total_odbiorcy: totalOdbiorcy,
+            wyslano: wyslano,
+            total_klikniecia: totalKlik,
+            unikalne_klikniecia: unikalneKlik,
+            open_rate: openRate + '%',
+        },
+        klikniecia_per_etap: kliknieciaPerEtap,
+        ostatnie_klikniecia: ostatnieKlik.map(k => ({
+            ...k,
+            email: maskEmail(k.email)
+        })),
+    });
+});
+
 // Serve uploaded screenshots
 app.use('/api/uploads', express.static(UPLOADS_DIR));
 

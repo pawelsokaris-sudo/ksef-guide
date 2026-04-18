@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kampanie — Wyniki | Sokaris</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #0f1117; color: #e0e0e0; min-height: 100vh; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+        h1 { font-size: 1.8rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; }
+        .subtitle { color: #888; font-size: 0.9rem; margin-bottom: 2rem; }
+
+        /* CARDS */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+        .stat-card { background: #1a1d27; border: 1px solid #2a2d3a; border-radius: 12px; padding: 1.5rem; }
+        .stat-card .label { font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem; }
+        .stat-card .value { font-size: 2rem; font-weight: 700; color: #fff; }
+        .stat-card .value.accent { color: #22c55e; }
+        .stat-card .value.blue { color: #3b82f6; }
+        .stat-card .value.amber { color: #f59e0b; }
+
+        /* KAMPANIA SELECTOR */
+        .kampania-selector { margin-bottom: 1.5rem; }
+        .kampania-selector select { background: #1a1d27; color: #fff; border: 1px solid #2a2d3a; border-radius: 8px; padding: 0.7rem 1rem; font-size: 0.9rem; font-family: 'Inter', sans-serif; width: 100%; max-width: 500px; cursor: pointer; }
+        .kampania-selector select:focus { outline: none; border-color: #3b82f6; }
+
+        /* TABLES */
+        .section-title { font-size: 1.1rem; font-weight: 600; color: #fff; margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #2a2d3a; }
+        table { width: 100%; border-collapse: collapse; background: #1a1d27; border-radius: 12px; overflow: hidden; }
+        th { background: #22252f; color: #999; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.8rem 1rem; text-align: left; }
+        td { padding: 0.7rem 1rem; border-top: 1px solid #2a2d3a; font-size: 0.85rem; }
+        tr:hover td { background: rgba(59,130,246,0.05); }
+        .badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 6px; font-size: 0.75rem; font-weight: 600; }
+        .badge-green { background: rgba(34,197,94,0.15); color: #22c55e; }
+        .badge-blue { background: rgba(59,130,246,0.15); color: #3b82f6; }
+        .badge-gray { background: rgba(136,136,136,0.15); color: #888; }
+
+        /* ETAPY BAR */
+        .etap-bar { display: flex; gap: 0.5rem; align-items: end; margin-top: 1rem; }
+        .etap-col { flex: 1; text-align: center; }
+        .etap-bar-fill { background: linear-gradient(180deg, #3b82f6, #1d4ed8); border-radius: 6px 6px 0 0; min-height: 4px; transition: height 0.5s; }
+        .etap-label { font-size: 0.7rem; color: #888; margin-top: 0.3rem; }
+        .etap-label .etap-desc { display: block; font-size: 0.65rem; color: #666; margin-top: 0.15rem; max-width: 120px; margin-left: auto; margin-right: auto; line-height: 1.3; }
+        .etap-count { font-size: 0.8rem; font-weight: 600; color: #fff; margin-bottom: 0.2rem; }
+
+        .loading { text-align: center; padding: 3rem; color: #888; }
+        .error { color: #ef4444; text-align: center; padding: 2rem; }
+
+        /* LINK */
+        .share-link { margin-top: 2rem; padding: 1rem; background: #1a1d27; border: 1px solid #2a2d3a; border-radius: 8px; font-size: 0.8rem; color: #888; word-break: break-all; }
+        .share-link strong { color: #fff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Wyniki kampanii</h1>
+        <p class="subtitle">ksef.faktura-nt.pl — śledzenie kliknięć i otwarć</p>
+
+        <div class="kampania-selector">
+            <select id="kampaniaSelect">
+                <option value="">Ładowanie kampanii...</option>
+            </select>
+        </div>
+
+        <div id="dashboard">
+            <div class="loading">Wybierz kampanię powyżej...</div>
+        </div>
+    </div>
+
+    <script>
+    const API = '/api';
+
+    const ETAP_DESC = {
+        1: 'Nie wprowadziłem licencji do programu',
+        2: 'Nie wygenerowałem certyfikatów',
+        3: 'Nie dodałem certyfikatów do programu',
+        4: 'Nie wiem jak obsługiwać KSeF',
+        5: 'Nie wiem jak wystawić fakturę',
+        6: 'Faktura z KSeF nie zwiększa stanu magazynowego',
+        7: 'Jak wystawić fakturę na Podmiot3',
+        8: 'Mam inne pytanie',
+    };
+
+    function etapLabel(n) {
+        return ETAP_DESC[n] || `Etap ${n}`;
+    }
+
+    async function loadKampanie() {
+        try {
+            const res = await fetch(`${API}/kampanie`);
+            const data = await res.json();
+            const select = document.getElementById('kampaniaSelect');
+            select.innerHTML = '<option value="">— Wybierz kampanię —</option>';
+            data.forEach(k => {
+                const opt = document.createElement('option');
+                opt.value = k.id;
+                opt.textContent = `${k.nazwa} (${k.utworzona_at}) — ${k.status}`;
+                select.appendChild(opt);
+            });
+
+            // Auto-select from URL hash
+            const hash = location.hash.replace('#', '');
+            if (hash) {
+                select.value = hash;
+                if (select.value) loadResults(hash);
+            }
+
+            // If only one campaign, auto-load
+            if (data.length === 1) {
+                select.value = data[0].id;
+                loadResults(data[0].id);
+            }
+        } catch (e) {
+            document.getElementById('dashboard').innerHTML = `<div class="error">Błąd: ${e.message}</div>`;
+        }
+    }
+
+    async function loadResults(id) {
+        if (!id) return;
+        location.hash = id;
+        const dash = document.getElementById('dashboard');
+        dash.innerHTML = '<div class="loading">Ładowanie wyników...</div>';
+
+        try {
+            const res = await fetch(`${API}/kampanie/${id}/results`);
+            const d = await res.json();
+            if (d.error) { dash.innerHTML = `<div class="error">${d.error}</div>`; return; }
+
+            const s = d.stats;
+            const maxEtap = d.klikniecia_per_etap.length > 0
+                ? Math.max(...d.klikniecia_per_etap.map(e => e.cnt))
+                : 1;
+
+            dash.innerHTML = `
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="label">Odbiorcy</div>
+                        <div class="value">${s.total_odbiorcy}</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="label">Wysłano</div>
+                        <div class="value blue">${s.wyslano}</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="label">Kliknięcia (łącznie)</div>
+                        <div class="value amber">${s.total_klikniecia}</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="label">Unikalne kliknięcia</div>
+                        <div class="value accent">${s.unikalne_klikniecia}</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="label">Open Rate</div>
+                        <div class="value accent">${s.open_rate}</div>
+                    </div>
+                </div>
+
+                <h3 class="section-title">Kliknięcia per etap</h3>
+                <div class="etap-bar">
+                    ${d.klikniecia_per_etap.map(e => `
+                        <div class="etap-col" title="${etapLabel(e.etap)}">
+                            <div class="etap-count">${e.cnt}</div>
+                            <div class="etap-bar-fill" style="height: ${Math.max(20, (e.cnt / maxEtap) * 200)}px"></div>
+                            <div class="etap-label">Etap ${e.etap}<span class="etap-desc">${etapLabel(e.etap)}</span></div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <h3 class="section-title">Ostatnie kliknięcia</h3>
+                <table>
+                    <thead>
+                        <tr><th>Data</th><th>Etap</th><th>NIP</th><th>E-mail</th><th>IP</th></tr>
+                    </thead>
+                    <tbody>
+                        ${d.ostatnie_klikniecia.map(k => `
+                            <tr>
+                                <td>${k.klikniete_at || '-'}</td>
+                                <td><span class="badge badge-blue" title="${etapLabel(k.etap)}">Etap ${k.etap}</span><br><span style="font-size:0.7rem;color:#666">${etapLabel(k.etap)}</span></td>
+                                <td>${k.nip || '-'}</td>
+                                <td>${k.email || '-'}</td>
+                                <td style="color:#666">${k.ip || '-'}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+
+                <div class="share-link">
+                    <strong>Link do wyników:</strong> ${location.href}
+                </div>
+            `;
+        } catch (e) {
+            dash.innerHTML = `<div class="error">Błąd: ${e.message}</div>`;
+        }
+    }
+
+    document.getElementById('kampaniaSelect').addEventListener('change', (e) => {
+        loadResults(e.target.value);
+    });
+
+    loadKampanie();
+    </script>
+</body>
+</html>
