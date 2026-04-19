@@ -57,6 +57,429 @@
             </div>
         </div>
     </header>
+<!--
+  Snippet do wklejenia w ksef-guide/aktualizacje.html (albo odpowiedni plik)
+  na samej górze strony, PRZED listą wersji.
+
+  Wymaga: endpoint https://assistant.faktura-nt.pl/api/public/ai-check-problem
+  (już działa z CORS *, rate-limited 5/15min per IP).
+
+  Plik: https://bok.faktura-nt.pl/aktualizacje?program=Faktura-NT
+-->
+
+<style>
+  .ai-resolution-box {
+    background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
+    border: 1px solid #bfdbfe;
+    border-radius: 12px;
+    padding: 24px;
+    /* Wyrównanie do szerokości nagłówka/kart wersji — formularz nie rozpycha
+       się na całą szerokość okna */
+    max-width: 1000px;
+    margin: 24px auto 32px;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #1c2733;
+  }
+  .ai-resolution-box h2 {
+    margin: 0 0 8px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ai-resolution-box .lead {
+    color: #4b5563;
+    font-size: 14px;
+    margin: 0 0 16px;
+  }
+  /* Cały formularz ograniczony do tej samej szerokości co suma 2 pól + gap.
+     Dzięki temu textarea, button i "row" są wizualnie zgrane. */
+  .ai-resolution-box form {
+    max-width: 520px;
+  }
+  .ai-resolution-box .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .ai-resolution-box input,
+  .ai-resolution-box textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font: inherit;
+    font-size: 14px;
+    background: #fff;
+    box-sizing: border-box;
+    display: block;
+  }
+  .ai-resolution-box textarea {
+    min-height: 64px;
+    resize: vertical;
+    margin-bottom: 12px;
+  }
+  .ai-resolution-box input:focus,
+  .ai-resolution-box textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+  .ai-resolution-box button {
+    display: block;
+    margin-top: 4px;
+    background: #2563eb;
+    color: #fff;
+    border: 0;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  .ai-resolution-box button:hover:not(:disabled) { background: #1d4ed8; }
+  .ai-resolution-box button:disabled { opacity: .5; cursor: not-allowed; }
+  .ai-result-card {
+    margin-top: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid;
+    animation: fadeIn .3s ease-out;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .ai-result-card.resolved_likely { background: #f0fdf4; border-color: #bbf7d0; color: #14532d; }
+  .ai-result-card.known_issue     { background: #fffbeb; border-color: #fde68a; color: #78350f; }
+  .ai-result-card.ambiguous       { background: #f3f4f6; border-color: #d1d5db; color: #374151; }
+  .ai-result-card.no_match        { background: #eff6ff; border-color: #bfdbfe; color: #1e3a8a; }
+  .ai-result-card.error,
+  .ai-result-card.rate_limited,
+  .ai-result-card.invalid_input   { background: #fef2f2; border-color: #fecaca; color: #7f1d1d; }
+  .ai-result-card h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .ai-result-card .version-badge {
+    display: inline-block;
+    margin: 8px 0;
+    padding: 4px 10px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 4px;
+    font-family: ui-monospace, Menlo, monospace;
+    font-weight: 700;
+  }
+  .ai-result-card .actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+  .ai-result-card .actions a,
+  .ai-result-card .actions button {
+    padding: 8px 14px;
+    background: #fff;
+    color: #1c2733;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .ai-result-card .actions a:hover,
+  .ai-result-card .actions button:hover { background: #f8fafc; }
+  .ai-result-card .disclaimer {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(0,0,0,.1);
+    font-size: 12px;
+    opacity: 0.85;
+  }
+  .ai-result-card .verification {
+    margin-top: 12px;
+    padding: 10px 12px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 6px;
+    border-left: 3px solid currentColor;
+    font-size: 13px;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .ai-result-card .verification .icon { flex: 0 0 auto; font-size: 16px; }
+  @media (max-width: 640px) {
+    .ai-resolution-box .row { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="ai-resolution-box">
+  <div style="font-size:12px;margin-bottom:8px;"><a href="https://sokaris.pl" target="_blank" rel="noopener" style="text-decoration:none;"><span style="font-weight:700;background:linear-gradient(135deg,#7c3aed,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SOKARIS</span></a> <span style="color:#6b6685;">· narzędzie wsparcia klienta</span></div>
+  <h2>🤖 Sprawdź czy Twój temat już obsłużyliśmy</h2>
+  <p class="lead">Opisz <strong>problem z działaniem programu</strong> albo <strong>pomysł na usprawnienie</strong> — porównamy z historią zmian w programie i powiemy, czy temat został już zrealizowany w nowszej wersji.</p>
+
+  <form id="aiResolutionForm" onsubmit="return aiCheckProblem(event)">
+    <div class="row">
+      <input type="text" name="nip" placeholder="NIP (opcjonalnie)" maxlength="13" pattern="[0-9\- ]*" autocomplete="off">
+      <input type="text" name="client_version" list="aiVersionList" placeholder="Wersja (np. 5.16.4.1268)" maxlength="20" autocomplete="off">
+      <datalist id="aiVersionList"></datalist>
+    </div>
+    <textarea name="problem_text" placeholder="Opisz problem lub pomysł. Np. „wywala się przy zamykaniu" albo „fajnie byłoby eksport do PDF""
+              minlength="5" maxlength="2000" required></textarea>
+    <button type="submit" id="aiCheckBtn">🔍 Sprawdź w historii zmian</button>
+  </form>
+
+  <div id="aiResultContainer"></div>
+</div>
+
+<script>
+(function() {
+  const ASSISTANT_API = 'https://assistant.faktura-nt.pl/api/public/ai-check-problem';
+
+  // Program z URL strony (?program=Faktura-NT / ?program=Sapio). Fallback na Faktura-NT.
+  const urlParams = new URLSearchParams(location.search);
+  const currentProgram = urlParams.get('program') || 'Faktura-NT';
+
+  const VERSIONS_API = 'https://assistant.faktura-nt.pl/api/public/program-versions?program=' + encodeURIComponent(currentProgram);
+
+  // Mapa linków do oficjalnych stron pobierania. Klucze = wartości z URL `program`.
+  // Link do strony domowej produktu z sekcją pobierania — NIE do agregatora sokaris.pl.
+  const DOWNLOAD_URLS = {
+    'Faktura-NT': 'https://www.faktura-nt.pl/pobierz-program/',
+    'Sapio':      'https://www.sapio.pl/',
+  };
+  const downloadUrlFor = (prog) => DOWNLOAD_URLS[prog] || 'https://sokaris.pl/';
+
+  // BOK — jedno miejsce zgłoszeń (z magic link auth + weryfikacją emaila).
+  // Budujemy link z pre-fill query params na podstawie danych które klient
+  // właśnie wpisał (NIP, wersja, problem) żeby nie musiał wypełniać od nowa.
+  const BOK_URL = 'https://bok.faktura-nt.pl/';
+  function buildBokLink(formData, aiData) {
+    const params = new URLSearchParams();
+    if (formData.nip)             params.set('nip', formData.nip);
+    if (formData.client_version)  params.set('wersja', formData.client_version);
+    if (currentProgram)           params.set('program', currentProgram);
+    if (formData.problem_text) {
+      const problem = formData.problem_text.slice(0, 500); // URL length safety
+      params.set('tytul', problem.slice(0, 80));
+      params.set('opis', problem);
+    }
+    if (aiData && aiData.matched_version) params.set('ai_match', aiData.matched_version);
+    if (aiData && aiData.verdict)         params.set('ai_verdict', aiData.verdict);
+    const qs = params.toString();
+    return BOK_URL + (qs ? '?' + qs : '');
+  }
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+    }[c]));
+  }
+
+  // Relative time w PL — np. "3 dni temu", "2 miesiące temu".
+  function timeAgoPl(dateStr) {
+    if (!dateStr) return '';
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return '';
+    const diffMs = Date.now() - d.getTime();
+    const dayMs = 86400000;
+    const days = Math.floor(diffMs / dayMs);
+    if (days < 0) return 'w przyszłości';
+    if (days === 0) return 'dzisiaj';
+    if (days === 1) return 'wczoraj';
+    if (days < 7)   return days + ' dni temu';
+    if (days < 14)  return 'tydzień temu';
+    if (days < 31)  return Math.floor(days / 7) + ' tyg. temu';
+    if (days < 62)  return 'miesiąc temu';
+    if (days < 365) return Math.floor(days / 30) + ' mies. temu';
+    const years = Math.floor(days / 365);
+    return years === 1 ? 'rok temu' : years + ' lat temu';
+  }
+
+  // Wypełnij datalist wersji z publicznego API (best-effort — gdy fail, input
+  // zostaje jako free-text, nic się nie psuje).
+  async function loadVersionsDatalist() {
+    try {
+      const r = await fetch(VERSIONS_API);
+      if (!r.ok) return;
+      const releases = await r.json();
+      if (!Array.isArray(releases) || !releases.length) return;
+      // Sortuj malejąco po dacie wydania (nowsze na górze)
+      releases.sort((a, b) => String(b.released_at || '').localeCompare(String(a.released_at || '')));
+      const dl = document.getElementById('aiVersionList');
+      if (!dl) return;
+      // Option: value = numer wersji (co zostaje w inputie po wyborze),
+      //         label (textContent) = data + "X dni/mies. temu"
+      dl.innerHTML = releases.map(r => {
+        const date = (r.released_at || '').slice(0, 10);
+        const ago = timeAgoPl(date);
+        let label;
+        if (date && ago) label = `${date} · ${ago}`;
+        else if (date)   label = date;
+        else             label = 'data nieznana';
+        return `<option value="${esc(r.version)}">${esc(label)}</option>`;
+      }).join('');
+    } catch (e) { /* cicho — datalist opcjonalne */ }
+  }
+  // Odpal po załadowaniu DOM (snippet może być wklejony gdziekolwiek na stronie)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadVersionsDatalist);
+  } else {
+    loadVersionsDatalist();
+  }
+
+  // Verdict UI — dla resolved_likely różnicuje bugfix vs feature.
+  // Dla innych verdict'ów title jest uniwersalny ("temat" zamiast "problem").
+  const VERDICT_UI = {
+    resolved_likely_bugfix: {
+      emoji: '✅',
+      title: 'Ten błąd już naprawiliśmy',
+    },
+    resolved_likely_feature: {
+      emoji: '✨',
+      title: 'Tę funkcję już dodaliśmy',
+    },
+    resolved_likely: {
+      // Fallback gdy matched_type niepodany
+      emoji: '✅',
+      title: 'Wygląda na zrealizowane',
+    },
+    known_issue: {
+      emoji: '⏳',
+      title: 'Znany temat — pracujemy',
+    },
+    ambiguous: {
+      emoji: '🤷',
+      title: 'Trudno jednoznacznie dopasować',
+    },
+    no_match: {
+      emoji: '🆕',
+      title: 'Nie znaleźliśmy tego w historii zmian',
+    },
+    error: {
+      emoji: '⚠️',
+      title: 'Problem techniczny',
+    },
+    rate_limited: {
+      emoji: '🚫',
+      title: 'Za dużo zapytań',
+    },
+    invalid_input: {
+      emoji: '⚠',
+      title: 'Popraw dane',
+    },
+  };
+
+  // Ostatnio wysłane dane z formularza — używane do budowania pre-fill BOK link
+  let lastSubmittedData = {};
+
+  window.aiCheckProblem = async function(event) {
+    event.preventDefault();
+    const form = event.target;
+    const btn = document.getElementById('aiCheckBtn');
+    const container = document.getElementById('aiResultContainer');
+    const origText = btn.textContent;
+
+    btn.disabled = true;
+    btn.textContent = '⌛ Analizuję...';
+    container.innerHTML = '';
+
+    const payload = {
+      nip: form.nip.value.trim(),
+      client_version: form.client_version.value.trim(),
+      problem_text: form.problem_text.value.trim(),
+      program: currentProgram,
+    };
+    lastSubmittedData = payload;
+
+    try {
+      const r = await fetch(ASSISTANT_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await r.json();
+      renderResult(data);
+    } catch (e) {
+      renderResult({
+        verdict: 'error',
+        client_message_pl: 'Nie udało się połączyć z usługą. Sprawdź połączenie internetowe albo zadzwoń: 22 38 956 38.',
+        infolinia: '22 38 956 38',
+      });
+    } finally {
+      btn.disabled = false;
+      btn.textContent = origText;
+    }
+    return false;
+  };
+
+  function renderResult(data) {
+    const container = document.getElementById('aiResultContainer');
+    const v = data.verdict || 'error';
+
+    // Dla resolved_likely wybieramy wariant zależnie od matched_type (bugfix/feature)
+    let uiKey = v;
+    if (v === 'resolved_likely' && data.matched_type) {
+      uiKey = 'resolved_likely_' + data.matched_type;
+    }
+    const ui = VERDICT_UI[uiKey] || VERDICT_UI[v] || VERDICT_UI.error;
+
+    let html = `<div class="ai-result-card ${esc(v)}" role="alert" aria-live="polite">`;
+    html += `<h3>${ui.emoji} ${esc(ui.title)}</h3>`;
+
+    if (data.matched_version) {
+      html += `<div class="version-badge">wersja ${esc(data.matched_version)}</div>`;
+    }
+
+    html += `<div>${esc(data.client_message_pl || 'Brak odpowiedzi.')}</div>`;
+
+    // Verification block — transparency + trust
+    if (data.verification && data.verification.message) {
+      const vIcon = data.verification.will_follow_up ? '🔐' :
+                    data.verification.nip_recognized === false ? 'ℹ️' : 'ℹ️';
+      html += `<div class="verification"><span class="icon">${vIcon}</span><span>${esc(data.verification.message)}</span></div>`;
+    }
+
+    // Akcje zależne od verdict. BOK jest jedynym kanałem zgłoszeń — z autoryzacją
+    // (NIP + email + magic link) i weryfikacją adresu.
+    const bokLink = buildBokLink(lastSubmittedData, data);
+    const bokLabel = (v === 'resolved_likely')
+      ? '📝 Mimo to zgłoś serwisowo'
+      : (v === 'known_issue')
+          ? '📝 Zgłoś dodatkowy kontekst'
+          : '📝 Zgłoś serwisowo (BOK)';
+
+    html += `<div class="actions">`;
+    if (v === 'resolved_likely' && data.matched_version) {
+      html += `<a href="#wersja-${esc(data.matched_version)}" onclick="document.querySelector('#wersja-${esc(data.matched_version)}')?.scrollIntoView({behavior:'smooth'});return false;">📋 Zobacz szczegóły wersji ${esc(data.matched_version)}</a>`;
+      html += `<a href="${esc(downloadUrlFor(currentProgram))}" target="_blank" rel="noopener">📥 Pobierz ${esc(currentProgram)}</a>`;
+    }
+    // BOK-owy link ZAWSZE dostępny (klient może chcieć zgłosić nawet po AI match)
+    if (v !== 'error' && v !== 'rate_limited' && v !== 'invalid_input') {
+      html += `<a href="${esc(bokLink)}" target="_blank" rel="noopener">${bokLabel}</a>`;
+    }
+    if (data.infolinia) {
+      html += `<a href="tel:${esc(data.infolinia).replace(/\s/g,'')}">📞 Zadzwoń: ${esc(data.infolinia)}</a>`;
+    }
+    html += `</div>`;
+
+    if (data.disclaimer) {
+      html += `<div class="disclaimer">${esc(data.disclaimer)}</div>`;
+    }
+    html += `</div>`;
+
+    container.innerHTML = html;
+    // Scroll do wyniku
+    container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+})();
+</script>
 
     <!-- NAV TABS -->
     <nav class="section-nav" id="sectionNav">
