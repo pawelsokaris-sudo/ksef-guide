@@ -2637,151 +2637,368 @@
     "promoted": true,
     "content": [
       {
-            "type": "alert",
-            "severity": "info",
-            "value": "Poniżej opisujemy jak oznaczyć fakturę jako opłaconą — zarówno wystawioną (sprzedażową) jak i pobraną z KSeF (zakupową)."
+        "type": "alert",
+        "severity": "info",
+        "value": "Poniżej opisujemy jak oznaczyć fakturę jako opłaconą — zarówno wystawioną (sprzedażową) jak i pobraną z KSeF (zakupową)."
       },
       {
-            "type": "divider",
-            "value": ""
+        "type": "divider",
+        "value": ""
       },
       {
-            "type": "heading",
-            "value": "Część A: Zapłata za wystawioną fakturę"
+        "type": "heading",
+        "value": "Część A: Zapłata za wystawioną fakturę"
       },
       {
-            "type": "text",
-            "value": "Faktury wysłane do KSeF nie mogą być edytowane — nie da się zmienić statusu zapłaty bezpośrednio na fakturze. Zamiast tego należy skorzystać z funkcji <strong>„Zapłać wybraną fakturę”</strong>, która automatycznie wygeneruje dokument kasowy <strong>KP</strong> (dowód wpłaty)."
+        "type": "text",
+        "value": "Faktury wysłane do KSeF nie mogą być edytowane — nie da się zmienić statusu zapłaty bezpośrednio na fakturze. Zamiast tego należy skorzystać z funkcji <strong>„Zapłać wybraną fakturę”</strong>, która automatycznie wygeneruje dokument kasowy <strong>KP</strong> (dowód wpłaty)."
       },
       {
-            "type": "subheading",
-            "value": "Krok 1 — Znajdź niezapłaconą fakturę"
+        "type": "subheading",
+        "value": "Krok 1 — Znajdź niezapłaconą fakturę"
       },
       {
-            "type": "text",
-            "value": "Na liście faktur sprzedaży znajdź pozycję, która nie jest jeszcze oznaczona jako zapłacona."
+        "type": "text",
+        "value": "Na liście faktur sprzedaży znajdź pozycję, która nie jest jeszcze oznaczona jako zapłacona."
       },
       {
-            "type": "image",
-            "value": "img/art018-a1-lista-nieoplacona.png",
-            "alt": "Lista faktur sprzedazy - niezaplacona pozycja"
+        "type": "image",
+        "value": "img/art018-a1-lista-nieoplacona.png",
+        "alt": "Lista faktur sprzedazy - niezaplacona pozycja"
       },
       {
-            "type": "subheading",
-            "value": "Krok 2 — Kliknij prawym przyciskiem myszy"
+        "type": "subheading",
+        "value": "Krok 2 — Kliknij prawym przyciskiem myszy"
       },
       {
-            "type": "text",
-            "value": "Na wybranej fakturze kliknij <strong>prawy przycisk myszy</strong>. Z menu kontekstowego wybierz <strong>„Zapłać wybraną fakturę”</strong>."
+        "type": "text",
+        "value": "Na wybranej fakturze kliknij <strong>prawy przycisk myszy</strong>. Z menu kontekstowego wybierz <strong>„Zapłać wybraną fakturę”</strong>."
       },
       {
-            "type": "image",
-            "value": "img/art018-a2-menu-zaplac.png",
-            "alt": "Menu kontekstowe - Zaplac wybrana fakture"
+        "type": "image",
+        "value": "img/art018-a2-menu-zaplac.png",
+        "alt": "Menu kontekstowe - Zaplac wybrana fakture"
       },
       {
-            "type": "subheading",
-            "value": "Krok 3 — Zapisz dokument KP"
+        "type": "subheading",
+        "value": "Krok 3 — Zapisz dokument KP"
       },
       {
-            "type": "text",
-            "value": "Program automatycznie przygotuje <strong>Dowód wpłaty KP</strong> z wypełnionymi danymi kontrahenta i kwotą faktury. Wystarczy nacisnąć przycisk <strong>„Zapisz”</strong>."
+        "type": "text",
+        "value": "Program automatycznie przygotuje <strong>Dowód wpłaty KP</strong> z wypełnionymi danymi kontrahenta i kwotą faktury. Wystarczy nacisnąć przycisk <strong>„Zapisz”</strong>."
       },
       {
-            "type": "image",
-            "value": "img/art018-a3-okno-kp.png",
-            "alt": "Dowod wplaty KP - automatycznie wypelniony"
+        "type": "image",
+        "value": "img/art018-a3-okno-kp.png",
+        "alt": "Dowod wplaty KP - automatycznie wypelniony"
       },
       {
-            "type": "subheading",
-            "value": "Krok 4 — Faktura oznaczona jako zapłacona"
+        "type": "subheading",
+        "value": "Krok 4 — Faktura oznaczona jako zapłacona"
       },
       {
-            "type": "text",
-            "value": "Po zapisaniu dokumentu KP faktura zostanie automatycznie oznaczona jako <strong>zapłacona</strong> — kolumna „Do zapłaty” wyzeruje się."
+        "type": "text",
+        "value": "Po zapisaniu dokumentu KP faktura zostanie automatycznie oznaczona jako <strong>zapłacona</strong> — kolumna „Do zapłaty” wyzeruje się."
       },
       {
-            "type": "image",
-            "value": "img/art018-a4-zaplacono.png",
-            "alt": "Faktura sprzedazy - status zaplacono"
+        "type": "image",
+        "value": "img/art018-a4-zaplacono.png",
+        "alt": "Faktura sprzedazy - status zaplacono"
       },
       {
-            "type": "divider",
-            "value": ""
+        "type": "divider",
+        "value": ""
       },
       {
-            "type": "heading",
-            "value": "Część B: Zapłata za fakturę pobraną z KSeF"
+        "type": "heading",
+        "value": "Część B: Zapłata za fakturę pobraną z KSeF"
       },
       {
-            "type": "text",
-            "value": "Faktury zakupu pobrane z KSeF rozlicza się w ten sam sposób — przez <strong>prawy klik → „Zapłać wybraną fakturę”</strong>. Różnica polega na tym, że program wygeneruje dokument <strong>KW</strong> (dowód wypłaty) zamiast KP."
+        "type": "text",
+        "value": "Faktury zakupu pobrane z KSeF rozlicza się w ten sam sposób — przez <strong>prawy klik → „Zapłać wybraną fakturę”</strong>. Różnica polega na tym, że program wygeneruje dokument <strong>KW</strong> (dowód wypłaty) zamiast KP."
       },
       {
-            "type": "subheading",
-            "value": "Krok 1 — Otwórz listę faktur zakupu"
+        "type": "subheading",
+        "value": "Krok 1 — Otwórz listę faktur zakupu"
       },
       {
-            "type": "text",
-            "value": "Przejdź do okna <strong>Faktury zakupu</strong>. Na liście widoczne są faktury z kolumną „Zapł.” ustawioną na <strong>NIE</strong>."
+        "type": "text",
+        "value": "Przejdź do okna <strong>Faktury zakupu</strong>. Na liście widoczne są faktury z kolumną „Zapł.” ustawioną na <strong>NIE</strong>."
       },
       {
-            "type": "image",
-            "value": "img/art018-b1-lista-zakupu.png",
-            "alt": "Lista faktur zakupu - niezaplacone pozycje"
+        "type": "image",
+        "value": "img/art018-b1-lista-zakupu.png",
+        "alt": "Lista faktur zakupu - niezaplacone pozycje"
       },
       {
-            "type": "subheading",
-            "value": "Krok 2 — Kliknij prawym przyciskiem myszy"
+        "type": "subheading",
+        "value": "Krok 2 — Kliknij prawym przyciskiem myszy"
       },
       {
-            "type": "text",
-            "value": "Na wybranej fakturze zakupu kliknij <strong>prawy przycisk myszy</strong> i wybierz <strong>„Zapłać wybraną fakturę”</strong>."
+        "type": "text",
+        "value": "Na wybranej fakturze zakupu kliknij <strong>prawy przycisk myszy</strong> i wybierz <strong>„Zapłać wybraną fakturę”</strong>."
       },
       {
-            "type": "image",
-            "value": "img/art018-b2-menu-zaplac.png",
-            "alt": "Menu kontekstowe faktur zakupu - Zaplac wybrana fakture"
+        "type": "image",
+        "value": "img/art018-b2-menu-zaplac.png",
+        "alt": "Menu kontekstowe faktur zakupu - Zaplac wybrana fakture"
       },
       {
-            "type": "subheading",
-            "value": "Krok 3 — Zapisz dokument KW"
+        "type": "subheading",
+        "value": "Krok 3 — Zapisz dokument KW"
       },
       {
-            "type": "text",
-            "value": "Program przygotuje <strong>Dowód wypłaty KW</strong>. Dane kontrahenta i kwota zostaną wypełnione automatycznie. Naciśnij <strong>„Zapisz”</strong>."
+        "type": "text",
+        "value": "Program przygotuje <strong>Dowód wypłaty KW</strong>. Dane kontrahenta i kwota zostaną wypełnione automatycznie. Naciśnij <strong>„Zapisz”</strong>."
       },
       {
-            "type": "image",
-            "value": "img/art018-b3-okno-kw.png",
-            "alt": "Dowod wyplaty KW - automatycznie wypelniony"
+        "type": "image",
+        "value": "img/art018-b3-okno-kw.png",
+        "alt": "Dowod wyplaty KW - automatycznie wypelniony"
       },
       {
-            "type": "subheading",
-            "value": "Krok 4 — Faktura oznaczona jako zapłacona"
+        "type": "subheading",
+        "value": "Krok 4 — Faktura oznaczona jako zapłacona"
       },
       {
-            "type": "text",
-            "value": "Po zapisaniu KW faktura zakupu zmieni status w kolumnie „Zapł.” na <strong>TAK</strong>."
+        "type": "text",
+        "value": "Po zapisaniu KW faktura zakupu zmieni status w kolumnie „Zapł.” na <strong>TAK</strong>."
       },
       {
-            "type": "image",
-            "value": "img/art018-b4-zaplacono.png",
-            "alt": "Faktura zakupu - status zaplacono (TAK)"
+        "type": "image",
+        "value": "img/art018-b4-zaplacono.png",
+        "alt": "Faktura zakupu - status zaplacono (TAK)"
       },
       {
-            "type": "divider",
-            "value": ""
+        "type": "divider",
+        "value": ""
       },
       {
-            "type": "alert",
-            "severity": "success",
-            "value": "<strong>Podsumowanie:</strong> Dla faktur sprzedaży program tworzy <strong>KP</strong> (wpłata), a dla zakupu — <strong>KW</strong> (wypłata). Procedura jest identyczna: prawy klik → „Zapłać wybraną fakturę” → Zapisz."
+        "type": "alert",
+        "severity": "success",
+        "value": "<strong>Podsumowanie:</strong> Dla faktur sprzedaży program tworzy <strong>KP</strong> (wpłata), a dla zakupu — <strong>KW</strong> (wypłata). Procedura jest identyczna: prawy klik → „Zapłać wybraną fakturę” → Zapisz."
       },
       {
-            "type": "alert",
-            "severity": "info",
-            "value": "Pytania? Napisz na <strong>bok@sokaris.pl</strong> lub zadzwon: <strong>607 606 841</strong>"
+        "type": "alert",
+        "severity": "info",
+        "value": "Pytania? Napisz na <strong>bok@sokaris.pl</strong> lub zadzwon: <strong>607 606 841</strong>"
+      }
+    ]
+  },
+  {
+    "id": "art-020",
+    "title": "Uprawnienia do przeglądania faktur zakupu z KSeF",
+    "subtitle": "jak ograniczyć dostęp dla wybranych użytkowników",
+    "date": "2026-04-20",
+    "tags": [
+      "uprawnienia",
+      "faktury zakupu",
+      "KSeF",
+      "użytkownicy"
+    ],
+    "promoted": false,
+    "content": [
+      {
+        "type": "alert",
+        "severity": "info",
+        "value": "📋 <strong>Dotyczy wersji 5.16.5.1269 i nowszych.</strong> We wcześniejszych wersjach faktury pobrane z KSeF były widoczne dla wszystkich użytkowników bez możliwości ograniczenia dostępu."
+      },
+      {
+        "type": "heading",
+        "value": "Na czym polega problem?"
+      },
+      {
+        "type": "paragraph",
+        "value": "Faktury zakupu pobrane z KSeF mogą zawierać poufne informacje (np. ceny zakupu, warunki handlowe). Nie każdy pracownik powinien mieć do nich wgląd. Od wersji <strong>5.16.5.1269</strong> program pozwala precyzyjnie określić, który użytkownik ma prawo przeglądać faktury importowane z KSeF."
+      },
+      {
+        "type": "heading",
+        "value": "Krok 1 — Otwórz konfigurację użytkowników"
+      },
+      {
+        "type": "paragraph",
+        "value": "Z menu programu wybierz <code>Konfiguracja → Dane Twojej firmy (nazwa, logo, rachunki bankowe itd.)</code>"
+      },
+      {
+        "type": "image",
+        "src": "img/art-020-krok1-menu.png",
+        "alt": "Menu Konfiguracja → Dane Twojej firmy"
+      },
+      {
+        "type": "paragraph",
+        "value": "W oknie <strong>Dane Twojej firmy</strong> kliknij zakładkę <code>Użytkownicy i RODO</code> (po lewej stronie)."
+      },
+      {
+        "type": "image",
+        "src": "img/art-020-krok2-uzytkownicy.png",
+        "alt": "Zakładka Użytkownicy i RODO z listą użytkowników"
+      },
+      {
+        "type": "heading",
+        "value": "Krok 2 — Wybierz użytkownika do edycji"
+      },
+      {
+        "type": "alert",
+        "severity": "warning",
+        "value": "⚠️ <strong>Ważne:</strong> Użytkownik <em>Administrator</em> zawsze ma pełne uprawnienia — nie można mu ich odebrać. Aby ograniczyć dostęp, musisz utworzyć nowego użytkownika (przycisk <strong>Dodaj</strong>) lub edytować istniejącego użytkownika innego niż Administrator."
+      },
+      {
+        "type": "paragraph",
+        "value": "Zaznacz użytkownika, któremu chcesz zmienić uprawnienia (np. <em>Sprzedawca</em>), a następnie kliknij <strong>Edytuj</strong>."
+      },
+      {
+        "type": "image",
+        "src": "img/art-020-krok3-sprzedawca.png",
+        "alt": "Lista użytkowników z zaznaczonym użytkownikiem Sprzedawca"
+      },
+      {
+        "type": "heading",
+        "value": "Krok 3 — Zmień uprawnienia KSeF"
+      },
+      {
+        "type": "paragraph",
+        "value": "W oknie <strong>Edycja danych użytkownika</strong> przejdź na zakładkę <code>Uprawnienia</code>."
+      },
+      {
+        "type": "image",
+        "src": "img/art-020-krok4-uprawnienia.png",
+        "alt": "Zakładka Uprawnienia z drzewkiem kategorii"
+      },
+      {
+        "type": "paragraph",
+        "value": "Rozwiń kategorię <strong>KSeF</strong> (na dole listy). Zobaczysz opcję:"
+      },
+      {
+        "type": "paragraph",
+        "value": "<code>☐ Możliwość przeglądania faktur importowanych z KSeF</code>"
+      },
+      {
+        "type": "image",
+        "src": "img/art-020-krok5-ksef-prawo.png",
+        "alt": "Rozwinięta kategoria KSeF z odznaczonym uprawnieniem"
+      },
+      {
+        "type": "list",
+        "items": [
+          "✅ <strong>Zaznaczone</strong> — użytkownik widzi faktury zakupu pobrane z KSeF",
+          "☐ <strong>Odznaczone</strong> — użytkownik <strong>nie ma dostępu</strong> do faktur zakupu z KSeF"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "Po ustawieniu uprawnienia kliknij <strong>OK</strong>, aby zapisać zmiany."
+      },
+      {
+        "type": "image",
+        "src": "img/art-020-krok6-ok.png",
+        "alt": "Okno uprawnień z rozwiniętym KSeF i przyciskiem OK"
+      },
+      {
+        "type": "heading",
+        "value": "Krok 4 — Zaloguj się jako właściwy użytkownik"
+      },
+      {
+        "type": "alert",
+        "severity": "info",
+        "value": "💡 <strong>Pamiętaj:</strong> Uprawnienia działają dopiero po zalogowaniu się na danego użytkownika. Jeśli nadal pracujesz jako Administrator — widzisz wszystko. Aby sprawdzić efekt, zaloguj się na konto z ograniczonymi prawami."
+      },
+      {
+        "type": "paragraph",
+        "value": "Przy uruchomieniu programu w oknie <strong>Weryfikacja dostępu</strong> wybierz z listy użytkownika, na którego chcesz się zalogować (np. <em>Sprzedawca</em>)."
+      },
+      {
+        "type": "image",
+        "src": "img/art-020-krok7-logowanie.png",
+        "alt": "Okno logowania z wyborem użytkownika Sprzedawca"
+      },
+      {
+        "type": "heading",
+        "value": "Co zobaczy użytkownik bez uprawnień?"
+      },
+      {
+        "type": "paragraph",
+        "value": "Jeśli użytkownik bez uprawnienia spróbuje otworzyć faktury zakupu z KSeF, program wyświetli komunikat:"
+      },
+      {
+        "type": "image",
+        "src": "img/art-020-krok8-brak-uprawnien.png",
+        "alt": "Komunikat: Nie posiadasz uprawnień do wykonania tej operacji"
+      },
+      {
+        "type": "paragraph",
+        "value": "<em>Nie posiadasz uprawnień do wykonania tej operacji. W celu nabycia uprawnień skontaktuj się z administratorem programu.</em>"
+      },
+      {
+        "type": "paragraph",
+        "value": "To potwierdza, że uprawnienia zostały prawidłowo skonfigurowane."
+      },
+      {
+        "type": "heading",
+        "value": "Faktury już zaimportowane z bufora KSeF"
+      },
+      {
+        "type": "alert",
+        "severity": "warning",
+        "value": "⚠️ <strong>Uwaga:</strong> Uprawnienie KSeF chroni tylko dostęp do <em>bufora</em> faktur z KSeF. Jeśli faktura została już zaimportowana do <strong>Faktur zakupu</strong>, podlega oddzielnym uprawnieniom w sekcji Dokumenty."
+      },
+      {
+        "type": "image",
+        "src": "img/art-020-krok9-faktury-zakupu.png",
+        "alt": "Lista faktur zakupu z zaimportowanymi fakturami z KSeF"
+      },
+      {
+        "type": "paragraph",
+        "value": "Aby ograniczyć dostęp do zaimportowanych faktur zakupu, rozwiń w zakładce <code>Uprawnienia</code> kategorię <strong>Dokumenty → Faktura zakupu</strong> i odznacz odpowiednie opcje:"
+      },
+      {
+        "type": "image",
+        "src": "img/art-020-krok10-dokumenty-fz.png",
+        "alt": "Uprawnienia Dokumenty → Faktura zakupu z odznaczonymi opcjami"
+      },
+      {
+        "type": "list",
+        "items": [
+          "☐ <strong>Wpisana przez siebie</strong> — faktury dodane ręcznie przez tego użytkownika",
+          "☐ <strong>Wpisana przez dowolnego użytkownika</strong> — wszystkie faktury zakupu (w tym zaimportowane z KSeF)"
+        ]
+      },
+      {
+        "type": "alert",
+        "severity": "info",
+        "value": "💡 <strong>Pamiętaj:</strong> Zmianę uprawnień może wykonać wyłącznie <strong>Administrator</strong>. Użytkownik nie może sam sobie odebrać dostępu — to zabezpieczenie przed przypadkową utratą uprawnień."
+      },
+      {
+        "type": "heading",
+        "value": "Certyfikaty KSeF dla nowych użytkowników"
+      },
+      {
+        "type": "alert",
+        "severity": "warning",
+        "value": "⚠️ <strong>Ważne:</strong> Jeśli dodajesz nowego użytkownika i logujesz się na jego konto — pamiętaj, aby <strong>dodać certyfikaty KSeF</strong> również na tym koncie. Bez certyfikatów użytkownik nie będzie mógł wysyłać faktur do KSeF."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Każdy użytkownik musi mieć certyfikaty KSeF dodane na swoim koncie",
+          "Certyfikaty mogą być <strong>te same</strong> dla wszystkich kont — wystarczy je wgrać na każdego użytkownika osobno",
+          "Instrukcja dodawania certyfikatów: <a href=\"#art-002\">Jak dodać certyfikaty do programu →</a>"
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "Podsumowanie"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Funkcja dostępna od wersji <strong>5.16.5.1269</strong>",
+          "Ścieżka: <code>Konfiguracja → Dane Twojej firmy → Użytkownicy i RODO → Edytuj → Uprawnienia → KSeF</code>",
+          "Administrator zawsze widzi wszystko — ograniczenia działają tylko na innych użytkowników",
+          "Uprawnienie KSeF chroni bufor — do faktur zakupu potrzebne jest osobne uprawnienie w <strong>Dokumenty → Faktura zakupu</strong>",
+          "Zmiany uprawnień dokonuje wyłącznie Administrator",
+          "Uprawnienia obowiązują po zalogowaniu na właściwe konto",
+          "Nowy użytkownik wymaga dodania certyfikatów KSeF na swoim koncie"
+        ]
       }
     ]
   }
