@@ -2812,6 +2812,27 @@
       },
       {
         "type": "heading",
+        "value": "Co zobaczy użytkownik bez uprawnień?"
+      },
+      {
+        "type": "paragraph",
+        "value": "Jeśli użytkownik bez uprawnienia spróbuje otworzyć faktury zakupu z KSeF, program wyświetli komunikat:"
+      },
+      {
+        "type": "image",
+        "src": "img/art-020-krok8-brak-uprawnien.png",
+        "alt": "Komunikat: Nie posiadasz uprawnień do wykonania tej operacji"
+      },
+      {
+        "type": "paragraph",
+        "value": "<em>Nie posiadasz uprawnień do wykonania tej operacji. W celu nabycia uprawnień skontaktuj się z administratorem programu.</em>"
+      },
+      {
+        "type": "paragraph",
+        "value": "To potwierdza, że uprawnienia zostały prawidłowo skonfigurowane."
+      },
+      {
+        "type": "heading",
         "value": "Podsumowanie"
       },
       {
