@@ -2841,11 +2841,6 @@
         "value": "⚠️ <strong>Uwaga:</strong> Uprawnienie KSeF chroni tylko dostęp do <em>bufora</em> faktur z KSeF. Jeśli faktura została już zaimportowana do <strong>Faktur zakupu</strong>, podlega oddzielnym uprawnieniom w sekcji Dokumenty."
       },
       {
-        "type": "image",
-        "src": "img/art-020-krok9-faktury-zakupu.png",
-        "alt": "Lista faktur zakupu z zaimportowanymi fakturami z KSeF"
-      },
-      {
         "type": "paragraph",
         "value": "Aby ograniczyć dostęp do zaimportowanych faktur zakupu, rozwiń w zakładce <code>Uprawnienia</code> kategorię <strong>Dokumenty → Faktura zakupu</strong> i odznacz odpowiednie opcje:"
       },
