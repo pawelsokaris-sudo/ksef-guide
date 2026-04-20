@@ -3001,5 +3001,113 @@
         ]
       }
     ]
+  },
+  {
+    "id": "art-021",
+    "title": "Jak zmienić numerację w programie?",
+    "date": "2026-04-20",
+    "category": "konfiguracja",
+    "content": [
+      {
+        "type": "alert",
+        "severity": "info",
+        "value": "Ten artykuł opisuje jak zmienić sposób numerowania dokumentów w programie — szablon numeru, rodzaj numeracji oraz jak przestawić licznik na wybrany numer."
+      },
+      {
+        "type": "heading",
+        "value": "Krok 1 — Otwórz konfigurację programu"
+      },
+      {
+        "type": "text",
+        "value": "Z głównego menu programu wybierz <strong>Konfiguracja → Konfiguracja programu</strong>."
+      },
+      {
+        "type": "image",
+        "src": "img/art-021/krok1-menu-konfiguracja.png",
+        "alt": "Menu Konfiguracja - Konfiguracja programu"
+      },
+      {
+        "type": "heading",
+        "value": "Krok 2 — Przejdź do sekcji Numeracja"
+      },
+      {
+        "type": "text",
+        "value": "W oknie konfiguracji, po lewej stronie znajdziesz drzewo ustawień. Kliknij <strong>podwójnie</strong> na <strong>Dokumenty</strong>, aby rozwinąć gałąź, a następnie wybierz <strong>Numeracja</strong>."
+      },
+      {
+        "type": "image",
+        "src": "img/art-021/krok2-okno-dokumenty.png",
+        "alt": "Okno konfiguracji - drzewo z sekcja Dokumenty"
+      },
+      {
+        "type": "heading",
+        "value": "Krok 3 — Ustawienia numeracji"
+      },
+      {
+        "type": "text",
+        "value": "Po wybraniu <strong>Numeracja</strong> zobaczysz pełny panel ustawień numeracji dokumentów. Znajdziesz tutaj:"
+      },
+      {
+        "type": "text",
+        "value": "• <strong>Szablon numeru</strong> — np. <code>@/$/% </code> co oznacza: numer/miesiąc/rok. Wynik: <strong>4/04/2026</strong><br>• <strong>Zakładki</strong> — Numer faktury, Dzień miesiąca, Miesiąc, Rok, Symbol kontrahenta — każdy element szablonu można skonfigurować osobno<br>• <strong>Rodzaj numeracji</strong> — <em>Miesięczna</em> (reset co miesiąc) lub <em>Roczna</em> (ciągła przez cały rok)<br>• <strong>Datę pobieraj z</strong> — daty systemowej lub daty wystawienia faktury"
+      },
+      {
+        "type": "image",
+        "src": "img/art-021/krok3-numeracja.png",
+        "alt": "Panel numeracji - szablon, zakladki, rodzaj numeracji"
+      },
+      {
+        "type": "heading",
+        "value": "Krok 4 — Przestaw numer kolejny"
+      },
+      {
+        "type": "text",
+        "value": "W prawym dolnym rogu okna znajduje się sekcja <strong>Numer kolejny</strong>. Tutaj możesz:"
+      },
+      {
+        "type": "text",
+        "value": "1. <strong>Wybrać typ dokumentu</strong> — z listy rozwijanej wybierz, którego dokumentu dotyczy zmiana (np. faktury VAT, korekty, PROFORMA, WZ, KP, KW itd.)<br>2. <strong>Wpisać nowy numer</strong> — np. <strong>1</strong> jeśli chcesz zacząć numerację od początku<br>3. <strong>Kliknąć przycisk „Przestaw”</strong> — program ustawi następny numer dokumentu na podany"
+      },
+      {
+        "type": "image",
+        "src": "img/art-021/krok4-numer-kolejny.png",
+        "alt": "Sekcja Numer kolejny - wybor dokumentu i przycisk Przestaw"
+      },
+      {
+        "type": "heading",
+        "value": "Dostępne typy dokumentów"
+      },
+      {
+        "type": "text",
+        "value": "Lista rozwjana pozwala zmienić numerację osobno dla każdego typu dokumentu:"
+      },
+      {
+        "type": "text",
+        "value": "• faktury VAT<br>• korekty VAT<br>• faktury PROFORMA<br>• faktury RR<br>• wydania zewnętrznego (WZ)<br>• przyjęcia zewnętrznego (PZ)<br>• kasa przyjmie (KP) gotówkowego<br>• kasa wyda (KW) gotówkowego"
+      },
+      {
+        "type": "image",
+        "src": "img/art-021/krok5-lista-dokumentow.png",
+        "alt": "Lista typow dokumentow do wyboru"
+      },
+      {
+        "type": "heading",
+        "value": "Krok 5 — Zapisz zmiany"
+      },
+      {
+        "type": "text",
+        "value": "Po dokonaniu zmian kliknij przycisk <strong>Akceptuj zmiany</strong> na dole okna konfiguracji, aby zapisać nowe ustawienia numeracji."
+      },
+      {
+        "type": "alert",
+        "severity": "warning",
+        "value": "<strong>Uwaga:</strong> Zmiana numeru kolejnego działa natychmiast — następna wystawiona faktura będzie miała nowy numer. Upewnij się, że nie powstały luki w numeracji, które mogą być kwestionowane podczas kontroli."
+      },
+      {
+        "type": "alert",
+        "severity": "info",
+        "value": "Pytania? Napisz na <strong>bok@sokaris.pl</strong> lub zadzwoń: <strong>607 606 841</strong>"
+      }
+    ]
   }
 ]
