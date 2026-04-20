@@ -2663,8 +2663,8 @@
       },
       {
         "type": "image",
-        "value": "img/art018-a1-lista-nieoplacona.png",
-        "alt": "Lista faktur sprzedazy - niezaplacona pozycja"
+        "alt": "Lista faktur sprzedazy - niezaplacona pozycja",
+        "src": "img/art018-a1-lista-nieoplacona.png"
       },
       {
         "type": "subheading",
@@ -2676,8 +2676,8 @@
       },
       {
         "type": "image",
-        "value": "img/art018-a2-menu-zaplac.png",
-        "alt": "Menu kontekstowe - Zaplac wybrana fakture"
+        "alt": "Menu kontekstowe - Zaplac wybrana fakture",
+        "src": "img/art018-a2-menu-zaplac.png"
       },
       {
         "type": "subheading",
@@ -2689,8 +2689,8 @@
       },
       {
         "type": "image",
-        "value": "img/art018-a3-okno-kp.png",
-        "alt": "Dowod wplaty KP - automatycznie wypelniony"
+        "alt": "Dowod wplaty KP - automatycznie wypelniony",
+        "src": "img/art018-a3-okno-kp.png"
       },
       {
         "type": "subheading",
@@ -2702,8 +2702,8 @@
       },
       {
         "type": "image",
-        "value": "img/art018-a4-zaplacono.png",
-        "alt": "Faktura sprzedazy - status zaplacono"
+        "alt": "Faktura sprzedazy - status zaplacono",
+        "src": "img/art018-a4-zaplacono.png"
       },
       {
         "type": "divider",
@@ -2727,8 +2727,8 @@
       },
       {
         "type": "image",
-        "value": "img/art018-b1-lista-zakupu.png",
-        "alt": "Lista faktur zakupu - niezaplacone pozycje"
+        "alt": "Lista faktur zakupu - niezaplacone pozycje",
+        "src": "img/art018-b1-lista-zakupu.png"
       },
       {
         "type": "subheading",
@@ -2740,8 +2740,8 @@
       },
       {
         "type": "image",
-        "value": "img/art018-b2-menu-zaplac.png",
-        "alt": "Menu kontekstowe faktur zakupu - Zaplac wybrana fakture"
+        "alt": "Menu kontekstowe faktur zakupu - Zaplac wybrana fakture",
+        "src": "img/art018-b2-menu-zaplac.png"
       },
       {
         "type": "subheading",
@@ -2753,8 +2753,8 @@
       },
       {
         "type": "image",
-        "value": "img/art018-b3-okno-kw.png",
-        "alt": "Dowod wyplaty KW - automatycznie wypelniony"
+        "alt": "Dowod wyplaty KW - automatycznie wypelniony",
+        "src": "img/art018-b3-okno-kw.png"
       },
       {
         "type": "subheading",
@@ -2766,8 +2766,8 @@
       },
       {
         "type": "image",
-        "value": "img/art018-b4-zaplacono.png",
-        "alt": "Faktura zakupu - status zaplacono (TAK)"
+        "alt": "Faktura zakupu - status zaplacono (TAK)",
+        "src": "img/art018-b4-zaplacono.png"
       },
       {
         "type": "divider",
