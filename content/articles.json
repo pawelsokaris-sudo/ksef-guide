@@ -2683,5 +2683,146 @@
         "value": "📧 Pytania? Napisz na <strong>bok@sokaris.pl</strong> lub zadzwoń: <strong>607 606 841</strong>"
       }
     ]
+  },
+  {
+    "id": "art-020",
+    "title": "Uprawnienia do przeglądania faktur zakupu z KSeF",
+    "subtitle": "jak ograniczyć dostęp dla wybranych użytkowników",
+    "date": "2026-04-20",
+    "tags": [
+      "uprawnienia",
+      "faktury zakupu",
+      "KSeF",
+      "użytkownicy"
+    ],
+    "promoted": false,
+    "content": [
+      {
+        "type": "alert",
+        "severity": "info",
+        "value": "📋 <strong>Dotyczy wersji 5.16.5.1269 i nowszych.</strong> We wcześniejszych wersjach faktury pobrane z KSeF były widoczne dla wszystkich użytkowników bez możliwości ograniczenia dostępu."
+      },
+      {
+        "type": "heading",
+        "value": "Na czym polega problem?"
+      },
+      {
+        "type": "paragraph",
+        "value": "Faktury zakupu pobrane z KSeF mogą zawierać poufne informacje (np. ceny zakupu, warunki handlowe). Nie każdy pracownik powinien mieć do nich wgląd. Od wersji <strong>5.16.5.1269</strong> program pozwala precyzyjnie określić, który użytkownik ma prawo przeglądać faktury importowane z KSeF."
+      },
+      {
+        "type": "heading",
+        "value": "Krok 1 — Otwórz konfigurację użytkowników"
+      },
+      {
+        "type": "paragraph",
+        "value": "Z menu programu wybierz <code>Konfiguracja → Dane Twojej firmy (nazwa, logo, rachunki bankowe itd.)</code>"
+      },
+      {
+        "type": "image",
+        "src": "img/art-020-krok1-menu.png",
+        "alt": "Menu Konfiguracja → Dane Twojej firmy"
+      },
+      {
+        "type": "paragraph",
+        "value": "W oknie <strong>Dane Twojej firmy</strong> kliknij zakładkę <code>Użytkownicy i RODO</code> (po lewej stronie)."
+      },
+      {
+        "type": "image",
+        "src": "img/art-020-krok2-uzytkownicy.png",
+        "alt": "Zakładka Użytkownicy i RODO z listą użytkowników"
+      },
+      {
+        "type": "heading",
+        "value": "Krok 2 — Wybierz użytkownika do edycji"
+      },
+      {
+        "type": "alert",
+        "severity": "warning",
+        "value": "⚠️ <strong>Ważne:</strong> Użytkownik <em>Administrator</em> zawsze ma pełne uprawnienia — nie można mu ich odebrać. Aby ograniczyć dostęp, musisz utworzyć nowego użytkownika (przycisk <strong>Dodaj</strong>) lub edytować istniejącego użytkownika innego niż Administrator."
+      },
+      {
+        "type": "paragraph",
+        "value": "Zaznacz użytkownika, któremu chcesz zmienić uprawnienia (np. <em>Sprzedawca</em>), a następnie kliknij <strong>Edytuj</strong>."
+      },
+      {
+        "type": "image",
+        "src": "img/art-020-krok3-sprzedawca.png",
+        "alt": "Lista użytkowników z zaznaczonym użytkownikiem Sprzedawca"
+      },
+      {
+        "type": "heading",
+        "value": "Krok 3 — Zmień uprawnienia KSeF"
+      },
+      {
+        "type": "paragraph",
+        "value": "W oknie <strong>Edycja danych użytkownika</strong> przejdź na zakładkę <code>Uprawnienia</code>."
+      },
+      {
+        "type": "image",
+        "src": "img/art-020-krok4-uprawnienia.png",
+        "alt": "Zakładka Uprawnienia z drzewkiem kategorii"
+      },
+      {
+        "type": "paragraph",
+        "value": "Rozwiń kategorię <strong>KSeF</strong> (na dole listy). Zobaczysz opcję:"
+      },
+      {
+        "type": "paragraph",
+        "value": "<code>☐ Możliwość przeglądania faktur importowanych z KSeF</code>"
+      },
+      {
+        "type": "image",
+        "src": "img/art-020-krok5-ksef-prawo.png",
+        "alt": "Rozwinięta kategoria KSeF z odznaczonym uprawnieniem"
+      },
+      {
+        "type": "list",
+        "items": [
+          "✅ <strong>Zaznaczone</strong> — użytkownik widzi faktury zakupu pobrane z KSeF",
+          "☐ <strong>Odznaczone</strong> — użytkownik <strong>nie ma dostępu</strong> do faktur zakupu z KSeF"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "Po ustawieniu uprawnienia kliknij <strong>OK</strong>, aby zapisać zmiany."
+      },
+      {
+        "type": "image",
+        "src": "img/art-020-krok6-ok.png",
+        "alt": "Okno uprawnień z rozwiniętym KSeF i przyciskiem OK"
+      },
+      {
+        "type": "heading",
+        "value": "Krok 4 — Zaloguj się jako właściwy użytkownik"
+      },
+      {
+        "type": "alert",
+        "severity": "info",
+        "value": "💡 <strong>Pamiętaj:</strong> Uprawnienia działają dopiero po zalogowaniu się na danego użytkownika. Jeśli nadal pracujesz jako Administrator — widzisz wszystko. Aby sprawdzić efekt, zaloguj się na konto z ograniczonymi prawami."
+      },
+      {
+        "type": "paragraph",
+        "value": "Przy uruchomieniu programu w oknie <strong>Weryfikacja dostępu</strong> wybierz z listy użytkownika, na którego chcesz się zalogować (np. <em>Sprzedawca</em>)."
+      },
+      {
+        "type": "image",
+        "src": "img/art-020-krok7-logowanie.png",
+        "alt": "Okno logowania z wyborem użytkownika Sprzedawca"
+      },
+      {
+        "type": "heading",
+        "value": "Podsumowanie"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Funkcja dostępna od wersji <strong>5.16.5.1269</strong>",
+          "Ścieżka: <code>Konfiguracja → Dane Twojej firmy → Użytkownicy i RODO → Edytuj → Uprawnienia → KSeF</code>",
+          "Administrator zawsze widzi wszystko — ograniczenia działają tylko na innych użytkowników",
+          "Uprawnienia obowiązują po zalogowaniu na właściwe konto"
+        ]
+      }
+    ]
   }
 ]
