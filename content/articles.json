@@ -3110,5 +3110,93 @@
       }
     ],
     "tags": []
+  },
+  {
+    "id": "art-022",
+    "title": "Jak zaktualizować kursy walut?",
+    "category": "Obsługa programu",
+    "tags": [],
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Program Faktura-NT pozwala automatycznie pobierać aktualne kursy walut z internetu (tabela NBP). Dzięki temu nie musisz ręcznie wpisywać kursów — wystarczy jedno kliknięcie."
+      },
+      {
+        "type": "step",
+        "number": 1,
+        "title": "Otwórz słownik walut",
+        "text": "Z menu głównego wybierz <strong>Słowniki → Waluty</strong>."
+      },
+      {
+        "type": "image",
+        "src": "img/art-022/krok1.png",
+        "alt": "Menu: Słowniki → Waluty",
+        "caption": "Otwieramy menu Słowniki i klikamy Waluty"
+      },
+      {
+        "type": "step",
+        "number": 2,
+        "title": "Przejdź do tabeli kursów",
+        "text": "W oknie <strong>Słowniki</strong> na zakładce <strong>Waluty</strong> widoczna jest lista zdefiniowanych walut (EUR, USD, GBP itp.). Po prawej stronie kliknij przycisk <strong>Tabela kursów</strong>."
+      },
+      {
+        "type": "image",
+        "src": "img/art-022/krok2.png",
+        "alt": "Okno Słowniki – zakładka Waluty z listą walut",
+        "caption": "Lista walut z przyciskiem Tabela kursów po prawej stronie"
+      },
+      {
+        "type": "image",
+        "src": "img/art-022/krok3.png",
+        "alt": "Przycisk Tabela kursów",
+        "caption": "Kliknij przycisk Tabela kursów"
+      },
+      {
+        "type": "step",
+        "number": 3,
+        "title": "Pobierz kursy z internetu",
+        "text": "W oknie <strong>Tabela kursów walut</strong> widoczne są dotychczasowe kursy dla wybranej waluty. Możesz filtrować zakres dat oraz wybierać widoczne waluty. Aby pobrać aktualne kursy kliknij przycisk <strong>Pobierz kursy z internetu</strong> w prawym dolnym rogu."
+      },
+      {
+        "type": "image",
+        "src": "img/art-022/krok4.png",
+        "alt": "Tabela kursów walut z kursami EUR",
+        "caption": "Tabela kursów walut — widoczne kursy EUR i przycisk pobierania"
+      },
+      {
+        "type": "image",
+        "src": "img/art-022/krok5.png",
+        "alt": "Przycisk Pobierz kursy z internetu",
+        "caption": "Kliknij Pobierz kursy z internetu"
+      },
+      {
+        "type": "step",
+        "number": 4,
+        "title": "Potwierdź import",
+        "text": "Program połączy się z serwerem NBP i pobierze brakujące kursy dzienne. Po zakończeniu wyświetli komunikat z podsumowaniem — ile kursów wczytano i ile wymagało aktualizacji."
+      },
+      {
+        "type": "image",
+        "src": "img/art-022/krok6.png",
+        "alt": "Komunikat: Import danych kursów walut zakończony",
+        "caption": "Potwierdzenie — wczytano 416 kursów, 29 zaktualizowano"
+      },
+      {
+        "type": "step",
+        "number": 5,
+        "title": "Sprawdź wynik",
+        "text": "Po zamknięciu komunikatu tabela kursów zostanie automatycznie uzupełniona o nowe wpisy. Nowy kurs pojawi się na górze listy."
+      },
+      {
+        "type": "image",
+        "src": "img/art-022/krok7.png",
+        "alt": "Tabela kursów po aktualizacji — nowy kurs 20.04.2026",
+        "caption": "Tabela po aktualizacji — kurs z 20.04.2026 jest już widoczny"
+      },
+      {
+        "type": "tip",
+        "text": "Kursy pobierane są z oficjalnej tabeli NBP. Program pobiera kursy średnie dla wszystkich walut zdefiniowanych w słowniku. Jeśli kurs danego dnia nie był publikowany (weekend, święto), nie zostanie dodany."
+      }
+    ]
   }
 ]
