@@ -349,7 +349,7 @@ function renderArticlesList() {
                 <span class="qa-card-date">${art.date}</span>
             </div>
             <h3 class="qa-card-title">${art.title}</h3>
-            <div class="qa-card-tags">${art.tags.map(t => `<span class="qa-tag">${t}</span>`).join('')}</div>
+            <div class="qa-card-tags">${(art.tags || []).map(t => `<span class="qa-tag">${t}</span>`).join('')}</div>
         </div>
     `).join('');
 
