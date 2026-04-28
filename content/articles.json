@@ -2326,52 +2326,129 @@
     "id": "art-016",
     "title": "Jak wystawić fakturę i wysłać ją do KSeF",
     "subtitle": "od wystawienia do potwierdzenia",
-    "date": "2026-04-08",
+    "date": "2026-04-28",
     "tags": [
-      "faktura",
       "KSeF",
-      "wysyłanie",
-      "wystawianie",
-      "pulpit"
+      "faktura VAT",
+      "wysyłka",
+      "QR kod",
+      "FA(3)"
     ],
     "promoted": true,
     "content": [
       {
         "type": "alert",
         "severity": "info",
-        "value": "Ten artykuł zakłada, że masz już <strong>licencję KSeF Smart</strong> i <strong>certyfikaty</strong> skonfigurowane w programie. Jeśli nie — zacznij od: <a href=\"#art-015\">Jak dodać licencję</a> → <a href=\"#art-002\">Jak dodać certyfikaty</a>."
+        "value": "Ten artykuł zakłada że masz już <strong>licencję KSeF Smart</strong>, certyfikaty są zaimportowane, a tryb KSeF włączony w <code>Konfiguracji</code>."
       },
       {
         "type": "stepper",
-        "info": "📋 4 kroki · ok. 3 minuty",
+        "info": "🔧 5 kroków · ok. 3 minuty",
         "steps": [
-          "1. Wystaw fakturę",
-          "2. Zapisz",
-          "3. Wyślij do KSeF",
-          "4. Sprawdź status"
+          "1. Otwórz wystawianie faktury",
+          "2. Wybierz kontrahenta",
+          "3. Dodaj pozycję",
+          "4. Zapisz (i ewentualnie Drukuj)",
+          "5. Wyślij do KSeF"
         ]
       },
       {
         "type": "heading",
-        "value": "Krok 1: Wystaw fakturę"
+        "value": "Krok 1: Otwórz wystawianie faktury"
       },
       {
         "type": "text",
-        "value": "Fakturę wystawiasz tak samo jak dotychczas — KSeF nie zmienia sposobu wystawiania."
+        "value": "Z paska głównego programu kliknij <strong>Faktura VAT</strong>."
+      },
+      {
+        "type": "image",
+        "src": "img/art-016-podreczny.png",
+        "alt": "Pasek główny Faktura-NT z modułami i zakładką Podręczny",
+        "caption": "Pasek główny — moduł Faktura VAT otwiera okno wystawiania"
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Krok 2: Wybierz kontrahenta"
+      },
+      {
+        "type": "text",
+        "value": "W oknie faktury kliknij <strong>Kontrahenci</strong> (po prawej) lub wpisz NIP w pole na górze i kliknij <strong>Znajdź</strong>."
+      },
+      {
+        "type": "image",
+        "src": "img/art-016-faktura-formularz.png",
+        "alt": "Puste okno Faktura VAT - numerowana z zakładkami Kontrahent, KSeF, Ogólne, JPK i tabelą pozycji",
+        "caption": "Okno wystawiania faktury — zacznij od wyboru kontrahenta"
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Krok 3: Dodaj pozycję"
+      },
+      {
+        "type": "text",
+        "value": "Kliknij <strong>+ Dodaj</strong> (pod tabelą pozycji). Wpisz nazwę towaru/usługi, ilość, cenę. Sprawdź czy stawka VAT jest poprawna."
+      },
+      {
+        "type": "image",
+        "src": "img/art-016-faktura-wypelniona.png",
+        "alt": "Wypełnione okno faktury — kontrahent Urząd Gminy Warszawa, pozycja Usługa 12 zł stawka 23%",
+        "caption": "Wypełniona faktura — kontrahent + pozycja z ceną i VAT"
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Krok 4: Zapisz (i ewentualnie Drukuj)"
       },
       {
         "type": "list",
         "items": [
-          "Kliknij <strong>\"Nowy dokument\"</strong> lub użyj skrótu <code>Ctrl+N</code>",
-          "Wybierz typ dokumentu: <strong>Faktura VAT</strong>",
-          "Wypełnij dane: nabywca, pozycje, kwoty, forma płatności",
-          "Upewnij się, że <strong>NIP nabywcy</strong> jest poprawny — KSeF weryfikuje NIP"
+          "Kliknij <strong>Zapisz</strong> — faktura dostaje numer i trafia na listę wystawionych",
+          "Możesz od razu kliknąć <strong>Drukuj</strong> — otworzy się podgląd faktury, skąd wyślesz ją do KSeF jednym kliknięciem (krócej niż wracanie do listy)"
         ]
+      },
+      {
+        "type": "divider",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "value": "Krok 5: Wyślij do KSeF"
+      },
+      {
+        "type": "text",
+        "value": "Otwórz fakturę z listy <strong>Wystawione faktury</strong> (lub od razu z podglądu po Drukuj w kroku 4)."
+      },
+      {
+        "type": "image",
+        "src": "img/art-016-lista-faktur.png",
+        "alt": "Lista wystawionych faktur z filtrami KSeF (możliwe do wysłania, wysłane, z błędem)",
+        "caption": "Lista wystawionych faktur — wybierz fakturę i otwórz podgląd"
+      },
+      {
+        "type": "text",
+        "value": "W pasku narzędzi podglądu kliknij <strong>Wyślij do KSeF</strong>."
+      },
+      {
+        "type": "image",
+        "src": "img/art-016-wyslij-ksef.png",
+        "alt": "Podgląd faktury z przyciskiem Wyślij do KSeF w pasku narzędzi i ostrzeżeniem operacji nie da się cofnąć",
+        "caption": "Podgląd faktury — przycisk Wyślij do KSeF z ostrzeżeniem"
       },
       {
         "type": "alert",
         "severity": "warning",
-        "value": "⚠️ <strong>Ważne:</strong> Po wysłaniu faktury do KSeF <strong>nie można jej edytować</strong>. Można jedynie wystawić korektę. Sprawdź dane przed zapisaniem!"
+        "value": "⚠️ <strong>Operacji nie da się cofnąć.</strong> Sprawdź dane (kontrahenta, pozycje, kwoty) zanim klikniesz Wyślij do KSeF."
       },
       {
         "type": "divider",
@@ -2379,148 +2456,22 @@
       },
       {
         "type": "heading",
-        "value": "Krok 2: Zapisz fakturę"
-      },
-      {
-        "type": "list",
-        "items": [
-          "Kliknij <strong>\"Zapisz\"</strong> lub <code>Ctrl+S</code>",
-          "Faktura pojawi się na liście dokumentów ze statusem <strong>\"Do wysłania\"</strong>",
-          "Na tym etapie faktura jest tylko lokalna — nie trafiła jeszcze do KSeF"
-        ]
-      },
-      {
-        "type": "divider",
-        "value": ""
-      },
-      {
-        "type": "heading",
-        "value": "Krok 3: Wyślij do KSeF"
+        "value": "Po chwili — sprawdź QR"
       },
       {
         "type": "text",
-        "value": "Masz dwa sposoby wysłania faktury do KSeF:"
+        "value": "KSeF nadaje numer i generuje QR kod <strong>po chwili</strong> (nie od razu po wysłaniu). <strong>Zamknij podgląd i otwórz fakturę ponownie</strong> — zobaczysz numer KSeF u góry i QR kod na dole faktury."
       },
       {
-        "type": "heading",
-        "value": "Sposób A: Z Pulpitu KSeF (zalecany)"
-      },
-      {
-        "type": "list",
-        "items": [
-          "Przejdź do <code>Pulpit KSeF</code> (zakładka na górze programu)",
-          "Na liście zobaczysz faktury ze statusem <strong>\"Do wysłania\"</strong>",
-          "Zaznacz fakturę (lub kilka) i kliknij <strong>\"Wyślij zaznaczone\"</strong>",
-          "Program połączy się z KSeF i wyśle fakturę"
-        ]
-      },
-      {
-        "type": "heading",
-        "value": "Sposób B: Automatyczne wysyłanie"
-      },
-      {
-        "type": "list",
-        "items": [
-          "Jeśli w <code>Konfiguracja → KSeF</code> masz włączone automatyczne wysyłanie — faktura wysyła się sama po zapisaniu",
-          "Nie musisz nic robić ręcznie"
-        ]
-      },
-      {
-        "type": "divider",
-        "value": ""
-      },
-      {
-        "type": "heading",
-        "value": "Krok 4: Sprawdź status"
-      },
-      {
-        "type": "text",
-        "value": "Po wysłaniu sprawdź status faktury na <strong>Pulpicie KSeF</strong>:"
-      },
-      {
-        "type": "table",
-        "headers": [
-          "Status",
-          "Co oznacza"
-        ],
-        "rows": [
-          [
-            "<strong style=\"color:#4CAF50\">✅ Wysłano</strong>",
-            "Faktura przyjęta przez KSeF. Otrzymała numer KSeF."
-          ],
-          [
-            "<strong style=\"color:#FF9800\">⏳ W trakcie</strong>",
-            "Faktura została wysłana, czeka na potwierdzenie z KSeF."
-          ],
-          [
-            "<strong style=\"color:#f44336\">❌ Błąd</strong>",
-            "Faktura odrzucona. Sprawdź szczegóły błędu i popraw dane."
-          ]
-        ]
+        "type": "image",
+        "src": "img/art-016-faktura-qr.png",
+        "alt": "Faktura po wysłaniu do KSeF z numerem KSeF u góry i QR kodem na dole",
+        "caption": "Faktura po wysłaniu — numer KSeF + QR widoczne po ponownym otwarciu podglądu"
       },
       {
         "type": "alert",
-        "severity": "success",
-        "value": "✅ <strong>Gotowe!</strong> Po przyjęciu faktury przez KSeF otrzymujesz <strong>numer KSeF</strong> — unikalny identyfikator faktury w systemie. Numer ten jest automatycznie zapisywany w programie."
-      },
-      {
-        "type": "divider",
-        "value": ""
-      },
-      {
-        "type": "heading",
-        "value": "Częste pytania"
-      },
-      {
-        "type": "table",
-        "headers": [
-          "Pytanie",
-          "Odpowiedź"
-        ],
-        "rows": [
-          [
-            "Czy muszę drukować fakturę?",
-            "Nie. Faktura w KSeF jest dokumentem elektronicznym. Wydruk to tylko kopia."
-          ],
-          [
-            "Czy nabywca od razu widzi fakturę?",
-            "Tak — faktura pojawia się na koncie nabywcy w KSeF natychmiast po wysłaniu."
-          ],
-          [
-            "Co jeśli nie mam internetu?",
-            "Faktura zostanie zapisana lokalnie ze statusem \"Do wysłania\". Wyślesz ją gdy połączenie wróci."
-          ],
-          [
-            "Czy mogę wysłać kilka faktur naraz?",
-            "Tak — na Pulpicie KSeF zaznacz wiele faktur i kliknij \"Wyślij zaznaczone\"."
-          ],
-          [
-            "Co jeśli faktura została odrzucona?",
-            "Sprawdź komunikat błędu, popraw dane i wyślij ponownie. <a href=\"#art-005\">Więcej o błędach →</a>"
-          ]
-        ]
-      },
-      {
-        "type": "divider",
-        "value": ""
-      },
-      {
-        "type": "heading",
-        "value": "Problemy z wysyłaniem?"
-      },
-      {
-        "type": "list",
-        "items": [
-          "<strong>\"Brak certyfikatów\"</strong> — dodaj certyfikaty: <a href=\"#art-002\">instrukcja →</a>",
-          "<strong>\"Błąd połączenia z KSeF\"</strong> — sprawdź połączenie internetowe i spróbuj ponownie",
-          "<strong>\"Nieprawidłowy NIP\"</strong> — popraw NIP nabywcy na fakturze",
-          "<strong>\"Certyfikat wygasł\"</strong> — wygeneruj nowy certyfikat: <a href=\"#art-004\">instrukcja →</a>"
-        ]
-      },
-      {
-        "type": "alert",
-        "severity": "warning",
-        "value": "🔧 Nadal nie działa? Wyślij log KSeF do analizy: <a href=\"#art-007\">Jak wysłać log →</a> lub zadzwoń: <strong>607 606 841</strong>"
+        "severity": "info",
+        "value": "✅ <strong>Gotowe.</strong> Faktura jest w KSeF — klient może ją odebrać przez swoje konto KSeF lub na podstawie numeru który dostał."
       }
     ]
   },
